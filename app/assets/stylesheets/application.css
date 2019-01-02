@@ -1,0 +1,223 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require bootstrap/dist/css/bootstrap.css
+ *= require_tree .
+ *= require_self
+ */
+
+ body {
+      font: 400 15px Lato, sans-serif;
+      line-height: 1.8;
+      color: #818181;
+  }
+  
+  h2 {
+      font-size: 24px;
+      text-transform: uppercase;
+      text-align: center;
+      color: #303030;
+      font-weight: 600;
+      margin-bottom: 30px;
+  }
+  h4 {
+      font-size: 19px;
+      line-height: 1.375em;
+      color: #303030;
+      font-weight: 400;
+      margin-bottom: 30px;
+      text-align: center;
+  } 
+  
+   ul li {
+    list-style-type: none;
+  }
+
+.navbar {
+    z-index: 9999;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 2px;
+    border-radius: 0;
+    position: fixed;
+    background-color:#4169E1;
+    width: 100%;
+}
+
+footer {
+  width: 100%;
+  background-color:#4169E1;
+  color: white;
+  margin-top: -10%;
+  padding-bottom: 0;
+  font-size: 12px;
+  position: absolute;
+  bottom: -50px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.navbar-default .navbar-toggle {
+      border-color: transparent;
+      color: #fff !important;
+  }
+
+ .logo {
+      width: 10%;
+  }
+  .navbar-nav{
+    margin-left:2%;
+  }
+  
+  .navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav active a {
+    color: #f4511e !important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+  
+  i {
+      font-size: 20px;
+      margin-bottom: 20px;
+     color: #f4511e !important;
+  }
+
+  .item {
+      font-size: 19px;
+      line-height: 1.375em;
+      font-weight: 400;
+      font-style: italic;
+      margin: 0;
+  }
+  .item span {
+      font-style: normal;
+  }
+
+.container .btn:hover {
+  background-color: blue;
+}
+
+.glyphicon {
+      color: #f4511e;
+  }
+  
+
+/* Float four columns side by side */
+.container-fluid {
+  float: left;
+  margin-top: 1px;
+  padding: 0 10px;
+}
+
+/* Float four columns side by side */
+.container {
+  float: none;
+  margin-top: 2px;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.container-fluid {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.container-fluid:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .container-fluid {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
+
+  .slideanim {visibility:hidden;}
+  .slide {
+      animation-name: slide;
+      -webkit-animation-name: slide;
+      animation-duration: 1s;
+      -webkit-animation-duration: 1s;
+      visibility: visible;
+  }
+  @keyframes slide {
+    0% {
+      opacity: 0;
+      transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+  @-webkit-keyframes slide {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(70%);
+    } 
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0%);
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .col-sm-4 {
+      text-align: center;
+      margin: 25px 0;
+    }
+    .btn-lg {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .logo {
+        font-size: 150px;
+    }
+  }
+
+ .carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    height: auto;
+    margin: auto;
+}
+
+.carousel-caption h3 {
+    color: #fff !important;
+}
+
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+    }
+}

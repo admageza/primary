@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  image: MyText
+  name: MyText
+  othername: MyText
+  lastname: MyText
+  dob: MyText
+  pob: MyText
+  legalregdate: MyText
+  orphan: MyText
+  fathername: MyText
+  fatherid: 1
+  fatherphone: 1
+  mothername: MyText
+  motherid: 1
+  motherphone: 1
+  residentplace: MyText
+  previousschool: MyText
+  level: MyText
+  comment: MyText
+
+two:
+  image: MyText
+  name: MyText
+  othername: MyText
+  lastname: MyText
+  dob: MyText
+  pob: MyText
+  legalregdate: MyText
+  orphan: MyText
+  fathername: MyText
+  fatherid: 1
+  fatherphone: 1
+  mothername: MyText
+  motherid: 1
+  motherphone: 1
+  residentplace: MyText
+  previousschool: MyText
+  level: MyText
+  comment: MyText

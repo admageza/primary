@@ -1,0 +1,27 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag @article.image_url, :class => "post" %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+<p>Comment List</p>
+  <div id="comments_area">
+  <!-- render for displaying posted comments list in a article detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+  </div>
+
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+
+  <%= link_to 'Back', articles_path, class: 'btn btn-prymary'  %>
+</div>

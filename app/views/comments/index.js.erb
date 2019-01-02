@@ -1,0 +1,7 @@
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.article.comments, article: @comment.article }) %>")
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.post.comments, post: @comment.post }) %>")
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.staff.comments, staff: @comment.staff }) %>")
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.teacher.comments, teacher: @comment.teacher }) %>")
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.publication.comments, publication: @comment.publication }) %>")
+$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.performer.comments, performer: @comment.performer }) %>")
+$("textarea").val('')

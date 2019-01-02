@@ -1,0 +1,108 @@
+<%= form_with(model: admission, local: true) do |form| %>
+  <% if admission.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admission.errors.count, "error") %> prohibited this admission from being saved:</h2>
+
+      <ul>
+      <% admission.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: :admission_image %>
+    <%= form.hidden_field :image_cache %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name, id: :admission_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :othername %>
+    <%= form.text_area :othername, id: :admission_othername %>
+  </div>
+
+  <div class="field">
+    <%= form.label :lastname %>
+    <%= form.text_area :lastname, id: :admission_lastname %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dob %>
+    <%= form.text_area :dob, id: :admission_dob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pob %>
+    <%= form.text_area :pob, id: :admission_pob %>
+  </div>
+
+  <div class="field">
+    <%= form.label :legalregdate %>
+    <%= form.text_area :legalregdate, id: :admission_legalregdate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :orphan %>
+    <%= form.text_area :orphan, id: :admission_orphan %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fathername %>
+    <%= form.text_area :fathername, id: :admission_fathername %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fatherid %>
+    <%= form.number_field :fatherid, id: :admission_fatherid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fatherphone %>
+    <%= form.number_field :fatherphone, id: :admission_fatherphone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mothername %>
+    <%= form.text_area :mothername, id: :admission_mothername %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motherid %>
+    <%= form.number_field :motherid, id: :admission_motherid %>
+  </div>
+
+  <div class="field">
+    <%= form.label :motherphone %>
+    <%= form.number_field :motherphone, id: :admission_motherphone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :residentplace %>
+    <%= form.text_area :residentplace, id: :admission_residentplace %>
+  </div>
+
+  <div class="field">
+    <%= form.label :previousschool %>
+    <%= form.text_area :previousschool, id: :admission_previousschool %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.text_area :level, id: :admission_level %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment, id: :admission_comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
