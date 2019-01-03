@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_admin_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   # GET /posts
@@ -30,7 +31,6 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       if @post.save
-        PostMailer.post_mail(@post.admin_user.email).deliver
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

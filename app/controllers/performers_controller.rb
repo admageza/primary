@@ -13,7 +13,6 @@ class PerformersController < ApplicationController
     @performer = Performer.find(params[:id])
     @comment = @performer.comments.build
     @comments = @performer.comments
-    @favorite = current_user.favorites.find_by(performer_id: @performer.id)
   end
 
   # GET /performers/new
