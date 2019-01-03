@@ -58,7 +58,7 @@
   <div class="row col-sm-9 container-fluid card">
    <h2>BEST PERFORMERS OF 2018</h2>
     <% @performers.each do |performer| %>
-     <div class="col-sm-3 card">
+     <div class="row col-sm-3 card">
       <h2><%= performer.title %></h2>
       <%= link_to image_tag(performer.image.url, :class => "performer"), performer %>
       <%= performer.body %>
