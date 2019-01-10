@@ -4,6 +4,13 @@
 // `app/assets/stylesheets/active_admin/mixins/_variables.scss` in the
 // Active Admin source.
 //
+
+.thumb {
+    max-height: 80px;
+    max-width: 80px;
+    border-radius: 10%;
+}
+
 // For example, to change the sidebar width:
 // $sidebar-width: 242px;
 

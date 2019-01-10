@@ -86,13 +86,15 @@
 <div id="staffs" class="row container-fluid">
   <div class="col-sm-9 container-fluid card">
    <h2>school administration</h2>
+      <div class="row card">
      <% @staffs.each do |staff| %>
       <div class="col-sm-6 card">
-        <h2><%= staff.title %></h2>
+        <h2><%= staff.name %></h2>
         <%= link_to image_tag(staff.image.url, :class => "best"), staff %>
         <%= staff.body %>
       </div>
      <% end %>
+      </div>
   </div>
   <div class="col-sm-3 container-fluid card">
      <% @publications.each do |publication| %>

@@ -19,6 +19,11 @@ class CommentsController < ApplicationController
         format.js { render :index }
       else
         format.html { redirect_to article_path(@article), notice: 'You could not post...' }
+        format.html { redirect_to post_path(@post), notice: 'You could not post...' }
+        format.html { redirect_to staff_path(@staff), notice: 'You could not post...' }
+        format.html { redirect_to teacher_path(@teacher), notice: 'You could not post...' }
+        format.html { redirect_to publication_path(@publication), notice: 'You could not post...' }
+        format.html { redirect_to performer_path(@performer), notice: 'You could not post...' }
       end
     end
   end
@@ -27,6 +32,11 @@ class CommentsController < ApplicationController
   # Strong Parameter
   def comment_params
     params.require(:comment).permit(:article_id, :content)
+    params.require(:comment).permit(:post_id, :content)
+    params.require(:comment).permit(:staff_id, :content)
+    params.require(:comment).permit(:teacher_id, :content)
+    params.require(:comment).permit(:publication_id, :content)
+    params.require(:comment).permit(:performer_id, :content)
   end
 
 end

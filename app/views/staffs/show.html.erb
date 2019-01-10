@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Name:</strong>
@@ -7,7 +6,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @staff.image %>
+  <%= image_tag @staff.image_url, :class => "post" %>
 </p>
 
 <p>
@@ -25,7 +24,7 @@
   <%= render partial: 'comments/form', locals: { comment: @comment, staff: @staff } %>
 
   
-  <%= link_to 'Back', staffs_path %>
+  <%= link_to 'Back', staffs_path, class: 'btn btn-prymary'  %>
 </div>
 
 

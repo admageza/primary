@@ -12,8 +12,8 @@ ActiveAdmin.register Article do
 #   permitted
 # end
 
-ActiveAdmin.register Article do
+
   permit_params :title, :image, :body
-end
+
 
 end

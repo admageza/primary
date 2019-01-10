@@ -1,5 +1,5 @@
 class ConversationsController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_admin_user!
     
     def index
       @users = User.all  
@@ -7,12 +7,16 @@ class ConversationsController < ApplicationController
     end
     
     def create
-    if Conversation.between(params[:sender_id], params[:recipient_id]).present?
-      @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
-    else
-      @conversation = Conversation.create!(conversation_params)
-    end
-      redirect_to conversation_messages_path(@conversation)
+      if logged_in?
+        if Conversation.between(params[:sender_id], params[:recipient_id]).present?
+          @conversation = Conversation.between(params[:sender_id], params[:recipient_id]).first
+        else
+          @conversation = Conversation.create!(conversation_params)
+        end
+        redirect_to conversation_messages_path(@conversation)
+      else  
+        redirect_to conversations_path
+      end  
     end
     
     private

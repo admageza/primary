@@ -10,6 +10,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    @teacher = Teacher.find(params[:id])
     @comment = @teacher.comments.build
     @comments = @teacher.comments
     @favorite = current_user.favorites.find_by(teacher_id: @teacher.id)

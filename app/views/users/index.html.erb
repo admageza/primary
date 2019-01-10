@@ -11,8 +11,8 @@
          <li><%= user.body %></li>
          <li><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post%></li>
       </div>
-    <li><%= render 'follow_form', user: user %></li> <!-- If you've implemented the follow/follower functions, please write this sentence as well-->
-    </ul>
+         <li><%= render 'follow_form', user: user %></li> 
+     </ul>
   <% end %>
 <% end %>
    </div>

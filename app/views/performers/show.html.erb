@@ -1,4 +1,3 @@
-<p id="notice"><%= notice %></p>
 
 <p>
   <strong>Title:</strong>
@@ -25,7 +24,7 @@
   <!-- render for displaying comment entering field in a blog detail page -->
   <%= render partial: 'comments/form', locals: { comment: @comment, performer: @performer } %>
 
-  <%= link_to 'Back', performers_path %>
+  <%= link_to 'Back', performers_path, class: 'btn btn-prymary'  %>
   
   
 

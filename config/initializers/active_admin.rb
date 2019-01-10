@@ -39,9 +39,9 @@ ActiveAdmin.setup do |config|
   # a namespace block. For example, to change the site title
   # within a namespace:
   #
-  #   config.namespace :admin do |admin|
-  #     admin.site_title = "Custom Admin Title"
-  #   end
+    # config.namespace :admin do |admin|
+    #   admin.site_title = "Custom Admin Title"
+    # end
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
@@ -205,7 +205,9 @@ ActiveAdmin.setup do |config|
   # and feel.
   #
   # To load a stylesheet:
-  #   config.register_stylesheet 'my_stylesheet.css'
+    # config.register_stylesheet 'my_stylesheet.css'
+  
+  
   #
   # You can provide an options hash for more control, which is passed along to stylesheet_link_tag():
   #   config.register_stylesheet 'my_print_stylesheet.css', media: :print
@@ -227,12 +229,12 @@ ActiveAdmin.setup do |config|
   #
   # To change the default utility navigation to show a link to your website & a logout btn
   #
-  #   config.namespace :admin do |admin|
-  #     admin.build_menu :utility_navigation do |menu|
-  #       menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
-  #       admin.add_logout_button_to_menu menu
-  #     end
-  #   end
+    # config.namespace :admin do |admin|
+    #   admin.build_menu :utility_navigation do |menu|
+    #     menu.add label: "My Great Website", url: "http://www.mygreatwebsite.com", html_options: { target: :blank }
+    #     admin.add_logout_button_to_menu menu
+    #   end
+    # end
   #
   # If you wanted to add a static menu item to the default menu provided:
   #
