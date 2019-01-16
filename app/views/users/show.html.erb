@@ -99,9 +99,11 @@
         <div class="w3-col m12">
           <div class="w3-card w3-round w3-white">
             <div class="w3-container w3-padding">
-              <h6 class="w3-opacity">Create your message here!</h6>
-              
-              <button type="button" class="w3-button w3-theme"><i class="fa fa-pencil"></i>  Message</button> 
+              <h6 class="w3-opacity">Here's your Message!</h6>
+               
+                 <%= link_to 'Read your Messages Here', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post%>
+                 <%= render 'follow_form', user: @user %> 
+               
             </div>
           </div>
         </div>

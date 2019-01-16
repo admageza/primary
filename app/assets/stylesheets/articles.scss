@@ -4,9 +4,17 @@
 
  .imgsize{
     width: 100% !important;
+    max-height:75% !important;
     margin: 0 auto;
     padding-top: 20px;
-    padding-bottom: 100px;
+    border-radius: 5px;
+}
+
+.list {
+  max-height:auto;
+  max-width:100%;
+  border-radius: 5%;
+  border: solid 1px #fff;
 }
 
 .image_caption{

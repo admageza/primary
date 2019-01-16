@@ -1,20 +1,17 @@
-
+<div class="tab-content text-center" style="margin-top:8%">
 <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
+  <strong><%= @article.title %></strong>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= image_tag @article.image_url, :class => "post" %>
+  <%= image_tag @article.image_url, :class => "list" %>
 </p>
 
 <p>
-  <strong>Body:</strong>
   <%= @article.body %>
 </p>
 
-<p>Comment List</p>
+<p>Comments</p>
   <div id="comments_area">
   <!-- render for displaying posted comments list in a article detail page -->
     <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
@@ -23,5 +20,6 @@
   <!-- render for displaying comment entering field in a blog detail page -->
   <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
 
-  <%= link_to 'Back', articles_path, class: 'btn btn-prymary'  %>
+  <%= link_to 'Back to Articles', articles_path, class: 'btn btn-prymary'  %>
+</div>
 </div>

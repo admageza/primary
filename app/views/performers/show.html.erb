@@ -1,21 +1,17 @@
-
+<div class="tab-content text-center" style="margin-top:8%">
 <p>
-  <strong>Title:</strong>
-  <%= @performer.title %>
+  <strong><%= @performer.title %></strong>
 </p>
 
 <p>
-  <strong>Image:</strong>
   <%= image_tag @performer.image_url, :class => "post" %>
 </p>
 
 <p>
-  <strong>Body:</strong>
   <%= @performer.body %>
 </p>
 
-
-<p>Comment List</p>
+<p>Comments</p>
   <div id="comments_area">
   <!-- render for displaying posted comments list in a blog detail page -->
     <%= render partial: 'comments/index', locals: { comments: @comments, performer: @performer } %>
@@ -24,9 +20,7 @@
   <!-- render for displaying comment entering field in a blog detail page -->
   <%= render partial: 'comments/form', locals: { comment: @comment, performer: @performer } %>
 
-  <%= link_to 'Back', performers_path, class: 'btn btn-prymary'  %>
-  
-  
-
+  <%= link_to 'Back to Performers', performers_path, class: 'btn btn-prymary'  %>
+  </div>
 </div>
 

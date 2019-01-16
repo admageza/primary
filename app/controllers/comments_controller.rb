@@ -1,18 +1,25 @@
 class CommentsController < ApplicationController
   def create
     # It searches Blog from the values of parameter and build it as comments related to Blog.
-    @article = Article.find(params[:article_id])
+    
+    if @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
-    @post = Post.find(params[:post_id])
+    
+    elsif @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
-    @staff = Staff.find(params[:staff_id])
+    
+    elsif @staff = Staff.find(params[:staff_id])
     @comment = @staff.comments.build(comment_params)
-    @teacher = Teacher.find(params[:teacher_id])
+    
+    elsif @teacher = Teacher.find(params[:teacher_id])
     @comment = @teacher.comments.build(comment_params)
-    @publication = Publication.find(params[:publication_id])
+    
+    elsif @publication = Publication.find(params[:publication_id])
     @comment = @publication.comments.build(comment_params)
-    @performer = Performer.find(params[:performer_id])
+    
+    elsif @performer = Performer.find(params[:performer_id])
     @comment = @performer.comments.build(comment_params)
+    
     # Change format according to cliant request
     respond_to do |format|
       if @comment.save
@@ -26,17 +33,12 @@ class CommentsController < ApplicationController
         format.html { redirect_to performer_path(@performer), notice: 'You could not post...' }
       end
     end
+    end
   end
 
   private
   # Strong Parameter
   def comment_params
-    params.require(:comment).permit(:article_id, :content)
-    params.require(:comment).permit(:post_id, :content)
-    params.require(:comment).permit(:staff_id, :content)
-    params.require(:comment).permit(:teacher_id, :content)
-    params.require(:comment).permit(:publication_id, :content)
-    params.require(:comment).permit(:performer_id, :content)
+    params.require(:comment).permit(:article_id, :post_id, :staff_id, :teacher_id, :publication_id, :performer_id, :content)
   end
-
 end

@@ -1,20 +1,17 @@
-
+<div class="tab-content text-center" style="margin-top:8%">
 <p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
+  <strong><%= @teacher.name %></strong>
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @teacher.image %>
+  <%= image_tag @teacher.image_url, :class => "post" %>
 </p>
 
 <p>
-  <strong>Body:</strong>
   <%= @teacher.body %>
 </p>
 
-<p>Comment List</p>
+<p>Comments</p>
   <div id="comments_area">
   <!-- render for displaying posted comments list in a blog detail page -->
     <%= render partial: 'comments/index', locals: { comments: @comments, teacher: @teacher } %>
@@ -25,6 +22,7 @@
 
   
   <%= link_to 'Back', teachers_path, class: 'btn btn-prymary'  %>
+</div>
 </div>
 
 

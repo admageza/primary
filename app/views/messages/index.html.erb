@@ -1,21 +1,30 @@
+
 <div class="container">
  <div class="row ">
-    <div class="col-sm-6 text-center" style="margin-top:8%">  
+    <div class="col-sm-10 text-centre card" style="margin-top:7%"> 
+    <h3>Conversation with <%= link_to @conversation.target_user(current_user).name, conversation_messages_path(@conversation)%></h3>
 <% if @over_ten %>
   <%= link_to 'Previous messages', '?m=all' %>
 <% end %>
 
-<div class="ui segment">
+<div class="ui segment text-left">
   <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
       <div class="item">
         <div class="content">
-          <div class="header"><strong><%= user.name %></strong> <%= message.message_time %></div>
+          <div class="header">
+            <ul class="row col-sm-12">
+               <li class="col-sm-6 text-left"><strong><%= user.name %></strong></li>
+               <li class="col-sm-6 text-right"><strong><%= message.message_time %></strong></li>
+            </ul>
+          </div>
           <div class="list">
             <div class="item">
-              <i class="right triangle icon"></i>
-              <%= message.body %>
+              <ul class="row col-sm-12">
+                <i class="right triangle icon"></i>
+                <li class="col-sm-12"><%= message.body %></li>
+              </ul>
             </div>
           </div>
         </div>
