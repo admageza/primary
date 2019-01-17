@@ -1,9 +1,9 @@
  <!-- Wrapper for slides -->
- <div id="myCarousel" class="carousel slide" data-ride="carousel" style="height:80%">
+ <div id="myCarousel" class="carousel slide" data-ride="carousel" >
    <div class="carousel-inner " id="home"  role="listbox">
      <% @articles.each do |article| %>
       <% if article == @articles.first%>
-       <div class="item active">
+       <div class="mySlides w3-animate-fading">
         <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
          <div class="carousel-caption image_caption">
         <ul class="row extra-menu">  
@@ -16,7 +16,7 @@
         </div>
       </div>
       <% else %>
-       <div class="item">
+       <div class="mySlides w3-animate-fading">
         <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
         <div class="carousel-caption image_caption">
         <ul class="row extra-menu">  
@@ -31,86 +31,52 @@
      <% end %>
     <% end %>
    </div>
-      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
  </div>
 
 
 <!-- Container (Latest news Section) -->
-  <div id="about" class="row col-sm-12 container-fluid slideanim">
+<div class="row col-sm-8 container-fluid">
+  <div id="about" class="row container-fluid slideanim">
     <% @posts.each do |post| %>
-      <div class="col-sm-3.5 card"> 
+      <div class="col-sm-3 card"> 
        <h2><%= post.title %></h2>
        <%= link_to image_tag(post.image.url, :class => "post"), post %>
        <%= post.body %>
       </div>
     <% end %>
   </div>
- 
-
-<!-- Container (School Best Performer Section) -->
-<div id="best" class="row col-sm-12 container-fluid">
-  <div class="row col-sm-8 card container-fluid">
-   <h2>BEST PERFORMERS OF 2018</h2>
-   <div class="row card">
-    <% @performers.each do |performer| %>
-     <div class="col-sm-3 card">
-      <h2><%= performer.title %></h2>
-      <%= link_to image_tag(performer.image.url, :class => "performer"), performer %>
-      <%= performer.body %>
-     </div>
-     <% end %>
-    </div>
-    </div>
-   
-   
-  <div class="col-sm-3 container-fluid card">
-    <h2>employee of the year 2018</h2>
-    <% @teachers.each do |teacher| %>
-      <div class="col-sm-12 card">
-        <h2><%= teacher.name %></h2>
-          <%= link_to image_tag(teacher.image.url, :class => "best"), teacher %>
-          <%= teacher.body %>
-        </div>
+  
+  <!-- Container (School Best Performer Section) -->
+   <div class="row card container-fluid">
+    <h2 class="card container-fluid">BEST PERFORMERS OF 2018</h2>
+    <div class="performer">
+      <% @performers.each do |performer| %>
+       <div class="col-sm-3 card">
+        <h2><%= performer.title %></h2>
+        <%= link_to image_tag(performer.image.url, :class => "performer"), performer %>
+        <%= performer.body %>
+       </div>
       <% end %>
     </div>
-  </div>
-
-<!-- Container (School administration Section) -->
-<div id="staffs" class="row container-fluid">
-  <div class="col-sm-8 container-fluid card">
-   <h2>school administration</h2>
-      <div class="row card">
-     <% @staffs.each do |staff| %>
-      <div class="col-sm-6 card">
+    </div>
+   
+  <!-- Container (School administration Section) -->
+   <div class=" container-fluid card">
+    <h2 class="card container-fluid">school administration</h2>
+      <div class="admin">
+       <% @staffs.each do |staff| %>
+       <div class="col-sm-6 card">
         <h2><%= staff.name %></h2>
         <%= link_to image_tag(staff.image.url, :class => "best"), staff %>
         <%= staff.body %>
+       </div>
+      <% end %>
       </div>
-     <% end %>
-      </div>
-  </div>
-  <div class="col-sm-3 container-fluid card">
-     <% @publications.each do |publication| %>
-      <div class="col-sm-12 card">
-        <h2><%= publication.title %></h2>
-        <%= link_to image_tag(publication.image.url, :class => "best"), publication %>
-        <%= publication.body %>
-      </div>
-     <% end %>
-    </div>
-  </div>  
-
-<div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-  <div class="col-sm-7 container-fluid card">
-    <h2>What peoples say about our school</h2>
-    <div class="col-sm-12 container-fluid card">
+   </div>
+   
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+    <h2 class="card container-fluid">What peoples say about our school</h2>
+    <div class="container-fluid card">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -142,12 +108,36 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="col-sm-12 card">
+  <div class="card">
       <h2>Video</h2>
       <h4>Some video are posted here.</h4>
     </div>
   </div>
-  <div id="contact" class="col-sm-4 card">
+</div>
+
+<div class="col-sm-3 container-fluid"> 
+  <div class="container-fluid card">
+    <h2>employee of the year 2018</h2>
+    <% @teachers.each do |teacher| %>
+      <div class="col-sm-12 card">
+        <h2><%= teacher.name %></h2>
+          <%= link_to image_tag(teacher.image.url, :class => "best"), teacher %>
+          <%= teacher.body %>
+        </div>
+      <% end %>
+  </div>
+  
+  <div class="container-fluid card">
+     <% @publications.each do |publication| %>
+      <div class="col-sm-12 card">
+        <h2><%= publication.title %></h2>
+        <%= link_to image_tag(publication.image.url, :class => "best"), publication %>
+        <%= publication.body %>
+      </div>
+     <% end %>
+    </div>
+
+  <div id="contact" class="card">
     <div class="col-sm-12 card">
       <h4>Contact Us:</h4>
       <h6><b>Contact us and we'll get back to you very soon.</b></h6>
@@ -166,7 +156,7 @@
     </div>
     </div>
   </div>
-  </div>
+</div>
 
 <!-- Container (Contact Section) -->
 <div class="col-sm-12 row container-fluid bg-grey">
