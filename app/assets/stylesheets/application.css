@@ -38,6 +38,7 @@
       text-align: center;
   } 
   
+  
    ul li {
     list-style-type: none;
   }
@@ -152,6 +153,10 @@ html {
   content: "";
   display: table;
   clear: both;
+}
+
+.welcome {
+    margin-top: 20px;
 }
 
 /* Responsive columns */

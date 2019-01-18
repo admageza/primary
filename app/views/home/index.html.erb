@@ -5,11 +5,15 @@
       <% if article == @articles.first%>
        <div class="mySlides w3-animate-fading">
         <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
+        <div class="carousel-caption">
+          <h3 class="welcome"><b> WELCOME TO SAINT DOMINIC NURSERY AND PRIMARY SCHOOL</b></h3>
+          <p><b>"Conscience, Solidality and Excellence"</b> is our MOTTO</p>
+        </div>
          <div class="carousel-caption image_caption">
         <ul class="row extra-menu">  
           <li class="col-sm-3"><a href="#"><button class="btn">NURSERY</button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn">PRIMARY</button></a></li>
-          <li class="col-sm-3"><a href="#"><button class="btn">FACILITIES</button></a></li>
+          <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "FACILITIES", posts_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "ADMISSION", new_session_path %></button></a></li>
           <li class="title"><h3><%= article.title %></h3></li> 
         </ul>
@@ -18,6 +22,10 @@
       <% else %>
        <div class="mySlides w3-animate-fading">
         <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
+        <div class="carousel-caption">
+          <h3 class="welcome"><b> WELCOME TO SAINT DOMINIC NURSERY AND PRIMARY SCHOOL</b></h3>
+          <p><b>"Conscience, Solidality and Excellence"</b> is our MOTTO</p>
+        </div>
         <div class="carousel-caption image_caption">
         <ul class="row extra-menu">  
           <li class="col-sm-3"><a href="#"><button class="btn">NURSERY</button></a></li>
@@ -32,20 +40,50 @@
     <% end %>
    </div>
  </div>
+ 
+ <!-- Container (Contact Section) -->
+<div class="col-sm-12 row container-fluid bg-grey">
+  <div class="row" style="width:100%">
+    <div class="col-sm-4 card slideanim">
+      <h2 class="card container-fluid accordion">WELCOME MESSAGE</h2>
+       <div class="panel">
+        <img src="/directrice.jpg" class="directrice" alt="Dominic" style="text-center">
+        <p><b>Le Seigneur soit avec vous!</b></p> 
+        <p>Comme notre fondateur "Francisco Coll Guitart" disait souvant, 
+        chaque de nous est la lumiere de l'autre, par l'éducation nous 
+        sommes de createurs de l'avenir de notre generation</p>
+
+        <p>Permettez-moi de vous souhaiter une année de prosperitée et de succée tout au long de 2019</p>
+
+        <p><b>Que Dieu Vous Benisse!</b></p>
+       </div>
+    </div>
+    <div class="col-sm-4 card slideanim">
+      <h2 class="card container-fluid accordion">SCHOOL BACKGROUND</h2>
+       <div class="panel">
+       
+       </div>
+    </div>
+    <div class="col-sm-3 card slideanim">
+      <h2 class="card container-fluid accordion">MISSION AND VISION</h2>
+       <div class="panel">
+        <h4>MISSION</h4>
+        <p>Dushingiye ku ndangagaciro z’Ivanjili ,twigisha kandi tugatoza abana bacu 
+        kuba abaturage b’intangarugero aho batuye no muri Kiliziya Ntagatifu.</p>
+        
+        <h4>VISION</h4>
+        <p>Guteza imbere ubumenyi , imibereho , ubumenyi ngiro n’imibanire tumurikiwe n’urumuri rw'Ivanjili ,
+        zo mbaraga zihindura muntu zikamuha kwisanzura no kubaho mu bufatanye n’abandi .</p>
+       </div>
+    </div>
+  </div>
+</div>
+
 
 
 <!-- Container (Latest news Section) -->
 <div class="row col-sm-8 container-fluid">
-  <div id="about" class="row container-fluid slideanim">
-    <% @posts.each do |post| %>
-      <div class="col-sm-3 card"> 
-       <h2><%= post.title %></h2>
-       <%= link_to image_tag(post.image.url, :class => "post"), post %>
-       <%= post.body %>
-      </div>
-    <% end %>
-  </div>
-  
+ 
   <!-- Container (School Best Performer Section) -->
    <div class="row card container-fluid">
     <h2 class="card container-fluid">BEST PERFORMERS OF 2018</h2>
@@ -74,7 +112,7 @@
       </div>
    </div>
    
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
+  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel" style="width:100%">
     <h2 class="card container-fluid">What peoples say about our school</h2>
     <div class="container-fluid card">
     <!-- Indicators -->
@@ -115,15 +153,14 @@
   </div>
 </div>
 
-<div class="col-sm-3 container-fluid"> 
+<div class="col-sm-3 container-fluid" style="width:100%"> 
   <div class="container-fluid card">
     <h2>employee of the year 2018</h2>
     <% @teachers.each do |teacher| %>
       <div class="col-sm-12 card">
+        <%= link_to image_tag(teacher.image.url, :class => "best"), teacher %>
         <h2><%= teacher.name %></h2>
-          <%= link_to image_tag(teacher.image.url, :class => "best"), teacher %>
-          <%= teacher.body %>
-        </div>
+      </div>
       <% end %>
   </div>
   
@@ -161,7 +198,7 @@
 <!-- Container (Contact Section) -->
 <div class="col-sm-12 row container-fluid bg-grey">
   <div class="row">
-    <div class="col-sm-6 card" style="width:100%;height:400px;">
+    <div class="col-sm-6 card slideanim"" style="width:100%;height:400px;">
       <h2 class="text-center">Google Map</h2>
       <iframe width="900" height="300" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=ADDRESS_OR_COORDINATES" allowfullscreen>
@@ -187,3 +224,20 @@
   </div>
 </div>
 
+
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight){
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    } 
+  });
+}
+</script>
