@@ -4,7 +4,7 @@
     <% @articles.each do |article| %>
       <div class="col-sm-4 card "> 
         <%= article.title %>
-        <%= link_to image_tag(article.image.url, :class => "list"), article %>
+        <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
       </div>
     <% end %>
   </div>

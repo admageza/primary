@@ -32,22 +32,24 @@
    .directrice {
     width:30%;
     height: auto;
-    margin: 2px 0 0 35%;
+    margin: 2% 30% 0 30%;
     border-radius: 50%;
 }
  
-  .imgsize {
-    max-width:100%;
-    height: auto;
+  .public{
+    width: 100% !important;
+    max-height:auto !important;
     border-radius: 5px;
 }
   
-  .performer {
-    max-width:100%;
-    height: auto;
-    border-radius: 5px;
+  .admin {
+     width:100%;
+     height:auto;
 }
 
+.best {
+     margin: 1% 0 1% 10%;
+}
  
   // .panel {
   //     border: 1px solid #f4511e; 

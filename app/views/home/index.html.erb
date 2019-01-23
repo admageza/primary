@@ -1,10 +1,10 @@
  <!-- Wrapper for slides -->
  <div id="myCarousel" class="carousel slide" data-ride="carousel" >
-   <div class="carousel-inner " id="home"  role="listbox">
+   <div class="carousel-inner" id="home"  role="listbox">
      <% @articles.each do |article| %>
       <% if article == @articles.first%>
        <div class="mySlides w3-animate-fading">
-        <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
+        <%= link_to image_tag(article.image.url, :class => "article"), article %>
         <div class="carousel-caption">
           <h3 class="welcome"><b> WELCOME TO SAINT DOMINIC NURSERY AND PRIMARY SCHOOL</b></h3>
           <p><b>"Conscience, Solidality and Excellence"</b> is our MOTTO</p>
@@ -21,7 +21,7 @@
       </div>
       <% else %>
        <div class="mySlides w3-animate-fading">
-        <%= link_to image_tag(article.image.url, :class => "imgsize"), article %>
+        <%= link_to image_tag(article.image.url, :class => "article"), article %>
         <div class="carousel-caption">
           <h3 class="welcome"><b> WELCOME TO SAINT DOMINIC NURSERY AND PRIMARY SCHOOL</b></h3>
           <p><b>"Conscience, Solidality and Excellence"</b> is our MOTTO</p>
@@ -43,7 +43,6 @@
  
  <!-- Container (Contact Section) -->
 <div class="col-sm-12 row container-fluid bg-grey">
-  <div class="row" style="width:100%">
     <div class="col-sm-4 card slideanim">
       <h2 class="card container-fluid accordion">WELCOME MESSAGE</h2>
        <div class="panel">
@@ -76,18 +75,17 @@
         zo mbaraga zihindura muntu zikamuha kwisanzura no kubaho mu bufatanye n’abandi .</p>
        </div>
     </div>
-  </div>
 </div>
 
 
 
 <!-- Container (Latest news Section) -->
-<div class="row col-sm-8 container-fluid">
+<div class="row col-sm-9 container-fluid">
  
   <!-- Container (School Best Performer Section) -->
    <div class="row card container-fluid">
     <h2 class="card container-fluid">BEST PERFORMERS OF 2018</h2>
-    <div class="performer">
+    <div class="best">
       <% @performers.each do |performer| %>
        <div class="col-sm-3 card">
         <h2><%= performer.title %></h2>
@@ -99,20 +97,20 @@
     </div>
    
   <!-- Container (School administration Section) -->
-   <div class=" container-fluid card">
+   <div class="row container-fluid card">
     <h2 class="card container-fluid">school administration</h2>
       <div class="admin">
        <% @staffs.each do |staff| %>
-       <div class="col-sm-6 card">
+       <div class="col-sm-3 card">
         <h2><%= staff.name %></h2>
-        <%= link_to image_tag(staff.image.url, :class => "best"), staff %>
+        <%= link_to image_tag(staff.image.url, :class => "staff"), staff %>
         <%= staff.body %>
        </div>
       <% end %>
       </div>
    </div>
    
-  <div id="myCarousel" class="carousel slide text-center" data-ride="carousel" style="width:100%">
+  <div id="myCarousel" class="carousel slide text-center card container-fluid" data-ride="carousel" style="width:100%">
     <h2 class="card container-fluid">What peoples say about our school</h2>
     <div class="container-fluid card">
     <!-- Indicators -->
@@ -146,19 +144,41 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
-  <div class="card">
-      <h2>Video</h2>
-      <h4>Some video are posted here.</h4>
-    </div>
+ 
+  <div class="card container-fluid">
+    <h2 class="card container-fluid" >Video</h2>
+    <div class="row col-sm-12">
+      <div class="col-sm-6" style="position:relative; padding-bottom:15%; padding-top:30px; height:0; margin:10px; overflow:hidden;">
+	      <iframe width="175" height="110" src="https://www.youtube.com/embed/kHSFpGBFGHY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
+			     style="position:absolute; top:0; left:0; width:100%; height:100%;">
+	      </iframe>
+	    </div>
+	    <div class="col-sm-5" style="position:relative; padding-bottom:15%; padding-top:30px; height:0; margin:10px; overflow:hidden;"> 
+	     <iframe width="175" height="110" src="https://www.youtube.com/embed/_UR-l3QI2nE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
+			     style="position:absolute; top:0; left:0; width:100%; height:100%;">
+	      </iframe>
+      </div>
+      <div class="col-sm-6" style="position:relative; padding-bottom:15%; padding-top:30px; height:0; margin:10px; overflow:hidden;">
+	      <iframe width="175" height="110" src="https://www.youtube.com/embed/ANw79tYVrZE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
+			     style="position:absolute; top:0; left:0; width:100%; height:100%;">
+	      </iframe>
+	    </div>
+	    <div class="col-sm-5" style="position:relative; padding-bottom:15%; padding-top:30px; height:0; margin:10px; overflow:hidden;"> 
+	     <iframe width="175" height="110" src="https://www.youtube.com/embed/n34YjZvDDXA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
+			     style="position:absolute; top:0; left:0; width:100%; height:100%;">
+	      </iframe>
+      </div>
+     </div> 
   </div>
+ </div>
 </div>
 
-<div class="col-sm-3 container-fluid" style="width:100%"> 
-  <div class="container-fluid card">
+<div class="col-sm-3 card side-bar container-fluid"> 
+  <div class="card">
     <h2>employee of the year 2018</h2>
     <% @teachers.each do |teacher| %>
       <div class="col-sm-12 card">
-        <%= link_to image_tag(teacher.image.url, :class => "best"), teacher %>
+        <%= link_to image_tag(teacher.image.url, :class => "teacher"), teacher %>
         <h2><%= teacher.name %></h2>
       </div>
       <% end %>
@@ -168,7 +188,7 @@
      <% @publications.each do |publication| %>
       <div class="col-sm-12 card">
         <h2><%= publication.title %></h2>
-        <%= link_to image_tag(publication.image.url, :class => "best"), publication %>
+        <%= link_to image_tag(publication.image.url, :class => "public"), publication %>
         <%= publication.body %>
       </div>
      <% end %>
@@ -198,14 +218,14 @@
 <!-- Container (Contact Section) -->
 <div class="col-sm-12 row container-fluid bg-grey">
   <div class="row">
-    <div class="col-sm-6 card slideanim"" style="width:100%;height:400px;">
+    <div class="col-sm-6 card slideanim" style="width:100%;height:300px;">
       <h2 class="text-center">Google Map</h2>
       <iframe width="900" height="300" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=ADDRESS_OR_COORDINATES" allowfullscreen>
       </iframe>
          
     </div>
-    <div class="col-sm-5 card slideanim">
+    <div class="col-sm-5 card slideanim" style="width:100%;height:300px;">
       <div class="row">
         <div class="col-sm-6 form-group">
           <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>

@@ -1,5 +1,4 @@
 class ConversationsController < ApplicationController
-    before_action :authenticate_admin_user!
     
     def index
       @users = User.all  
