@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  # before_action :authenticate_admin_user!
+  before_action :authenticate_admin_user!
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   # GET /articles
@@ -11,6 +11,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+   @favorite = current_admin_user.favorites.find_by(article_id: @article.id)
    @article = Article.find(params[:id])
    @articles = Article.all
    @comment = @article.comments.build

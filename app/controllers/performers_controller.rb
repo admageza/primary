@@ -10,6 +10,7 @@ class PerformersController < ApplicationController
   # GET /performers/1
   # GET /performers/1.json
   def show
+    @favorite = current_user.favorites.find_by(performer_id: @performer.id)
     @performer = Performer.find(params[:id])
     @comment = @performer.comments.build
     @comments = @performer.comments

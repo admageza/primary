@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @favorite = current_user.favorites.find_by(post_id: @post.id)
     @post = Post.find(params[:id])
     @comment = @post.comments.build
     @comments = @post.comments

@@ -11,6 +11,12 @@
   <%= @performer.body %>
 </p>
 
+<% if @favorite.present? %>
+    <%= link_to 'Cancel favorites', favorite_path(performer_id: @performer.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'To favorite', favorites_path(performer_id: @performer.id), method: :post, class: 'btn-success' %>
+  <% end %>
+
 <p>Comments</p>
   <div id="comments_area">
   <!-- render for displaying posted comments list in a blog detail page -->

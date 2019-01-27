@@ -10,6 +10,11 @@
 <p>
   <%= @post.body %>
 </p>
+ <% if @favorite.present? %>
+    <%= link_to 'Cancel favorites', favorite_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'To favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn-success' %>
+  <% end %>
 
 <p>Comments</p>
   <div id="comments_area">

@@ -43,7 +43,7 @@
  
  <!-- Container (Contact Section) -->
 <div class="col-sm-12 row container-fluid bg-grey">
-    <div class="col-sm-4 card slideanim">
+    <div class="col-sm-4 perfo  slideanim">
       <h2 class="card container-fluid accordion">WELCOME MESSAGE</h2>
        <div class="panel">
         <img src="/directrice.jpg" class="directrice" alt="Dominic" style="text-center">
@@ -57,13 +57,13 @@
         <p><b>Que Dieu Vous Benisse!</b></p>
        </div>
     </div>
-    <div class="col-sm-4 card slideanim">
+    <div class="col-sm-4 perfo  slideanim">
       <h2 class="card container-fluid accordion">SCHOOL BACKGROUND</h2>
        <div class="panel">
        
        </div>
     </div>
-    <div class="col-sm-3 card slideanim">
+    <div class="col-sm-4 perfo  slideanim">
       <h2 class="card container-fluid accordion">MISSION AND VISION</h2>
        <div class="panel">
         <h4>MISSION</h4>
@@ -83,27 +83,27 @@
 <div class="row col-sm-9 container-fluid">
  
   <!-- Container (School Best Performer Section) -->
-   <div class="row card container-fluid">
+   <div class="card container-fluid">
     <h2 class="card container-fluid">BEST PERFORMERS OF 2018</h2>
-    <div class="best">
+    <div class="row container-fluid">
       <% @performers.each do |performer| %>
-       <div class="col-sm-3 card">
-        <h2><%= performer.title %></h2>
-        <%= link_to image_tag(performer.image.url, :class => "performer"), performer %>
+       <div class="col-sm-4 perfo">
+        <h2 class="card"><%= performer.title %></h2>
+        <%= link_to image_tag(performer.image.url, :class => "performer card"), performer %>
         <%= performer.body %>
        </div>
       <% end %>
     </div>
-    </div>
+  </div>
    
   <!-- Container (School administration Section) -->
-   <div class="row container-fluid card">
+   <div class="card container-fluid">
     <h2 class="card container-fluid">school administration</h2>
-      <div class="admin">
+      <div class="row container-fluid">
        <% @staffs.each do |staff| %>
-       <div class="col-sm-3 card">
-        <h2><%= staff.name %></h2>
-        <%= link_to image_tag(staff.image.url, :class => "staff"), staff %>
+       <div class="col-sm-3 perfo">
+        <h2 class="card"><%= staff.name %></h2>
+        <%= link_to image_tag(staff.image.url, :class => "staff card"), staff %>
         <%= staff.body %>
        </div>
       <% end %>
@@ -173,36 +173,32 @@
  </div>
 </div>
 
-<div class="col-sm-3 card side-bar container-fluid"> 
-  <div class="card">
-    <h2>employee of the year 2018</h2>
-    <% @teachers.each do |teacher| %>
-      <div class="col-sm-12 card">
-        <%= link_to image_tag(teacher.image.url, :class => "teacher"), teacher %>
+<div class="col-sm-3 card container-fluid"> 
+   <div class="container-fluid">
+    <h2 class="card">employee of the year 2018</h2>
+      <% @teachers.each do |teacher| %>
+        <%= link_to image_tag(teacher.image.url, :class => "teacher card"), teacher %>
         <h2><%= teacher.name %></h2>
-      </div>
       <% end %>
-  </div>
-  
-  <div class="container-fluid card">
+   </div>
+   
+  <div class="card container-fluid slideanim">
      <% @publications.each do |publication| %>
-      <div class="col-sm-12 card">
         <h2><%= publication.title %></h2>
         <%= link_to image_tag(publication.image.url, :class => "public"), publication %>
         <%= publication.body %>
-      </div>
      <% end %>
     </div>
 
-  <div id="contact" class="card">
-    <div class="col-sm-12 card">
+  <div id="contact">
+    <div class="col-sm-12 card slideanim">
       <h4>Contact Us:</h4>
       <h6><b>Contact us and we'll get back to you very soon.</b></h6>
       <h6><span class="glyphicon glyphicon-map-marker"></span> Kigali-Gasabo-Kinyinya, Rwanda</h6>
       <h6><span class="glyphicon glyphicon-phone"></span> +250 783159214 / 250 723433661</h6>
       <h6><span class="glyphicon glyphicon-envelope"></span> ecole.saintdominique@yahoo.fr</h6>
     </div>
-    <div class="col-sm-12 card">
+    <div class="col-sm-12 card slideanim">
       <h4>Follow Us:</h4>
      <div class=" row">
       <a class="col-2" href="https://web.facebook.com/adolphe.mageza"><i class="fa fa-facebook-square" aria-hidden="true" style="font-size:40px;color:white;"></i></a>
@@ -216,16 +212,16 @@
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="col-sm-12 row container-fluid bg-grey">
+<div class="col-sm-12 row container-fluid">
   <div class="row">
-    <div class="col-sm-6 card slideanim" style="width:100%;height:300px;">
+    <div class="col-sm-6 card slideanim" style="width:100%;height:300px; margin-left:1%;">
       <h2 class="text-center">Google Map</h2>
       <iframe width="900" height="300" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=ADDRESS_OR_COORDINATES" allowfullscreen>
       </iframe>
          
     </div>
-    <div class="col-sm-5 card slideanim" style="width:100%;height:300px;">
+    <div class="col-sm-5 card slideanim" style="width:100%;height:300px; margin-left:5%;">
       <div class="row">
         <div class="col-sm-6 form-group">
           <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>

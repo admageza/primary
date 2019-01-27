@@ -90,5 +90,11 @@
   <%= @admission.comment %>
 </p>
 
+<% if @favorite.present? %>
+    <%= link_to 'Cancel favorites', favorite_path(admission_id: @admission.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'To favorite', favorites_path(admission_id: @admission.id), method: :post, class: 'btn-success' %>
+<% end %>
+
 <%= link_to 'Edit', edit_admission_path(@admission) %> |
 <%= link_to 'Back', admissions_path %>
