@@ -2,8 +2,8 @@
     <div class="row slideanim">
     <% @teachers.each do |teacher| %>
      <div class="col-sm-4 card"> 
-        <%= teacher.title %>
-        <%= link_to image_tag(teacher.image.url, :class => "list"), teacher %>
+        <%= teacher.name %>
+        <%= link_to image_tag(teacher.image.url, :class => "list perfo"), teacher %>
      </div>
     <% end %>
      <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>

@@ -9,12 +9,11 @@
     transition: max-height 0.2s ease-out;
 } 
  
- .imgsize{
-    width: 100% !important;
-    max-height:auto !important;
-    margin: 0 auto;
-    padding-top: 20px;
-    border-radius: 5px;
+ .art {
+    width: 50%;
+    height:auto;
+    margin-left: 10%;
+    border-radius: 5%;
 }
 
 .list {

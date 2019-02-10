@@ -1,18 +1,39 @@
 class UsersController < ApplicationController
-  before_action :logged_in, only: [:edit, :update]
+  before_action :logged_in, only: [:create, :edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
-    # @conversations = Conversation.all
+    @users = User.all.where("id != ?", current_user.id)
+    @conversations = Conversation.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-   
+    @users = User.all.where("id != ?", current_user.id)
+    @favorite = current_user.favorites.find_by(user_id: @user.id)
+    
+    @publications = Publication.all
+    @conversations = Conversation.all
+    @messages = Message.all
+  if @messages.length > 5
+    @over_five = true
+    @messages = @messages[-5..-1]
+  end
+
+  if params[:m]
+    @over_ten = false
+    @messages = Message.all
+  end
+
+  if @messages.last
+    if @messages.last.user_id != current_user.id
+     @messages.last.read = true
+    end
+  end
+  
   end
 
   # GET /users/new
@@ -79,6 +100,18 @@ class UsersController < ApplicationController
     
     def favorite
       @favorites_articles = Favorite.find(article_id: params[:article_id])
+    end
+    
+    def favorited?(article)
+    favorites.find_by(article_id: article.id).present?
+  end
+    
+    def conversation
+      @conversation = Conversation.find(params[:conversation_id])
+    end
+    
+    def messages
+      @messages = Message.find(user_id: params[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

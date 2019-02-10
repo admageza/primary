@@ -3,18 +3,18 @@
   <strong><%= @article.title %></strong>
 </p>
 
-<p>
-  <%= image_tag @article.image_url, :class => "imgsize" %>
+<p style="margin-left:35%">
+  <%= image_tag @article.image_url, :class => "card art" %>
 </p>
 
 <p>
   <%= @article.body %>
 </p>
-<% unless @article.admin_user_id == current_admin_user %>
+<% unless @article.user_id == current_user %>
   <% if @favorite.present? %>
-    <%= link_to 'Cancel favorites', favorite_path(article_id: @article.id), method: :delete, class: 'btn btn-danger' %>
+    <%= link_to 'Unfavorites', favorite_path(article_id: @article.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
-    <%= link_to 'To favorite', favorites_path(article_id: @article.id), method: :post, class: 'btn-success' %>
+    <%= link_to 'Favorite', favorites_path(article_id: @article.id), method: :post, class: 'btn-success' %>
   <% end %>
 <% end %>
 

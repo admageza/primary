@@ -4,7 +4,7 @@
     <% @performers.each do |performer| %>
       <div class="col-sm-3.5 card "> 
         <%= performer.title %>
-        <%= link_to image_tag(performer.image.url, :class => "list"), performer %>
+        <%= link_to image_tag(performer.image.url, :class => "list perfo"), performer %>
       </div>
     <% end %>
   </div>

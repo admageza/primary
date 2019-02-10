@@ -1,6 +1,6 @@
 class RelationshipsController < ApplicationController
    # If you use Devise, use the following instead of if logged_in?.
-  before_action :authenticate_admin_user!
+ 
   respond_to :js # You can write like this if you return the respond of all the existing actions with js.
 
   def create

@@ -10,9 +10,19 @@
 
 .list {
   height: auto;
-  width: 30%;
+  width: 100%;
   border-radius: 50%;
-  margin-left:10%;
+  margin-left: 25px;
+}
+.perfo {
+  height: 75%;
+  margin:0;
+}
+
+.user {
+  height: auto;
+  width: 80%;
+  border-radius: 5%;
 }
  
  .name {

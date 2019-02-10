@@ -1,5 +1,5 @@
   <div class="table-hover text-center" style="margin-top:10%">
-   <div class="row slideanim">
+   <div class="row">
     <% @conversations.each do |conversation| %>
       <div class="col-sm-4 card "> 
         <% if conversation.target_user(current_user).present? %>

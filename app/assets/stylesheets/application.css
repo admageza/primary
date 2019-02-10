@@ -46,12 +46,15 @@
   }
    ul li {
     list-style-type: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none;
   }
 
 .navbar {
     z-index: 9999;
     font-size: 12px !important;
-    line-height: 1.42857143 !important;
+    line-height: 1.82857143 !important;
     letter-spacing: 2px;
     position: fixed;
     background-color:#4169E1;

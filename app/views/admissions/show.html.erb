@@ -1,95 +1,116 @@
-<p id="notice"><%= notice %></p>
+<div class="tab-content text-left container-fluid" style="margin-top:8%">
+ <div class="col-sm-12 row container-fluid">
+  <div class="col-sm-2 img">
+    <%= image_tag @admission.image_url, :class => "card art" %>
+  </div>
+ </div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @admission.image %>
-</p>
+ <div class="col-sm-12 row container-fluid">
+  <div class="col-sm-4 tab-content text-left container-fluid">
+    <div class="field">
+      <strong>First Name:</strong>
+      <%= @admission.name %>
+    </div>
+    
+    <div class="field">
+      <strong>Other Name:</strong>
+      <%= @admission.othername %>
+    </div>
+    
+    <div class="field">
+     <strong>Last Name:</strong>
+     <%= @admission.lastname %>
+    </div>
+    
+    <div class="field">
+      <strong>Place of Birth:</strong>
+      <%= @admission.pob %>
+    </div>
+    
+    <div class="field">
+      <strong>Resident Place:</strong>
+      <%= @admission.residentplace %>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @admission.name %>
-</p>
+  <div class="col-sm-4 tab-content text-left container-fluid">
+    <div class="field">
+      <strong>Date of birth:</strong>
+      <%= @admission.dob %>
+    </div>
+    
+    <div class="field">
+      <strong>Legal registration date:</strong>
+      <%= @admission.legalregdate %>
+    </div>
+    
+    <div class="field">
+      <strong>Orphan:</strong>
+      <%= @admission.orphan %>
+    </div>
+    
+    <div class="field">
+      <strong>Previous school:</strong>
+      <%= @admission.previousschool %>
+    </div>
+    
+    <div class="field">
+      <strong>Level:</strong>
+      <%= @admission.level %>
+    </div>
+  </div>
+ </div>
 
-<p>
-  <strong>Othername:</strong>
-  <%= @admission.othername %>
-</p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @admission.lastname %>
-</p>
+<div class="col-sm-12 row container-fluid">
+  <div class="col-sm-4 tab-content text-left container-fluid">
+    <div class="field">
+      <strong>Father's name:</strong>
+      <%= @admission.fathername %>
+    </div>
+    
+    <div class="field">
+      <strong>Father's id:</strong>
+      <%= @admission.fatherid %>
+    </div>
+    
+    <div class="field">
+      <strong>Father's phone:</strong>
+      <%= @admission.fatherphone %>
+    </div>
+  </div>
+ 
+  <div class="col-sm-4 tab-content text-left container-fluid">
+    <div class="field">
+      <strong>Mother's name:</strong>
+      <%= @admission.mothername %>
+    </div>
+    
+    <div class="field">
+      <strong>Mother's id:</strong>
+      <%= @admission.motherid %>
+    </div>
+    
+    <div class="field">
+      <strong>Mother's phone:</strong>
+      <%= @admission.motherphone %>
+    </div>
+  </div>
+ </div>
 
-<p>
-  <strong>Dob:</strong>
-  <%= @admission.dob %>
-</p>
 
-<p>
-  <strong>Pob:</strong>
-  <%= @admission.pob %>
-</p>
+<div class="col-sm-12 row container-fluid">
+  <div class="col-sm-8 tab-content text-left container-fluid">
+   <div class="field">
+     <strong>Comment:</strong>
+     <%= @admission.comment %>
+   </div>
+  </div>
+ </div>
 
-<p>
-  <strong>Legalregdate:</strong>
-  <%= @admission.legalregdate %>
-</p>
-
-<p>
-  <strong>Orphan:</strong>
-  <%= @admission.orphan %>
-</p>
-
-<p>
-  <strong>Fathername:</strong>
-  <%= @admission.fathername %>
-</p>
-
-<p>
-  <strong>Fatherid:</strong>
-  <%= @admission.fatherid %>
-</p>
-
-<p>
-  <strong>Fatherphone:</strong>
-  <%= @admission.fatherphone %>
-</p>
-
-<p>
-  <strong>Mothername:</strong>
-  <%= @admission.mothername %>
-</p>
-
-<p>
-  <strong>Motherid:</strong>
-  <%= @admission.motherid %>
-</p>
-
-<p>
-  <strong>Motherphone:</strong>
-  <%= @admission.motherphone %>
-</p>
-
-<p>
-  <strong>Residentplace:</strong>
-  <%= @admission.residentplace %>
-</p>
-
-<p>
-  <strong>Previousschool:</strong>
-  <%= @admission.previousschool %>
-</p>
-
-<p>
-  <strong>Level:</strong>
-  <%= @admission.level %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @admission.comment %>
-</p>
-
+<div class="col-sm-12 row container-fluid">
+  <div class="col-sm-8 tab-content text-left container-fluid">
+   <div class="field">
 <% if @favorite.present? %>
     <%= link_to 'Cancel favorites', favorite_path(admission_id: @admission.id), method: :delete, class: 'btn btn-danger' %>
   <% else %>
@@ -98,3 +119,7 @@
 
 <%= link_to 'Edit', edit_admission_path(@admission) %> |
 <%= link_to 'Back', admissions_path %>
+   </div>
+  </div>
+ </div>
+</div>

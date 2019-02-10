@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
  
+  resources :activities , only: [:create, :show, :index]
+  resources :primaries, only: [:create, :show, :index]
   
   resources :admissions
   

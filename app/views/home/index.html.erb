@@ -30,7 +30,7 @@
         <ul class="row extra-menu">  
           <li class="col-sm-3"><a href="#"><button class="btn">NURSERY</button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn">PRIMARY</button></a></li>
-          <li class="col-sm-3"><a href="#"><button class="btn">FACILITIES</button></a></li>
+          <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "FACILITIES", posts_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "ADMISSION", new_session_path %></button></a></li>
            <li class="title"><h3><%= article.title %></h3></li> 
         </ul>
@@ -42,7 +42,7 @@
  </div>
  
  <!-- Container (Contact Section) -->
-<div class="col-sm-12 row container-fluid bg-grey">
+<div  id="about" class="col-sm-12 row container-fluid bg-grey">
     <div class="col-sm-4 perfo  slideanim">
       <h2 class="card container-fluid accordion">WELCOME MESSAGE</h2>
        <div class="panel">
@@ -97,7 +97,7 @@
   </div>
    
   <!-- Container (School administration Section) -->
-   <div class="card container-fluid">
+   <div id="staffs" class="card container-fluid">
     <h2 class="card container-fluid">school administration</h2>
       <div class="row container-fluid">
        <% @staffs.each do |staff| %>
@@ -177,7 +177,7 @@
    <div class="container-fluid">
     <h2 class="card">employee of the year 2018</h2>
       <% @teachers.each do |teacher| %>
-        <%= link_to image_tag(teacher.image.url, :class => "teacher card"), teacher %>
+        <%= link_to image_tag(teacher.image.url, :class => "performer card"), teacher %>
         <h2><%= teacher.name %></h2>
       <% end %>
    </div>

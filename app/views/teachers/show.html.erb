@@ -3,8 +3,8 @@
   <strong><%= @teacher.name %></strong>
 </p>
 
-<p>
-  <%= image_tag @teacher.image_url, :class => "post" %>
+<p style="margin-left:35%">
+  <%= image_tag @teacher.image_url, :class => "card art" %>
 </p>
 
 <p>
@@ -21,7 +21,7 @@
   <%= render partial: 'comments/form', locals: { comment: @comment, teacher: @teacher } %>
 
   
-  <%= link_to 'Back', teachers_path, class: 'btn btn-prymary'  %>
+  <%= link_to 'Back to Teachers', teachers_path, class: 'btn btn-prymary'  %>
 </div>
 </div>
 

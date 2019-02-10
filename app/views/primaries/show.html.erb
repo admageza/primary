@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @primary.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @primary.body %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @primary.image %>
+</p>
+
+<%= link_to 'Edit', edit_primary_path(@primary) %> |
+<%= link_to 'Back', primaries_path %>

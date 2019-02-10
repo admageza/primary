@@ -3,12 +3,23 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   
   has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
   has_many :favorite_admin_users, through: :favorites, source: :admin_user
   
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+  
+  def favorite(article)
+   favorites.find_or_create_by(article: article)
+ end
+ 
+ def unfavorite(article)
+   favorites.where(article: article).destroy_all
+
+   article.reload
+ end
   
   def follow!(other_user)
     active_relationships.create!(followed_id: other_user.id)
