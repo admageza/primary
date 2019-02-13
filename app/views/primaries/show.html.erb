@@ -1,19 +1,12 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @primary.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @primary.body %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= @primary.image %>
-</p>
-
-<%= link_to 'Edit', edit_primary_path(@primary) %> |
+<div class="tab-content text-center" style="margin-top:8%">
+  <p>
+    <strong><%= @primary.title %></strong>
+  </p>
+  <p style="margin-left:35%">
+   <%= image_tag @primary.image_url, :class => "card art" %>
+  </p>
+  <p>
+   <%= @primary.body %>
+  </p>
 <%= link_to 'Back', primaries_path %>
+</div>

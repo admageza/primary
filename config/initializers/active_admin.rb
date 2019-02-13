@@ -58,6 +58,12 @@ ActiveAdmin.setup do |config|
 
   # == User Authorization
   #
+  
+  # config.authorize_with do
+  #   redirect_to main_app.root_path
+  #   unless warden.user.admin == true
+  # end
+  
   # Active Admin will automatically call an authorization
   # method in a before filter of all controller actions to
   # ensure that there is a user with proper rights. You can use

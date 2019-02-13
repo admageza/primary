@@ -5,13 +5,48 @@
      <div class="w3-card w3-round w3-white">
         <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><%= image_tag @user.image_url, :class => "profile" %></p>
+         <p class="w3-center"><%= link_to image_tag @user.image.url, :class => "profile" %></p>
+         <% if @favorite.present? %>
+           <h5 class="w3-center"><%= link_to 'dislike', favorite_path(user_id: @user.id), method: :delete, class: 'fa fa-thumb' %></h5>
+         <% else %>
+           <h5 class="w3-center"><%= link_to 'like', favorites_path(user_id: @user.id), method: :post, class: 'fa fa-heart' %></h5>
+         <% end %>
          <hr>
          <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i><%= @user.name %>
          <br>
          <i class="fa fa-envelope w3-margin-right w3-text-theme"></i> <%= @user.email %>
         </div>
+        <div class="row">
+           <div class="col-sm-6">
+        <table>
+            <% @user ||= current_user %>
+          <div class="stats">
+            <th><a href="<%= user_path(@user.id) %>">
+              <strong id="followers" class="stat">
+                <%= @user.following.count %>
+              </strong>
+                 Following
+               </a>
+              </th>
+             </div>
+            </table>
+          </div>
+          <div class="col-sm-6">
+          <table>
+            <% @user ||= current_user %>
+          <div class="stats">
+            <th><a href="<%= user_path(@user.id) %>">
+              <strong id="followers" class="stat">
+                <%= @user.followers.count %>
+              </strong>
+                 Followers
+               </a>
+            </th>
+          </div>
+          </table>
+         </div>
       </div>
+       </div>
       <br>
     <div class="w3-card w3-round w3-white">
       <div class="w3-container">
@@ -22,12 +57,17 @@
          </div>
         </div>
         <div class="col-sm-12">
-         <h2 class="glyphicon glyphicon-heart card container-fluid accordion">MY FAVORITE ARTICLES</h2>
+         <h2 class="fa fa-heart card container-fluid accordion">MY FAVORITE ARTICLES</h2>
           <div class="panel">
             <div class="row ">
-              
-              
-              
+              <% @users.each do |user| %>
+               <% if user.id != current_user.id %>
+                   <div class="item">
+                     <%= link_to user.name, user %>
+                     <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post%>
+                   </div>
+               <% end %>
+              <% end %>
            </div>
           </div>
         </div>
@@ -35,7 +75,7 @@
          <h2 class="fa fa-thumbs-up card container-fluid accordion">FOLLOWED USER</h2>
           <div class="panel">
            <div class="row ">
-              <% @users.each do |user| %>
+              <% @user.following.each do |user| %>
                 <div class="col-sm-12 perfo">
                   <div class="col-sm-6 perfo">
                     <%= link_to image_tag(user.image.url, :class => "user card"), user %>
@@ -43,7 +83,6 @@
                   <div class="col-sm-4 perfo">
                     <%= user.name %>
                   </div>
-                  <%= render 'follow_form', user: user %>
                 </div>
               <% end %>
            </div>
@@ -53,7 +92,7 @@
          <h2 class="fa fa-users card container-fluid accordion">MY FOLLOWERS</h2>
           <div class="panel">
            <div class="row ">
-              <% @users.each do |user| %>
+              <% @user.followers.each do |user| %>
                 <div class="col-sm-12 perfo">
                   <div class="col-sm-6 perfo">
                     <%= link_to image_tag(user.image.url, :class => "user card"), user %>
@@ -61,9 +100,9 @@
                   <div class="col-sm-4 perfo">
                     <%= user.name %>
                   </div>
-                  <%= render 'follow_form', user: user %>
                 </div>
               <% end %>
+              
            </div>
           </div>
         </div>
@@ -111,6 +150,11 @@
                   <% end %>
                 <% end %>
               </div>
+              <% if @user.id != current_user.id %>
+                   <div class="item">
+                     <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post%>
+                   </div>
+               <% end %>
               </div>
             </div>
           </div>
@@ -141,16 +185,20 @@
         <div class="w3-container">
           <h3>SUGGESTED FRIENDS</h3>
           <div class="row ">
+              
               <% @users.each do |user| %>
                 <div class="col-sm-12 perfo">
                   <div class="col-sm-4 perfo">
                     <%= link_to image_tag(user.image.url, :class => "list"), user %>
                   </div>
-                  <div class="col-sm-3 perfo" style="margin-top:5%">
+                  <div class="col-sm-3 perfo" style="margin-top:1%">
                     <%= user.name %>
+                    <%= render 'follow_form', user: user %>
                   </div>
+                  
                 </div>
               <% end %>
+             
            </div>
         </div>
       </div>

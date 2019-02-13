@@ -35,6 +35,11 @@ class AdminUser < ApplicationRecord
   has_many :staffs, foreign_key: "provider_id"
   has_many :staffs, source: :admin_user
   
+  has_many :primaries
+  has_many :primaries, foreign_key: "provider_id"
+  has_many :primaries, source: :admin_user
+  
+  
   has_many :favorites, dependent: :destroy
   has_many :favorite_admin_users, through: :favorites, source: :admin_user
   

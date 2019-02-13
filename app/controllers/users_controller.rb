@@ -12,8 +12,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+     @users = User.all.where("followed_id != ?", current_user.id)
     @users = User.all.where("id != ?", current_user.id)
     @favorite = current_user.favorites.find_by(user_id: @user.id)
+    @favorites_users = current_user.favorite_users
     
     @publications = Publication.all
     @conversations = Conversation.all
@@ -96,6 +98,10 @@ class UsersController < ApplicationController
         flash[:danger] = "Please log in."
         redirect_to login_url
       end
+    end
+    
+    def favorite
+      @favorites_users = Favorite.find(user_id: params[:user_id])
     end
     
     def favorite

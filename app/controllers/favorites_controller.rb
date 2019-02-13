@@ -1,6 +1,9 @@
 class FavoritesController < ApplicationController
- 
+  
+   
   def create
+    @user = current_user.id
+    favorite = current_user.favorites.create(user_id: params[:user_id])
     favorite = current_user.favorites.create(performer_id: params[:performer_id])
     favorite = current_user.favorites.create(post_id: params[:post_id])
     favorite = current_user.favorites.create(publication_id: params[:publication_id])
@@ -21,5 +24,6 @@ class FavoritesController < ApplicationController
     favorite = current_admin_user.favorites.find_by(performer_id: params[:admission_id]).destroy
     redirect_to admin_users_url
   end
+  
   
 end

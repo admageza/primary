@@ -1,5 +1,5 @@
 class PrimariesController < InheritedResources::Base
-before_action :authenticate_admin_user!
+  # before_action :authenticate_admin_user!
   before_action :set_primary, only: [:show, :edit, :update, :destroy]
 
   # GET /primaries
@@ -11,11 +11,10 @@ before_action :authenticate_admin_user!
   # GET /primaries/1
   # GET /primaries/1.json
   def show
-   @favorite = current_admin_user.favorites.find_by(primary_id: @primary.id)
+  
    @primary = Primary.find(params[:id])
    @primaries = Primary.all
-   @comment = @primary.comments.build
-   @comments = @primary.comments
+   
    
   end
 

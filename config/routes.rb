@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  devise_for :users, path: 'users', controllers: { sessions: "users/sessions" }
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -16,7 +18,8 @@ Rails.application.routes.draw do
   resources :users
  
   resources :activities , only: [:create, :show, :index]
-  resources :primaries, only: [:create, :show, :index]
+  
+  resources :primaries, only: [:create, :show, :index] 
   
   resources :admissions
   

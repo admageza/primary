@@ -2,23 +2,26 @@ class CommentsController < ApplicationController
   def create
     # It searches Blog from the values of parameter and build it as comments related to Blog.
     
-    if @article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
     
-    elsif @post = Post.find(params[:post_id])
+    @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     
-    elsif @staff = Staff.find(params[:staff_id])
+    @staff = Staff.find(params[:staff_id])
     @comment = @staff.comments.build(comment_params)
     
-    elsif @teacher = Teacher.find(params[:teacher_id])
+    @teacher = Teacher.find(params[:teacher_id])
     @comment = @teacher.comments.build(comment_params)
     
-    elsif @publication = Publication.find(params[:publication_id])
+    @publication = Publication.find(params[:publication_id])
     @comment = @publication.comments.build(comment_params)
     
-    elsif @performer = Performer.find(params[:performer_id])
+    @performer = Performer.find(params[:performer_id])
     @comment = @performer.comments.build(comment_params)
+    
+    @primary = Primary.find(params[:primary_id])
+    @comment = @primary.comments.build(comment_params)
     
     # Change format according to cliant request
     respond_to do |format|
@@ -31,6 +34,7 @@ class CommentsController < ApplicationController
         format.html { redirect_to teacher_path(@teacher), notice: 'You could not post...' }
         format.html { redirect_to publication_path(@publication), notice: 'You could not post...' }
         format.html { redirect_to performer_path(@performer), notice: 'You could not post...' }
+        format.html { redirect_to primary_path(@primary), notice: 'You could not post...' }
       end
     end
     end
