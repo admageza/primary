@@ -37,7 +37,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to primary_path(@primary), notice: 'You could not post...' }
       end
     end
-    end
   end
 
   private
@@ -46,3 +45,5 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:article_id, :post_id, :staff_id, :teacher_id, :publication_id, :performer_id, :content)
   end
 end
+
+
