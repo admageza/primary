@@ -6,5 +6,9 @@ class HomeController < ApplicationController
     @publications = Publication.all
     @teachers = Teacher.all
     @staffs = Staff.all
+    @maternaires = Maternaire.all
+    @performers = Performer.page(params[:page]).per(3)
+    @staffs = Staff.page(params[:page]).per(3)
   end
 end
+

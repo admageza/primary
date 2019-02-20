@@ -121,6 +121,10 @@ html {
   .item span {
       font-style: normal;
   }
+  
+  .nav-item {
+     margin-left: 20px;
+  }
 
 /*.container .btn:hover {*/
 /*  background-color: blue;*/

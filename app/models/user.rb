@@ -13,11 +13,11 @@ class User < ApplicationRecord
   
   def favorite(article)
    favorites.find_or_create_by(article: article)
- end
+  end
  
  def unfavorite(article)
    favorites.where(article: article).destroy_all
-
+   
    article.reload
  end
   

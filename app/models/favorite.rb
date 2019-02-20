@@ -20,4 +20,5 @@ class Favorite < ApplicationRecord
   def favorited?(article)
     favorites.find_by(article_id: article.id).present?
   end
+ 
 end

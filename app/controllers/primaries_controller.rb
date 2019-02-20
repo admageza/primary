@@ -6,6 +6,7 @@ class PrimariesController < InheritedResources::Base
   # GET /primaries.json
   def index
     @primaries = Primary.all
+    @primaries = Primary.page(params[:page]).per(3)
   end
 
   # GET /primaries/1

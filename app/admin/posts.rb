@@ -12,8 +12,6 @@ ActiveAdmin.register Post do
 #   permitted
 # end
 
-ActiveAdmin.register Post do
-  permit_params :title, :image, :body
-end
+   permit_params :title, :image, :body, :comment
 
 end

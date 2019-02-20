@@ -1,0 +1,16 @@
+<div class="tab-content text-center" style="margin-top:10%">
+  <div class="row" style="margin-left:10%">
+    <% @maternaires.each do |maternaire| %>
+      <div class="col-sm-3 card "> 
+        <%= maternaire.title %>
+        <%= link_to image_tag(maternaire.image.url, :class => "imgsize"), maternaire %>
+      </div>
+    <% end %>
+  </div>
+   <div class="col-sm-12 " style="margin-left:-40%">
+      <%= paginate @maternaires, :outer_window => 3 %>
+   </div>
+   <div class="col-sm-12 ">
+      <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
+   </div>
+</div>

@@ -12,8 +12,7 @@ ActiveAdmin.register Staff do
 #   permitted
 # end
 
-ActiveAdmin.register Staff do
   permit_params :name, :image, :body
-end
+
 
 end

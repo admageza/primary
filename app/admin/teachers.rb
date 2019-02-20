@@ -12,8 +12,8 @@ ActiveAdmin.register Teacher do
 #   permitted
 # end
 
-ActiveAdmin.register Teacher do
+
   permit_params :name, :image, :body
-end
+
 
 end

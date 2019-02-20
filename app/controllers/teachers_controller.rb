@@ -5,6 +5,7 @@ class TeachersController < ApplicationController
   # GET /teachers.json
   def index
     @teachers = Teacher.all
+    @teachers = Teacher.page(params[:page]).per(3)
   end
 
   # GET /teachers/1

@@ -1,11 +1,16 @@
   <div class="tab-content text-center" style="margin-top:10%">
-    <div class="row slideanim">
+    <div class="row" style="margin-left:10%">
     <% @publications.each do |publication| %>
-     <div class="col-sm-4 card"> 
+     <div class="col-sm-3 card"> 
         <%= publication.title %>
         <%= link_to image_tag(publication.image.url, :class => "list"), publication %>
      </div>
     <% end %>
-     <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
     </div>
-  </div>
+    <div class="col-sm-12 " style="margin-left:-40%">
+      <%= paginate @publications, :outer_window => 3 %>
+    </div>
+    <div class="col-sm-12 ">
+      <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
+    </div>
+</div>

@@ -6,15 +6,13 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
+    @posts = Post.page(params[:page]).per(10)
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @favorite = current_user.favorites.find_by(post_id: @post.id)
     @post = Post.find(params[:id])
-    @comment = @post.comments.build
-    @comments = @post.comments
   end
 
   # GET /posts/new

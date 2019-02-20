@@ -12,8 +12,8 @@ ActiveAdmin.register Performer do
 #   permitted
 # end
 
-ActiveAdmin.register Performer do
+
   permit_params :title, :image, :body
-end
+
 
 end

@@ -1,0 +1,16 @@
+<div class="tab-content text-center" style="margin-top:8%">
+
+<p>
+  <strong><%= @maternaire.title %></strong>
+</p>
+
+<p style="margin-left:35%">
+  <%= image_tag @maternaire.image_url, :class => "card art" %>
+</p>
+
+<p>
+  <%= @maternaire.body %>
+</p>
+
+ <%= link_to 'Back to Maternaire Articles', maternaires_path, class: 'btn btn-prymary'  %>
+</div>

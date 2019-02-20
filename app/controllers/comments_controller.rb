@@ -19,10 +19,7 @@ class CommentsController < ApplicationController
     
     @performer = Performer.find(params[:performer_id])
     @comment = @performer.comments.build(comment_params)
-    
-    @primary = Primary.find(params[:primary_id])
-    @comment = @primary.comments.build(comment_params)
-    
+   
     # Change format according to cliant request
     respond_to do |format|
       if @comment.save
@@ -34,7 +31,6 @@ class CommentsController < ApplicationController
         format.html { redirect_to teacher_path(@teacher), notice: 'You could not post...' }
         format.html { redirect_to publication_path(@publication), notice: 'You could not post...' }
         format.html { redirect_to performer_path(@performer), notice: 'You could not post...' }
-        format.html { redirect_to primary_path(@primary), notice: 'You could not post...' }
       end
     end
   end
@@ -42,7 +38,7 @@ class CommentsController < ApplicationController
   private
   # Strong Parameter
   def comment_params
-    params.require(:comment).permit(:article_id, :post_id, :staff_id, :teacher_id, :publication_id, :performer_id, :content)
+    params.require(:comment).permit(:article_id, :post_id, :staff_id, :teacher_id, :maternaire_id, :publication_id, :performer_id, :content)
   end
 end
 

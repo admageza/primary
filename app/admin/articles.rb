@@ -13,7 +13,7 @@ ActiveAdmin.register Article do
 # end
 
 
-  permit_params :title, :image, :body
+  permit_params :title, :image, :body, :comment
 
 
 end

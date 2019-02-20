@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   
   resources :primaries, only: [:create, :show, :index] 
   
+  resources :maternaires, only: [:create, :show, :index]
+  
   resources :admissions
   
   resources :publications, only: [:show, :index] do

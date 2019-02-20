@@ -32,7 +32,7 @@ ActiveAdmin.register_page "Dashboard" do
         end # table
        end # panel
       end # column
-    end
+    
 
 
     columns do
@@ -50,9 +50,9 @@ ActiveAdmin.register_page "Dashboard" do
         end # table
        end # panel
       end # column
-
+      
       column do
-       panel "Recent Post Created" do
+       panel "Recent Best Performer Created" do
         table_for Post.order('id desc').limit(5).each do |post|
           column (:id) {|post| link_to(post.id, admin_post_path(post)) }
           column :title
@@ -63,6 +63,7 @@ ActiveAdmin.register_page "Dashboard" do
         end # table
        end # panel
       end # column
+    end
       
       column do
        panel "Recent Best Performer Created" do

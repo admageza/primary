@@ -11,7 +11,7 @@
         </div>
          <div class="carousel-caption image_caption">
         <ul class="row extra-menu">  
-          <li class="col-sm-3"><a href="#"><button class="btn">NURSERY</button></a></li>
+          <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "NURSERY", maternaires_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "PRIMARY", primaries_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "FACILITIES", posts_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "ADMISSION", new_session_path %></button></a></li>
@@ -28,7 +28,7 @@
         </div>
         <div class="carousel-caption image_caption">
         <ul class="row extra-menu">  
-          <li class="col-sm-3"><a href="#"><button class="btn">NURSERY</button></a></li>
+          <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "NURSERY", maternaires_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "PRIMARY", primaries_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "FACILITIES", posts_path %></button></a></li>
           <li class="col-sm-3"><a href="#"><button class="btn"><%= link_to "ADMISSION", new_session_path %></button></a></li>
@@ -95,6 +95,9 @@
       <% end %>
     </div>
   </div>
+  <div class="col-sm-12 " style="margin-left:-40%">
+     <%= paginate @performers, :outer_window => 3 %>
+  </div>
    
   <!-- Container (School administration Section) -->
    <div id="staffs" class="card container-fluid">
@@ -108,6 +111,9 @@
        </div>
       <% end %>
       </div>
+   </div>
+   <div class="col-sm-12 " style="margin-left:-40%">
+     <%= paginate @staffs, :outer_window => 3 %>
    </div>
    
   <div id="myCarousel" class="carousel slide text-center card container-fluid" data-ride="carousel" style="width:100%">
@@ -146,8 +152,8 @@
   </div>
  
   <div class="card container-fluid">
-    <h2 class="card container-fluid" >Video</h2>
-    <div class="row col-sm-12">
+    <h2 class="card container-fluid">Video</h2>
+    <div class="row container-fluid">
       <div class="col-sm-6" style="position:relative; padding-bottom:15%; padding-top:30px; height:0; margin:10px; overflow:hidden;">
 	      <iframe width="175" height="110" src="https://www.youtube.com/embed/kHSFpGBFGHY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen 
 			     style="position:absolute; top:0; left:0; width:100%; height:100%;">
@@ -211,42 +217,22 @@
     </div>
     <div class="col-sm-12 card slideanim">
       <h4>Recommended links:</h4>
-        <a href="https://reb.rw/index.php?id=6"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Rwanda Education Board</a>
-        <a href="http://www.wda.gov.rw/eng/"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Work Force Development</a>
-        <a href="http://www.mineduc.gov.rw/home/"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Ministry of Education</a>
-        <a href="http://www.gasabo.gov.rw/index.php?id=39"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Gasabo District</a>
+       <h6> <a href="https://reb.rw/index.php?id=6"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Rwanda Education Board</a> </h6>
+       <h6> <a href="http://www.wda.gov.rw/eng/"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Work Force Development</a> </h6>
+       <h6> <a href="http://www.mineduc.gov.rw/home/"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Ministry of Education</a> </h6>
+       <h6> <a href="http://www.gasabo.gov.rw/index.php?id=39"><i class="fa fa-globe" aria-hidden="true" style="font-size:40px;color:white;"></i>Gasabo District</a> </h6>
     </div>
   </div>
 </div>
 
 <!-- Container (Contact Section) -->
-<div class="col-sm-12 row container-fluid">
-  <div class="row">
-    <div class="col-sm-6 card slideanim" style="width:100%;height:300px; margin-left:1%;">
+    <div class="container-fluid card slideanim" style="width:100%;height:300px; margin-left:0;">
       <h2 class="text-center">Google Map</h2>
       <iframe width="900" height="300" frameborder="0" style="border:0"
        src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=ADDRESS_OR_COORDINATES" allowfullscreen>
       </iframe>
          
     </div>
-    <div class="col-sm-5 card slideanim" style="width:100%;height:300px; margin-left:5%;">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
-      </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 
 <script>

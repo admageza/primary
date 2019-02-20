@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all.where("id != ?", current_user.id)
+    @users = User.page(params[:page]).per(4)
     @conversations = Conversation.all
   end
 
@@ -110,7 +111,7 @@ class UsersController < ApplicationController
     
     def favorited?(article)
     favorites.find_by(article_id: article.id).present?
-  end
+    end
     
     def conversation
       @conversation = Conversation.find(params[:conversation_id])

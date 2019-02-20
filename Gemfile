@@ -36,6 +36,7 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
+gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

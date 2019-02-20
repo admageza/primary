@@ -14,7 +14,11 @@
          </div>
        </div>
      <% end %>
+    </div>
+   <div class="col-sm-12 " style="margin-left:-40%">
+      <%= paginate @users, :outer_window => 3 %>
    </div>
-  <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
+   <div class="col-sm-12 ">
+      <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
+   </div>
 </div>
-

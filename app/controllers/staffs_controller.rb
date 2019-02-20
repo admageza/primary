@@ -5,6 +5,7 @@ class StaffsController < ApplicationController
   # GET /staffs.json
   def index
     @staffs = Staff.all
+    @staffs = Staff.page(params[:page]).per(4)
   end
 
   # GET /staffs/1

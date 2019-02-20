@@ -12,5 +12,6 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
+permit_params :name, :image, :email, :body
 
 end

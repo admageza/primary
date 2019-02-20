@@ -1,11 +1,16 @@
   <div class="tab-content text-center" style="margin-top:10%">
-    <div class="row slideanim container-fluid">
+    <div class="row" style="margin-left:10%">
     <% @posts.each do |post| %>
-     <div class="col-sm-3.5 card"> 
+     <div class="col-sm-3 card"> 
         <%= post.title %>
         <%= link_to image_tag(post.image.url, :class => "post"), post %>
      </div>
     <% end %>
     </div>
-    <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
-  </div>
+    <div class="col-sm-12 " style="margin-left:-40%">
+      <%= paginate @posts, :outer_window => 3 %>
+    </div>
+    <div class="col-sm-12 ">
+      <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
+    </div>
+</div>

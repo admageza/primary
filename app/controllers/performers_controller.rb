@@ -5,6 +5,7 @@ class PerformersController < ApplicationController
   # GET /performers.json
   def index
     @performers = Performer.all
+    @performers = Performer.page(params[:page]).per(3)
   end
 
   # GET /performers/1
