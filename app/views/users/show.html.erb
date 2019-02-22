@@ -54,22 +54,8 @@
          <h2 class="fa fa-pencil card container-fluid accordion">REGISTER YOUR CHILD</h2>
          <div class="panel">
            <p><%= link_to 'Register your CHILD', new_admission_path %></p>
+           <p><%= link_to 'Check out Registered info', admissions_path %></p>
          </div>
-        </div>
-        <div class="col-sm-12">
-         <h2 class="fa fa-heart card container-fluid accordion">MY FAVORITE ARTICLES</h2>
-          <div class="panel">
-            <div class="row ">
-              <% @users.each do |user| %>
-               <% if user.id != current_user.id %>
-                   <div class="item">
-                     <%= link_to user.name, user %>
-                     <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: :post%>
-                   </div>
-               <% end %>
-              <% end %>
-           </div>
-          </div>
         </div>
         <div class="col-sm-12">
          <h2 class="fa fa-thumbs-up card container-fluid accordion">FOLLOWED USER</h2>

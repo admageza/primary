@@ -5,12 +5,13 @@ class AdmissionsController < ApplicationController
   # GET /admissions.json
   def index
     @admissions = Admission.all
+    @admissions = Admission.page(params[:page]).per(3)
   end
 
   # GET /admissions/1
   # GET /admissions/1.json
   def show
-    @favorite = current_user.favorites.find_by(admission_id: @admission.id)
+     @admission = Admission.find(params[:id])
   end
 
   # GET /admissions/new
