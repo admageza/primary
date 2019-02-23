@@ -90,6 +90,12 @@ html {
   /* width: 100% !important;*/
   /*}*/
   
+   button {
+       background-color: blue;
+       color: #fff;
+  }
+  
+  
   .navbar li a, .navbar .navbar-brand {
     color: #fff !important;
     text-decoration: none;
@@ -110,6 +116,12 @@ html {
       margin-bottom: 20px;
      color: #4169E1 !important;
   }
+  
+  button .butto {
+      color: #fff;
+      text-decoration: none;
+  }
+  
 
   .item {
       font-size: 19px;
