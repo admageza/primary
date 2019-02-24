@@ -111,6 +111,8 @@
                   <% if conversation.target_user(current_user).present? %>
                     <%= link_to image_tag(conversation.target_user(current_user).image.url, :class => "size"), conversation_messages_path(conversation) %>
                     <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+                    <% else %>
+                    No message yet
                   <% end %>
                 </div>
               <% end %>
