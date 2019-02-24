@@ -12,7 +12,7 @@ class MessagesController < ApplicationController
 
   if params[:m]
     @over_ten = false
-    @messages = @conversation.messages
+    @messages = @conversation.messages.where("id != ?", current_user.id)
   end
 
   if @messages.last

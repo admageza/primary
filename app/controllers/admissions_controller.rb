@@ -1,5 +1,6 @@
 class AdmissionsController < ApplicationController
-  before_action :set_admission, only: [:show, :edit, :update, :destroy]
+  
+  before_action :set_admission, only: [:create, :show, :edit, :update, :destroy]
 
   # GET /admissions
   # GET /admissions.json

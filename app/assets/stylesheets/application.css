@@ -63,14 +63,12 @@
 }
 
 footer {
-  width: 100%;
+   width: 100%;
   background-color:#4169E1;
   color: white;
-  margin-top: -10%;
   padding-bottom: 0;
   font-size: 12px;
-  position: absolute;
-  bottom: -50px;
+  margin-bottom: auto;
 }
 
 html {

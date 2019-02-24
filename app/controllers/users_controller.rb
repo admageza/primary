@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in, only: [:create, :edit, :update]
+  before_action :logged_in, only: [:edit, :update]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -19,8 +19,8 @@ class UsersController < ApplicationController
     @favorites_users = current_user.favorite_users
     
     @publications = Publication.all
-    @conversations = Conversation.all
-    @messages = Message.all
+    @conversations = Conversation.all.where("id != ?", current_user.id)
+    @messages = Message.all.where("id != ?", current_user.id)
   if @messages.length > 5
     @over_five = true
     @messages = @messages[-5..-1]

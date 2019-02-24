@@ -54,7 +54,7 @@
          <h2 class="fa fa-pencil card container-fluid accordion">REGISTER YOUR CHILD</h2>
          <div class="panel">
            <p><%= link_to 'Register your CHILD', new_admission_path %></p>
-           <p><%= link_to 'Check out Registered info', admissions_path %></p>
+           <p><%= link_to 'Check out Registered pupil', admissions_path %></p>
          </div>
         </div>
         <div class="col-sm-12">
@@ -103,50 +103,26 @@
   <div class="w3-col m6">
     <div class="w3-row-padding">
       <div class="w3-col m12">
-        <div class="w3-card w3-round w3-white">
-          <div class="w3-container w3-padding">
-            <div class="container">
-              <p><b>Here's your Messages!</b></p>
-              <% if @over_five %>
-                  <%= link_to 'Previous messages', '?m=all' %>
-                <% end %>
-              <div class="row card">
-              <div class="ui segment text-left">
-                <% @messages.each do |message| %>
-                 <% if message.body %>
-                  <% user = User.find(message.user_id) %>
-                   <div class="item">
-                    <div class="content">
-                     <div class="header">
-                      <ul class="row col-sm-12">
-                       <li class="col-sm-6 text-left"><strong><%= user.name %></strong></li>
-                       <li class="col-sm-6 text-right"><strong><%= message.message_time %></strong></li>
-                      </ul>
-                     </div>
-                     <div class="list">
-                       <div class="item">
-                         <ul class="row col-sm-12">
-                           <i class="right triangle icon"></i>
-                           <li class="col-sm-12"><%= message.body %></li>
-                         </ul>
-                       </div>
-                     </div>
-                    </div>
-                   </div>
+        <p><b>Check out your Message here!</b></p>
+          <div class="row card">
+            <div class="ui segment text-left">
+              <% @conversations.each do |conversation| %>
+                <div class="col-sm-7 "> 
+                  <% if conversation.target_user(current_user).present? %>
+                    <%= link_to image_tag(conversation.target_user(current_user).image.url, :class => "size"), conversation_messages_path(conversation) %>
+                    <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
                   <% end %>
-                <% end %>
-              </div>
-              <% if @user.id != current_user.id %>
-                   <div class="item">
-                     <%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post%>
-                   </div>
-               <% end %>
-              </div>
+                </div>
+              <% end %>
             </div>
+            <% if @user.id != current_user.id %>
+              <div class="item">
+                <button ><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post%></button>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>
-    </div>
 
     <!-- End Middle Column -->
     </div>

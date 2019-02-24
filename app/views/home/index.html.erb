@@ -14,7 +14,8 @@
           <li class="col-sm-3"><button class="btn"><%= link_to "NURSERY", maternaires_path, :class => "butto" %></button></li>
           <li class="col-sm-3"><button class="btn"><%= link_to "PRIMARY", primaries_path, :class => "butto" %></button></li>
           <li class="col-sm-3"><button class="btn"><%= link_to "FACILITIES", posts_path, :class => "butto" %></button></li>
-          <li class="col-sm-3"><button class="btn"><%= link_to "ADMISSION", new_session_path, :class => "butto" %></button></li>
+          <li class="col-sm-3"><button class="btn"><%= link_to "ADMISSION", new_session_path, :class => "butto", data: { confirm: 'Would you like to register your child?
+          You will have to create account if you are new or login if you already have to inquiry your request. Click OK to proceed' } %></button></li>
           <li class="title"><h3><%= article.title %></h3></li> 
         </ul>
         </div>
@@ -31,7 +32,8 @@
           <li class="col-sm-3"><button class="btn"><%= link_to "NURSERY", maternaires_path, :class => "butto" %></button></li>
           <li class="col-sm-3"><button class="btn"><%= link_to "PRIMARY", primaries_path, :class => "butto" %></button></li>
           <li class="col-sm-3"><button class="btn"><%= link_to "FACILITIES", posts_path, :class => "butto" %></button></li>
-          <li class="col-sm-3"><button class="btn"><%= link_to "ADMISSION", new_session_path, :class => "butto" %></button></li>
+          <li class="col-sm-3"><button class="btn"><%= link_to "ADMISSION", new_session_path, :class => "butto", data: { confirm: 'Would you like to register your child?
+          You will have to create account if you are new or login if you already have to inquiry your request. Click OK to proceed' } %></button></li>
            <li class="title"><h3><%= article.title %></h3></li> 
         </ul>
         </div> 

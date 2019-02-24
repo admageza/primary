@@ -11,7 +11,7 @@ class StaffsController < ApplicationController
   # GET /staffs/1
   # GET /staffs/1.json
   def show
-    @favorite = current_user.favorites.find_by(staff_id: @staff.id)
+    
     @staff = Staff.find(params[:id])
     @comment = @staff.comments.build
     @comments = @staff.comments
