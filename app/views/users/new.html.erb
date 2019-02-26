@@ -1,6 +1,6 @@
 <div class="container-fluid" style="margin:4% 0 25% 20%">
-<h1>Create New User</h1>
+<h1 style="margin-left:10%">Create New User</h1>
 
 <%= render 'form', user: @user %>
-
+<p style="margin-right:40%">Do you have account? <button type="button" class="btn btn-outline-primary"><%= link_to "Login", new_session_path %></button> here!</p>
 </div>
