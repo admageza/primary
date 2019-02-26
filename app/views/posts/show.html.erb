@@ -10,6 +10,27 @@
 <p>
   <%= @post.body %>
 </p>
+
+<% unless @post.user_id == current_user %>
+  <% if @favorite.present? %>
+    <%= link_to 'Unfavorites', favorite_path(post_id: @post.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn-success' %>
+  <% end %>
+<% end %>
+
+<p>Comments</p>
+  <div id="comments_area">
+  <!-- render for displaying posted comments list in a article detail page -->
+  <p style="margin-left:35%">
+    <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+  <p>
+  </div>
+
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <p style="margin-left:50%">
+    <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+  <p>
   
   <%= link_to 'Back to Posts', posts_path, class: 'btn btn-prymary'  %>
 </div>

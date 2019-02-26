@@ -11,14 +11,6 @@
   <%= @publication.body %>
 </p>
 
-<p>Comments</p>
-  <div id="comments_area">
-  <!-- render for displaying posted comments list in a publication detail page -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, publication: @publication } %>
-  </div>
-
-  <!-- render for displaying comment entering field in a publication detail page -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, publication: @publication } %>
 
   <%= link_to 'Back', publications_path, class: 'btn btn-prymary'  %>
 </div>

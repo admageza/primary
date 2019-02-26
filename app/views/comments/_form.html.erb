@@ -1,4 +1,4 @@
-<%= form_with(model: [  @post, @article, @performer, @publication, @staff, @teacher, comment]) do |form| %>
+<%= form_with(model: [  @post, @article, @performer, @staff, @teacher, @comments.build]) do |form| %>
   <% if comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
@@ -9,13 +9,14 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+<ul class="container-fluid">
+  <div class="row info"  style="margin-left:18%">
+    <li class="col-sm-2"><%= form.label :content %></li>
+    <li class="col-sm-4"><%= form.text_area :content %></li>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row info"  style="margin-left:18%">
+    <li class="col-sm-8"><%= form.submit %></li>
   </div>
+</ul>
 <% end %>

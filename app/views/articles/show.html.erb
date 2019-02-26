@@ -21,12 +21,15 @@
 <p>Comments</p>
   <div id="comments_area">
   <!-- render for displaying posted comments list in a article detail page -->
+  <p style="margin-left:35%">
     <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
+  <p>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
-
+  <p style="margin-left:50%">
+    <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+  <p>
   <%= link_to 'Back to Articles', articles_path, class: 'btn btn-prymary'  %>
 </div>
-</div>
+

@@ -106,7 +106,7 @@
     <h2 class="card container-fluid">school administration</h2>
       <div class="row container-fluid">
        <% @staffs.each do |staff| %>
-       <div class="col-sm-3 perfo">
+       <div class="col-sm-4 perfo">
         <h2 class="card"><%= staff.name %></h2>
         <%= link_to image_tag(staff.image.url, :class => "staff card"), staff %>
         <%= staff.body %>
@@ -210,7 +210,7 @@
     <div class="col-sm-12 card slideanim">
       <h4>Follow Us:</h4>
      <div class=" row">
-      <a class="col-2" href="https://web.facebook.com/adolphe.mageza"><i class="fa fa-facebook-square" aria-hidden="true" style="font-size:40px;color:white;"></i></a>
+      <a class="col-2" href="https://web.facebook.com/"><i class="fa fa-facebook-square" aria-hidden="true" style="font-size:40px;color:white;"></i></a>
       <a class="col-2" href="https://twitter.com/Admageza"><i class="fa fa-twitter-square" aria-hidden="true" style="font-size:40px;color:white;"></i></a>
       <a class="col-2" href="https://secure.skype.com/portal/overview?intsrc=client-_-windows-_-7.40.0.103-_-menu.account"><i class="fa fa-skype" aria-hidden="true" style="font-size:40px;color:white;"></i></a>
       <a class="col-2" href="https://www.instagram.com/admageza/?hl=en"><i class="fa fa-instagram" aria-hidden="true" style="font-size:40px;color:white;"></i></a>
@@ -230,7 +230,7 @@
 <!-- Container (Contact Section) -->
     <div class="container-fluid card slideanim" style="width:100%; height:300px; margin-left:0; margin-top:2%">
       <h2 class="text-center">Google Map</h2>
-      <iframe width="900" height="300" frameborder="0" style="border:0"
+      <iframe width="100%" height="auto" frameborder="0" style="border:0"
       <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDH65kfr43Mk2rmzR_JT5_zXoOFr6DQrY&callback=initMap" type="text/javascript"></script>
       </iframe>
          
