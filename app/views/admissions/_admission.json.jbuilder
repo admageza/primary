@@ -1,2 +1,2 @@
-json.extract! admission, :id, :image, :name, :othername, :lastname, :dob, :pob, :legalregdate, :orphan, :fathername, :fatherid, :fatherphone, :mothername, :motherid, :motherphone, :residentplace, :previousschool, :level, :comment, :created_at, :updated_at
+json.extract! admission, :id, :image, :FirstName, :OtherName, :FirstName, :PlaceOfBirth, :ResidentPlace, :DateOfBirth, :LegalRegDate, :Orphan, :PreviousSchool, :level, :FatherName, :FatherId, :FatherPhone, :MotherName, :MotherId, :MotherPhone, :comment, :created_at, :updated_at
 json.url admission_url(admission, format: :json)

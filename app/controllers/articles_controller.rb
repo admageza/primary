@@ -13,12 +13,11 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-   
-   @articles = @articles.favorited_by(params[:favorited]) if params[:favorited].present?
-   @article = Article.find(params[:id])
-   @articles = Article.all
-   @comment = @article.comments.build
-   @comments = @article.comments
+    @article = Article.find(params[:id])
+    @articles = Article.all
+    @comment = @article.comments.build
+    @comments = @article.comments
+    @articles = @articles.favorited_by(params[:favorited]) if params[:favorited].present?
    
   end
 

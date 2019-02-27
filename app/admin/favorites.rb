@@ -11,6 +11,6 @@ ActiveAdmin.register Favorite do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-permit_params :performer_id, :post_id, :publication_id, :article_id, :staff_id, :teacher_id, :admission_id, :maternaire_id
+permit_params :performer_id, :post_id, :publication_id, :article_id, :staff_id, :teacher_id, :maternaire_id
 
 end

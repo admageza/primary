@@ -17,7 +17,7 @@ class AdmissionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create admission" do
     assert_difference('Admission.count') do
-      post admissions_url, params: { admission: { comment: @admission.comment, dob: @admission.dob, fatherid: @admission.fatherid, fathername: @admission.fathername, fatherphone: @admission.fatherphone, image: @admission.image, lastname: @admission.lastname, legalregdate: @admission.legalregdate, level: @admission.level, motherid: @admission.motherid, mothername: @admission.mothername, motherphone: @admission.motherphone, name: @admission.name, orphan: @admission.orphan, othername: @admission.othername, pob: @admission.pob, previousschool: @admission.previousschool, residentplace: @admission.residentplace } }
+      post admissions_url, params: { admission: { DateOfBirth: @admission.DateOfBirth, FatherId: @admission.FatherId, FatherName: @admission.FatherName, FatherPhone: @admission.FatherPhone, FirstName: @admission.FirstName, FirstName: @admission.FirstName, LegalRegDate: @admission.LegalRegDate, MotherId: @admission.MotherId, MotherName: @admission.MotherName, MotherPhone: @admission.MotherPhone, Orphan: @admission.Orphan, OtherName: @admission.OtherName, PlaceOfBirth: @admission.PlaceOfBirth, PreviousSchool: @admission.PreviousSchool, ResidentPlace: @admission.ResidentPlace, comment: @admission.comment, image: @admission.image, level: @admission.level } }
     end
 
     assert_redirected_to admission_url(Admission.last)
@@ -34,7 +34,7 @@ class AdmissionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update admission" do
-    patch admission_url(@admission), params: { admission: { comment: @admission.comment, dob: @admission.dob, fatherid: @admission.fatherid, fathername: @admission.fathername, fatherphone: @admission.fatherphone, image: @admission.image, lastname: @admission.lastname, legalregdate: @admission.legalregdate, level: @admission.level, motherid: @admission.motherid, mothername: @admission.mothername, motherphone: @admission.motherphone, name: @admission.name, orphan: @admission.orphan, othername: @admission.othername, pob: @admission.pob, previousschool: @admission.previousschool, residentplace: @admission.residentplace } }
+    patch admission_url(@admission), params: { admission: { DateOfBirth: @admission.DateOfBirth, FatherId: @admission.FatherId, FatherName: @admission.FatherName, FatherPhone: @admission.FatherPhone, FirstName: @admission.FirstName, FirstName: @admission.FirstName, LegalRegDate: @admission.LegalRegDate, MotherId: @admission.MotherId, MotherName: @admission.MotherName, MotherPhone: @admission.MotherPhone, Orphan: @admission.Orphan, OtherName: @admission.OtherName, PlaceOfBirth: @admission.PlaceOfBirth, PreviousSchool: @admission.PreviousSchool, ResidentPlace: @admission.ResidentPlace, comment: @admission.comment, image: @admission.image, level: @admission.level } }
     assert_redirected_to admission_url(@admission)
   end
 

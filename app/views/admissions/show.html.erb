@@ -1,4 +1,4 @@
-<div class="container-fluid" style="margin:4% 0 25% 20%">
+<div class="container-fluid" style="margin:5% 0 20% 20%">
  <div class="col-sm-12 row container-fluid">
   <div class="col-sm-2 img">
     <%= image_tag @admission.image_url, :class => "card art" %>
@@ -8,120 +8,102 @@
  <div class="col-sm-12 row container-fluid">
   <div class="col-sm-4 tab-content text-left container-fluid">
     <div class="field">
-      <strong>First Name:</strong>
-      <%= @admission.name %>
+     <strong>First Name:</strong>
+      <%= @admission.FirstName %>
     </div>
-    
-    <div class="field">
-      <strong>Other Name:</strong>
-      <%= @admission.othername %>
-    </div>
-    
-    <div class="field">
-     <strong>Last Name:</strong>
-     <%= @admission.lastname %>
-    </div>
-    
-    <div class="field">
-      <strong>Place of Birth:</strong>
-      <%= @admission.pob %>
-    </div>
-    
-    <div class="field">
-      <strong>Resident Place:</strong>
-      <%= @admission.residentplace %>
-    </div>
+
+<div class="field">
+  <strong>Othername:</strong>
+  <%= @admission.OtherName %>
+</div>
+
+<div class="field">
+  <strong>Firstname:</strong>
+  <%= @admission.FirstName %>
+</div>
+
+<div class="field">
+  <strong>Placeofbirth:</strong>
+  <%= @admission.PlaceOfBirth %>
+</div>
+
+<div class="field">
+  <strong>Residentplace:</strong>
+  <%= @admission.ResidentPlace %>
+ </div>
+</div>
+
+<div class="col-sm-4 tab-content text-left container-fluid">
+  <div class="field">
+    <strong>Dateofbirth:</strong>
+      <%= @admission.DateOfBirth %>
   </div>
 
-  <div class="col-sm-4 tab-content text-left container-fluid">
-    <div class="field">
-      <strong>Date of birth:</strong>
-      <%= @admission.dob %>
-    </div>
-    
-    <div class="field">
-      <strong>Legal registration date:</strong>
-      <%= @admission.legalregdate %>
-    </div>
-    
-    <div class="field">
-      <strong>Orphan:</strong>
-      <%= @admission.orphan %>
-    </div>
-    
-    <div class="field">
-      <strong>Previous school:</strong>
-      <%= @admission.previousschool %>
-    </div>
-    
-    <div class="field">
-      <strong>Level:</strong>
-      <%= @admission.level %>
-    </div>
+  <div class="field">
+    <strong>Legalregdate:</strong>
+    <%= @admission.LegalRegDate %>
+  </div>
+
+  <div class="field">
+    <strong>Orphan:</strong>
+    <%= @admission.Orphan %>
+  </div>
+
+  <div class="field">
+    <strong>Previousschool:</strong>
+    <%= @admission.PreviousSchool %>
+  </div>
+
+  <div class="field">
+   <strong>Level:</strong>
+    <%= @admission.level %>
   </div>
  </div>
-
+</div>
 
 <div class="col-sm-12 row container-fluid">
   <div class="col-sm-4 tab-content text-left container-fluid">
-    <div class="field">
-      <strong>Father's name:</strong>
-      <%= @admission.fathername %>
-    </div>
-    
-    <div class="field">
-      <strong>Father's id:</strong>
-      <%= @admission.fatherid %>
-    </div>
-    
-    <div class="field">
-      <strong>Father's phone:</strong>
-      <%= @admission.fatherphone %>
-    </div>
+   <div class="field">
+    <strong>Father's name:</strong>
+     <%= @admission.FatherName %>
+   </div>
+
+   <div class="field">
+     <strong>Father's id:</strong>
+      <%= @admission.FatherId %>
+   </div>
+
+   <div class="field">
+    <strong>Father's phone:</strong>
+     <%= @admission.FatherPhone %>
+   </div>
   </div>
- 
+
   <div class="col-sm-4 tab-content text-left container-fluid">
     <div class="field">
-      <strong>Mother's name:</strong>
-      <%= @admission.mothername %>
+     <strong>Mother's name:</strong>
+      <%= @admission.MotherName %>
     </div>
-    
+
     <div class="field">
-      <strong>Mother's id:</strong>
-      <%= @admission.motherid %>
+     <strong>Motherid:</strong>
+      <%= @admission.MotherId %>
     </div>
-    
+
     <div class="field">
-      <strong>Mother's phone:</strong>
-      <%= @admission.motherphone %>
+     <strong>Motherphone:</strong>
+     <%= @admission.MotherPhone %>
     </div>
   </div>
- </div>
+</div>
 
-
-<div class="col-sm-12 row container-fluid">
+ <div class="col-sm-12 row container-fluid">
   <div class="col-sm-8 tab-content text-left container-fluid">
    <div class="field">
-     <strong>Comment:</strong>
+    <strong>Comment:</strong>
      <%= @admission.comment %>
    </div>
   </div>
  </div>
-
-<div class="col-sm-12 row container-fluid">
-  <div class="col-sm-8 tab-content text-left container-fluid">
-   <div class="field">
-<% unless @admission.user_id == current_user %>
-  <% if @favorite.present? %>
-    <%= link_to 'Cancel favorites', favorite_path(admission_id: @admission.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'To favorite', favorites_path(admission_id: @admission.id), method: :post, class: 'btn-success' %>
-  <% end %>
-<% end %>
-
-<%= link_to 'Edit', edit_admission_path(@admission) %> |
-<%= link_to 'Back', admissions_path %>
-   </div>
-  </div>
- </div>
+ <%= link_to 'Back', admissions_path, class: 'btn btn-prymary' %>
 </div>

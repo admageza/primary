@@ -1,26 +1,44 @@
-<div class="tab-content text-center" style="margin-top:10%">
-  <h1>Admissions</h1>
-  <div class="row" style="margin-left:1%">
-     <% @admissions.each do |admission| %>
-      <table class="row container-fluid "> 
-      <th>
+<div class="tab-content text-center" style="margin:5% 1% 5% 1% ">
+<h1>Admissions</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Firstname</th>
+      <th>Othername</th>
+      <th>Firstname</th>
+      <th>Dateofbirth</th>
+      
+      <th>Fathername</th>
+      <th>Fatherid</th>
+      <th>Fatherphone</th>
+      <th>Mothername</th>
+      <th>Motherid</th>
+      <th>Motherphone</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admissions.each do |admission| %>
+      <tr>
         <td><%= link_to image_tag(admission.image.url, :class => "admit"), admission %></td>
-        <td><%= admission.name %></td>
-        <td><%= admission.othername %></td>
-        <td><%= admission.lastname %></td>
-      </th>
-      <th>  
+        <td><%= admission.FirstName %></td>
+        <td><%= admission.OtherName %></td>
+        <td><%= admission.FirstName %></td>
+        <td><%= admission.DateOfBirth %></td>
+        
+        <td><%= admission.FatherName %></td>
+        <td><%= admission.FatherId %></td>
+        <td><%= admission.FatherPhone %></td>
+        <td><%= admission.MotherName %></td>
+        <td><%= admission.MotherId %></td>
+        <td><%= admission.MotherPhone %></td>
+        <td><%= link_to 'Show', admission %></td>
         <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
         <td><%= link_to 'Destroy', admission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </th>
-      </table>
+      </tr>
     <% end %>
-  </div>
-  <div class="col-sm-12 " style="margin-left:-40%">
-   <%= paginate @admissions, :outer_window => 3 %>
-  </div>
-  <div class="col-sm-12 ">
-    <%= link_to 'New Admission', new_admission_path %>
-    <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
-  </div>
+  </tbody>
+</table>
 </div>

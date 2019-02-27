@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   resources :users, only: [:index]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
+  
+  resources :admissions
  
   resources :activities , only: [:create, :show, :index]
   
@@ -23,7 +25,6 @@ Rails.application.routes.draw do
   
   resources :maternaires, only: [:create, :show, :index]
   
-  resources :admissions
   
   resources :publications, only: [:show, :index] do
     resources :comments

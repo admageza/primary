@@ -2,40 +2,40 @@
 
 one:
   image: MyText
-  name: MyText
-  othername: MyText
-  lastname: MyText
-  dob: MyText
-  pob: MyText
-  legalregdate: MyText
-  orphan: MyText
-  fathername: MyText
-  fatherid: 1
-  fatherphone: 1
-  mothername: MyText
-  motherid: 1
-  motherphone: 1
-  residentplace: MyText
-  previousschool: MyText
-  level: MyText
+  FirstName: MyText
+  OtherName: MyText
+  FirstName: MyText
+  PlaceOfBirth: MyText
+  ResidentPlace: MyText
+  DateOfBirth: 2019-02-27
+  LegalRegDate: 2019-02-27
+  Orphan: MyString
+  PreviousSchool: MyText
+  level: MyString
+  FatherName: MyText
+  FatherId: 1
+  FatherPhone: 1.5
+  MotherName: MyText
+  MotherId: 1
+  MotherPhone: 1.5
   comment: MyText
 
 two:
   image: MyText
-  name: MyText
-  othername: MyText
-  lastname: MyText
-  dob: MyText
-  pob: MyText
-  legalregdate: MyText
-  orphan: MyText
-  fathername: MyText
-  fatherid: 1
-  fatherphone: 1
-  mothername: MyText
-  motherid: 1
-  motherphone: 1
-  residentplace: MyText
-  previousschool: MyText
-  level: MyText
+  FirstName: MyText
+  OtherName: MyText
+  FirstName: MyText
+  PlaceOfBirth: MyText
+  ResidentPlace: MyText
+  DateOfBirth: 2019-02-27
+  LegalRegDate: 2019-02-27
+  Orphan: MyString
+  PreviousSchool: MyText
+  level: MyString
+  FatherName: MyText
+  FatherId: 1
+  FatherPhone: 1.5
+  MotherName: MyText
+  MotherId: 1
+  MotherPhone: 1.5
   comment: MyText
