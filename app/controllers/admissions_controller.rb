@@ -32,7 +32,8 @@ class AdmissionsController < InheritedResources::Base
   # POST /admissions.json
   def create
     @admission = Admission.new(admission_params)
-
+    @admission.user = current_user
+    
     respond_to do |format|
       if @admission.save
         format.html { redirect_to @admission, notice: 'Admission information was successfully registered.' }

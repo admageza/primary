@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
   def create
     # It searches Blog from the values of parameter and build it as comments related to Blog.
+    comment = admission.comments.create(comment_params.merge(user_id: current_user.id))
+    respond_with admission, comment
     
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)

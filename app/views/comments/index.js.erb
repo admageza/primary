@@ -10,3 +10,7 @@ $("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.pu
 $("textarea").val('')
 $("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.performer.comments, performer: @comment.performer }) %>")
 $("textarea").val('')
+
+def as_json(options = {})
+    super(options.merge(include: :user))
+ end
