@@ -47,12 +47,12 @@
  <div class="col-sm-5 container card">
   <div class="field">
     <%= form.label :DateOfBirth %>
-    <%= form.date_select :DateOfBirth, id: :admission_DateOfBirth %>
+    <%= form.date_select :DateOfBirth, :start_year => 1950, :end_year => 2016, id: :admission_DateOfBirth %>
   </div>
 
   <div class="field">
     <%= form.label :LegalRegDate %>
-    <%= form.date_select :LegalRegDate, id: :admission_LegalRegDate %>
+    <%= form.date_select :LegalRegDate, :start_year => 1950, :end_year => 2016, id: :admission_LegalRegDate %>
   </div>
 
   <div class="field">
