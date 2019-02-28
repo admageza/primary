@@ -1,6 +1,8 @@
 class AdmissionsController < InheritedResources::Base
  # before_action :authenticate_admin_user!
+  before_action :require_login, only: [:new, :show]
   before_action :set_admission, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   # GET /admissions
   # GET /admissions.json
@@ -74,6 +76,17 @@ class AdmissionsController < InheritedResources::Base
     def set_admission
       @admission = Admission.find(params[:id])
     end
+    
+    def require_login
+     unless logged_in?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to new_session_path 
+     end
+    end
+  
+   def correct_user
+     redirect_to(new_user_path) unless @admission.user == current_user
+   end
 
     # Never trust parameters from the scary internet, only allow the white list through.
 
