@@ -1,17 +1,14 @@
-
-<div class="container">
+<div class="col-sm-10 text-centre card container" style="margin:7% 0% 5% 5%"> 
+  <h3>Conversation with <%= link_to @conversation.target_user(current_user).name, conversation_messages_path(@conversation)%></h3>
+    <% if @over_ten %>
+      <%= link_to 'Previous messages', '?m=all' %>
+    <% end %>
  <div class="row ">
-    <div class="col-sm-10 text-centre card" style="margin-top:7%"> 
-    <h3>Conversation with <%= link_to @conversation.target_user(current_user).name, conversation_messages_path(@conversation)%></h3>
-<% if @over_ten %>
-  <%= link_to 'Previous messages', '?m=all' %>
-<% end %>
-
-<div class="ui segment text-left">
+ <div class="ui segment text-left">
   <% @messages.each do |message| %>
     <% if message.body %>
       <% user = User.find(message.user_id) %>
-      <div class="item">
+      <div class="item container-fluid" style="margin-left:10%">
         <div class="content">
           <div class="header">
             <ul class="row col-sm-12">
@@ -33,6 +30,7 @@
   <% end %>
 </div>
 
+<div class="col-sm-12">
 <%= form_with(model: [@conversation, @message]) do |f| %>
   <div class="field">
     <%= f.text_area :body, class: "form-control" %>
@@ -45,4 +43,4 @@
 <% end %>
     </div>
   </div>
-</div>
+ </div>

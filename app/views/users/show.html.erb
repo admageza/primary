@@ -3,21 +3,27 @@
 <div  id="about" class="col-sm-12 row container-fluid bg-grey" style="max-width:1400px;margin-top:80px">
   <div class="col-sm-3 perfo">
      <div class="w3-card w3-round w3-white">
-        <div class="w3-container">
+      <div class="w3-container">
          <h4 class="w3-center">My Profile</h4>
-         <p class="w3-center"><%= link_to image_tag @user.image.url, :class => "profile" %></p>
+       <div class="row">
+        <div class="w3-center col-sm-6"><%= link_to image_tag @user.image.url, :class => "profile" %>
+         <br>
          <% if @favorite.present? %>
            <h5 class="w3-center"><%= link_to 'dislike', favorite_path(user_id: @user.id), method: :delete, class: 'fa fa-thumb' %></h5>
          <% else %>
            <h5 class="w3-center"><%= link_to 'like', favorites_path(user_id: @user.id), method: :post, class: 'fa fa-heart' %></h5>
          <% end %>
+         </div>
+         <div class="row col-sm-5">
+         <div class="w3-center col-sm-6"><%= link_to 'Edit Profile', edit_user_path(current_user.id), class: 'fa fa-pencil btn btn-primary' %></div>
+         <i class="col-sm-6"></i><%= @user.name %>
+         </div>
+       </div>
          <hr>
-         <i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i><%= @user.name %>
-         <br>
-         <i class="fa fa-envelope w3-margin-right w3-text-theme"></i> <%= @user.email %>
-        </div>
-        <div class="row">
-           <div class="col-sm-6">
+        <i class="fa fa-envelope w3-margin-right w3-text-theme"></i> <%= @user.email %>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
         <table>
             <% @user ||= current_user %>
           <div class="stats">
@@ -46,7 +52,7 @@
           </table>
          </div>
       </div>
-       </div>
+   </div>
       <br>
     <div class="w3-card w3-round w3-white">
       <div class="w3-container">
@@ -108,13 +114,13 @@
             <div class="ui segment text-left">
               <% @conversations.each do |conversation| %>
                 <div class="col-sm-7 "> 
-                  <% if conversation.target_user(current_user).present? %>
-                    <%= link_to image_tag(conversation.target_user(current_user).image.url, :class => "size"), conversation_messages_path(conversation) %>
-                    <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
-                  <% end %>
-                </div>
+                 <% if conversation.target_user(current_user).present? %>
+                  <%= link_to image_tag(conversation.target_user(current_user).image.url, :class => "size"), conversation_messages_path(conversation) %>
+                  <%= link_to conversation.target_user(current_user).name, conversation_messages_path(conversation)%>
+                 <% end %>
+               </div>
               <% end %>
-            </div>
+              </div>
             <% if @user.id != current_user.id %>
               <div class="item">
                 <button ><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post%></button>
