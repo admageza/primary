@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :staffs, only: [:show, :index] do
     resources :comments
   end
-  resources :users, only: [:index]
+  resources :users, only: [:index, :edit]
   resources :sessions, only: [:new, :create, :destroy]
   resources :users
   
