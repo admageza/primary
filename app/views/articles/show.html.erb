@@ -28,7 +28,7 @@
 
   <!-- render for displaying comment entering field in a blog detail page -->
   <p style="margin-left:50%">
-    <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+    <%= render partial: 'comments/form', locals: { comment: @comment, article: @article }, remote: true %>
   <p>
   <%= link_to 'Back to Articles', articles_path, class: 'btn btn-prymary'  %>
 </div>

@@ -1,4 +1,11 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
+  before_action :find_article!
+  
+   def index
+    @comments = @article.comments.order(created_at: :desc)
+   end
+  
   def create
     # It searches Blog from the values of parameter and build it as comments related to Blog.
     comment = admission.comments.create(comment_params.merge(user_id: current_user.id))

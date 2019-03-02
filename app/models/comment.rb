@@ -7,5 +7,6 @@ class Comment < ApplicationRecord
       belongs_to :staff
        belongs_to :teacher
        belongs_to :admission
-      
+  
+  validates :content, presence: true, allow_blank: false 
 end
