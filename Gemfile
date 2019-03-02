@@ -41,7 +41,7 @@ gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'master'
-
+gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

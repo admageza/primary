@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require gmaps/google
 //= require jquery/dist/jquery.js
 //= require bootstrap-datepicker
 //= require bootstrap/dist/js/bootstrap.js

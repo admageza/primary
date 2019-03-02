@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :comments
   end
   resources :articles, only: [:create, :show, :index] do
-    resources :comments, only: [:create, :index, :destroy]
+    resources :comments
   end
   resources :posts, only: [:create, :show, :index] do
     resources :comments
