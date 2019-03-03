@@ -1,10 +1,10 @@
-<div class="tab-content text-center" style="margin-top:8%">
+<div class="tab-content text-center" style="margin:8% 0 5% 0">
 <p>
   <strong><%= @publication.title %></strong>
 </p>
 
-<p>
-  <%= @publication.image %>
+<p style="margin-left:35%">
+  <%= image_tag @publication.image_url, :class => "card art" %>
 </p>
 
 <p>
@@ -12,7 +12,6 @@
 </p>
 
 
-  <%= link_to 'Back', publications_path, class: 'btn btn-prymary'  %>
-</div>
+  <%= link_to 'Back to performer', publications_path, class: 'btn btn-prymary'  %>
 </div>
 

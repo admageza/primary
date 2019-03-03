@@ -14,7 +14,7 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
     @comment = @teacher.comments.build
     @comments = @teacher.comments
-    @favorite = current_user.favorites.find_by(teacher_id: @teacher.id)
+   
   end
 
   # GET /teachers/new

@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
     @articles = Article.page(params[:page]).per(3)
-    @articles = @articles.favorited_by(params[:favorited]) if params[:favorited].present?
+   
   end
 
   # GET /articles/1
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @comment = @article.comments.build
     @comments = @article.comments
-    @articles = @articles.favorited_by(params[:favorited]) if params[:favorited].present?
+   
    
   end
 

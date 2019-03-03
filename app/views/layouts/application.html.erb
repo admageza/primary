@@ -77,12 +77,6 @@
       <%= content_tag(:div, value, class: "#{key}") %>
     <% end %>
     
-    <% if notice %>
-       <p class="alert alert-success"><%= notice %></p>
-    <% end %>
-     <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-     <% end %>
     
   <div class="container-fluid">
     <%= yield %>
