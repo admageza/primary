@@ -11,22 +11,22 @@
   <%= @staff.body %>
 </p>
 
-<% unless @staff.user_id == current_user %>
-  <% if @favorite.present? %>
-    <%= link_to 'Unfavorites', favorite_path(staff_id: @staff.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'Favorite', favorites_path(staff_id: @staff.id), method: :post, class: 'btn-success' %>
-  <% end %>
-<% end %>
 
-<p>Comments</p>
-  <div id="comments_area">
+<!--  <% if @favorite.present? %>-->
+<!--    <%= link_to 'Unfavorites', favorite_path(staff_id: @staff.id), method: :delete, class: 'btn btn-danger' %>-->
+<!--  <% else %>-->
+<!--    <%= link_to 'Favorite', favorites_path(staff_id: @staff.id), method: :post, class: 'btn-success' %>-->
+<!--  <% end %>-->
+
+
+<!--<p>Comments</p>-->
+<!--  <div id="comments_area">-->
   <!-- render for displaying posted comments list in a staff detail page -->
-    <%= render partial: 'comments/index', locals: { comments: @comments, staff: @staff } %>
-  </div>
+<!--    <%= render partial: 'comments/index', locals: { comments: @comments, staff: @staff } %>-->
+<!--  </div>-->
 
   <!-- render for displaying comment entering field in a staff detail page -->
-  <%= render partial: 'comments/form', locals: { comment: @comment, staff: @staff } %>
+<!--  <%= render partial: 'comments/form', locals: { comment: @comment, staff: @staff } %>-->
 
   
   <%= link_to 'Back', staffs_path, class: 'btn btn-prymary'  %>
