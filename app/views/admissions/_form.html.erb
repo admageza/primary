@@ -11,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+<ul class="container-fluid">
 <div class="col-sm-12 row container-fluid">
   <div class="col-sm-3 container">
   <div class="field">
@@ -24,55 +25,55 @@
 <div class="col-sm-12 row container-fluid">
  <div class="col-sm-6 container card">
   <div class="field">
-    <%= form.label :FirstName %>
-    <%= form.text_area :FirstName, id: :admission_FirstName %>
+    <li class="col-sm-3"><%= form.label :FirstName, 'Your First Name:' %></li>
+    <li class="col-sm-9"><%= form.text_area :FirstName, id: :admission_FirstName %></li>
   </div>
 
   <div class="field">
-    <%= form.label :OtherName %>
-    <%= form.text_area :OtherName, id: :admission_OtherName %>
+    <li class="col-sm-3"><%= form.label :OtherName, 'Other Name:' %></li>
+    <li class="col-sm-9"><%= form.text_area :OtherName, id: :admission_OtherName %></li>
   </div>
 
   <div class="field">
-    <%= form.label :FirstName %>
-    <%= form.text_area :FirstName, id: :admission_FirstName %>
+    <li class="col-sm-3"><%= form.label :FirstName, 'Your Last Name:' %></li>
+    <li class="col-sm-9"><%= form.text_area :FirstName, id: :admission_FirstName %></li>
   </div>
 
   <div class="field">
-    <%= form.label :PlaceOfBirth %>
-    <%= form.text_area :PlaceOfBirth, id: :admission_PlaceOfBirth %>
+    <li class="col-sm-3"><%= form.label :PlaceOfBirth, 'Place of Birth:' %></li>
+    <li class="col-sm-9"><%= form.text_area :PlaceOfBirth, id: :admission_PlaceOfBirth %></li>
   </div>
   </div>
   
  <div class="col-sm-5 container card">
   <div class="field">
-    <%= form.label :DateOfBirth %>
-    <%= form.date_select :DateOfBirth, :start_year => 1950, :end_year => 2016, id: :admission_DateOfBirth %>
+    <li class="col-sm-4"><%= form.label :DateOfBirth, 'Date of Birth:' %></li>
+    <li class="col-sm-8"><%= form.date_select :DateOfBirth, :start_year => 1950, :end_year => 2016, id: :admission_DateOfBirth %></li>
   </div>
 
   <div class="field">
-    <%= form.label :LegalRegDate %>
-    <%= form.date_select :LegalRegDate, :start_year => 1950, :end_year => 2016, id: :admission_LegalRegDate %>
+    <li class="col-sm-4"><%= form.label :LegalRegDate, 'Legal Reg. Date:' %></li>
+    <li class="col-sm-8"><%= form.date_select :LegalRegDate, :start_year => 1950, :end_year => 2016, id: :admission_LegalRegDate %></li>
   </div>
 
   <div class="field">
-    <%= form.label :Orphan %>
-    <%= form.text_field :Orphan, id: :admission_Orphan %>
+    <li class="col-sm-4"><%= form.label :Orphan, 'Orphan:' %></li>
+    <li class="col-sm-8"><%= form.text_field :Orphan, id: :admission_Orphan %></li>
   </div>
 
   <div class="field">
-    <%= form.label :PreviousSchool %>
-    <%= form.text_area :PreviousSchool, id: :admission_PreviousSchool %>
+    <li class="col-sm-4"><%= form.label :PreviousSchool, 'Previous School:' %></li>
+    <li class="col-sm-8"><%= form.text_area :PreviousSchool, id: :admission_PreviousSchool %></li>
   </div>
 
   <div class="field">
-    <%= form.label :level %>
-    <%= form.text_field :level, id: :admission_level %>
+    <li class="col-sm-4"><%= form.label :level, 'Level:' %></li>
+    <li class="col-sm-8"><%= form.text_field :level, id: :admission_level %></li>
   </div>
   
   <div class="field">
-    <%= form.label :ResidentPlace %>
-    <%= form.text_area :ResidentPlace, id: :admission_ResidentPlace %>
+    <li class="col-sm-4"><%= form.label :ResidentPlace, 'Resident Place:' %></li>
+    <li class="col-sm-8"><%= form.text_area :ResidentPlace, id: :admission_ResidentPlace %></li>
   </div>
  </div>
 </div>
@@ -80,35 +81,35 @@
 <div class="col-sm-12 row container-fluid">
  <div class="col-sm-6 perfo card">
   <div class="field">
-    <%= form.label :FatherName %>
-    <%= form.text_area :FatherName, id: :admission_FatherName %>
+    <li class="col-sm-3"><%= form.label :FatherName, 'Father Names:' %></li>
+    <li class="col-sm-9"><%= form.text_area :FatherName, id: :admission_FatherName %></li>
   </div>
 
   <div class="field">
-    <%= form.label :FatherId %>
-    <%= form.number_field :FatherId, id: :admission_FatherId %>
+    <li class="col-sm-3"><%= form.label :FatherId, 'Father ID:' %></li>
+    <li class="col-sm-9"><%= form.number_field :FatherId, id: :admission_FatherId %></li>
   </div>
 
   <div class="field">
-    <%= form.label :FatherPhone %>
-    <%= form.text_field :FatherPhone, id: :admission_FatherPhone %>
+    <li class="col-sm-3"><%= form.label :FatherPhone, 'Father Phone:' %></li>
+    <li class="col-sm-9"><%= form.text_field :FatherPhone, id: :admission_FatherPhone %></li>
   </div>
  </div>
 
  <div class="col-sm-5 perfo card">
   <div class="field">
-    <%= form.label :MotherName %>
-    <%= form.text_area :MotherName, id: :admission_MotherName %>
+    <li class="col-sm-3"><%= form.label :MotherName, 'Mother Names:' %></li>
+    <li class="col-sm-9"><%= form.text_area :MotherName, id: :admission_MotherName %></li>
   </div>
 
   <div class="field">
-    <%= form.label :MotherId %>
-    <%= form.number_field :MotherId, id: :admission_MotherId %>
+    <li class="col-sm-3"><%= form.label :MotherId, 'Mother ID:' %></li>
+    <li class="col-sm-9"><%= form.number_field :MotherId, id: :admission_MotherId %></li>
   </div>
 
   <div class="field">
-    <%= form.label :MotherPhone %>
-    <%= form.text_field :MotherPhone, id: :admission_MotherPhone %>
+    <li class="col-sm-3"><%= form.label :MotherPhone, 'Mother Phone:' %></li>
+    <li class="col-sm-9"><%= form.text_field :MotherPhone, id: :admission_MotherPhone %></li>
   </div>
   </div>
 </div>
@@ -126,5 +127,6 @@
   <div class="row info"  style="margin-left:45%">
     <%= form.submit"Submit", data: { confirm: 'Are you sure, you want to submit your registration request? Click OK to proceed'} %>
   </div>
+</ul>
 <% end %>
 </div>
