@@ -32,8 +32,6 @@
         } );
       </script>
       
-      <!--<%= stylesheet_link_tag    'active_admin', media: 'all', 'data-turbolinks-track': 'reload' %>-->
-      <!--<%= javascript_include_tag 'active_admin', 'data-turbolinks-track': 'reload' %>-->
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -72,13 +70,13 @@
     </div>
   </nav>
  </div>  
-
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-    
     
   <div class="container-fluid">
+    <div class="container-fluid text-center" style="margin:5% 0 0 20% ">
+    <% flash.each do |key, value| %>
+        <div class="text-center alert alert-<%= key %>" style="width:25%"><%= value %></div>
+      <% end %>
+  </div>  
     <%= yield %>
   </div>
   
@@ -89,7 +87,7 @@
       </a>
     </div>
    <div class="col-ms-12 text-center">
-      ©  <%= Time.current.year %> Copyright MAGEZA Adolphe.
+      ©  <%= Time.current.year %> Copyright Adolphe.
     </div>
 </footer>
 <script>
