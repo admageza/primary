@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190301181815) do
+ActiveRecord::Schema.define(version: 20190316203909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,6 +127,16 @@ ActiveRecord::Schema.define(version: 20190301181815) do
     t.integer "admission_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "favoritings", force: :cascade do |t|
+    t.integer "favoriter_id"
+    t.integer "favorited_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["favorited_id"], name: "index_favoritings_on_favorited_id"
+    t.index ["favoriter_id", "favorited_id"], name: "index_favoritings_on_favoriter_id_and_favorited_id", unique: true
+    t.index ["favoriter_id"], name: "index_favoritings_on_favoriter_id"
   end
 
   create_table "maternaires", force: :cascade do |t|

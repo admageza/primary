@@ -10,7 +10,26 @@ class User < ApplicationRecord
   
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
-  has_many :favorite_admin_users, through: :favorites, source: :admin_user
+  
+  has_many :active_favoritings, foreign_key: 'favoriter_id', class_name: 'Favoriting', dependent: :destroy
+  has_many :passive_favoritings, foreign_key: 'favorited_id', class_name: 'Favoriting', dependent: :destroy
+  has_many :following, through: :active_favoritings, source: :favorited
+  has_many :followers, through: :passive_favoritings, source: :favoriter
+  
+  # Favorite specified user
+   def favorite!(other_user)
+     active_favoritings.create!(favorited_id: other_user.id)
+   end
+
+  # Check whether you are favoriting
+   def favoriting?(other_user)
+     active_favoritings.find_by(favorited_id: other_user.id)
+   end
+   
+   def unfavorite!(other_user)
+     active_favoritings.find_by(favorited_id: other_user.id).destroy
+   end
+
   
   has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
   has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy

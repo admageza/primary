@@ -7,6 +7,7 @@ class AdmissionsController < InheritedResources::Base
   # GET /admissions
   # GET /admissions.json
   def index
+     @users = User.all.where("id != ?", current_user.id)
     @admissions = Admission.all
     @admissions = Admission.page(params[:page]).per(3)
   end
@@ -14,7 +15,7 @@ class AdmissionsController < InheritedResources::Base
   # GET /admissions/1
   # GET /admissions/1.json
   def show
-  
+   @users = User.all.where("id != ?", current_user.id)
    @admission = Admission.find(params[:id])
    @admissions = Admission.all
    

@@ -1,0 +1,12 @@
+<div id="favorite_form_<%= user.id %>">
+  <% unless current_user.favoriting?(user) %>
+    <%= form_with(model: current_user.active_favoritings.new(favorited_id: user.id) ) do |f| %>
+      <%= f.hidden_field :favorited_id %>
+      <%= f.submit "Like" %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.active_favoritings.find_by(favorited_id: user.id), method: :delete ) do |f| %>
+      <%= f.submit "Unlike" %>
+    <% end %>
+  <% end %>
+</div>

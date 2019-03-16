@@ -23,6 +23,7 @@
   <tbody>
     <% @admissions.each do |admission| %>
       <tr>
+      <% if admission.user == current_user %>
         <td><%= link_to image_tag(admission.image.url, :class => "admit"), admission %></td>
         <td><%= admission.FirstName %></td>
         <td><%= admission.OtherName %></td>
@@ -38,6 +39,7 @@
         <td><%= link_to 'Show', admission %></td>
         <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
         <td><%= link_to 'Destroy', admission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
       </tr>
     <% end %>
   </tbody>

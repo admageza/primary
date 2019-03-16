@@ -16,9 +16,6 @@ class Favorite < ApplicationRecord
     belongs_to :staff, counter_cache: true
     belongs_to :admission
     belongs_to :admission, counter_cache: true
-    
-  def favorited?(article)
-    favorites.find_by(article_id: article.id).present?
-  end
+  
  
 end

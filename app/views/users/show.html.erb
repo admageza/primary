@@ -1,22 +1,94 @@
  
  <!-- Container (Contact Section) -->
-<div  id="about" class="col-sm-12 row container-fluid bg-grey" style="max-width:1400px;margin-top:80px">
+ <% if @user.id != current_user.id %>
+ <div  id="about" class="col-sm-12 row container-fluid bg-grey" style="max-width:1400px;margin-top:30px">
   <div class="col-sm-3 perfo">
      <div class="w3-card w3-round w3-white">
       <div class="w3-container">
-         <h4 class="w3-center">My Profile</h4>
+         <h4 class="w3-center"><%= @user.name %>'s Profile</h4>
        <div class="row">
-        <div class="w3-center col-sm-6"><%= link_to image_tag @user.image.url, :class => "profile" %>
+        <div class="w3-center col-sm-6"><%= link_to image_tag @user.image.url, :class => "profiles" %>
          <br>
-         <% if @favorite.present? %>
-           <h5 class="w3-center"><%= link_to 'dislike', favorite_path(user_id: @user.id), method: :delete, class: 'fa fa-thumb' %></h5>
-         <% else %>
-           <h5 class="w3-center"><%= link_to 'like', favorites_path(user_id: @user.id), method: :post, class: 'fa fa-heart' %></h5>
-         <% end %>
+          <%= render 'favorite_form', user: @user %>
          </div>
-         <div class="row col-sm-5">
-         <div class="w3-center col-sm-6"><%= link_to 'Edit Profile', edit_user_path(current_user.id), class: 'fa fa-pencil btn btn-primary' %></div>
-         <i class="col-sm-6"></i><%= @user.name %>
+       </div>
+         <hr>
+        <i class="fa fa-envelope w3-margin-right w3-text-theme"></i> <%= @user.email %>
+      </div>
+   </div>
+      <br>
+      
+    <!-- End Left Column -->
+  </div>
+    
+    <!-- Middle Column -->
+  <div class="w3-col m6">
+    <div class="w3-row-padding">
+      <div class="w3-col m12">
+        <p><b>Would you like to send message to <%= @user.name %>? Click the button down here!</b></p>
+        <p>Otherwise, use profile link up to go back to your home screen</p>
+          <div class="row card">
+            <% if @user.id != current_user.id %>
+              <div class="item">
+                <button ><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: :post%></button>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    <!-- End Middle Column -->
+    </div>
+    
+    <!-- Right Column -->
+    <div class="w3-col m3">
+      <div class="w3-card w3-round w3-white w3-center">
+        <div class="w3-container">
+          <p>Upcoming Events:</p>
+          <div class="card container-fluid">
+            <% @publications.each do |publication| %>
+              <h2><%= publication.title %></h2>
+              <%= link_to image_tag(publication.image.url, :class => "public"), publication %>
+              <%= publication.body %>
+            <% end %>
+    </div>
+        </div>
+      </div>
+      <br>
+      
+      <br>
+      
+      
+    <!-- End Right Column -->
+    </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+<!-- End Page Container -->
+</div>
+ 
+ <% else %>
+<div  id="about" class="col-sm-12 row container-fluid bg-grey" style="max-width:1400px;margin-top:30px">
+  <div class="col-sm-3 perfo">
+     <div class="w3-card w3-round w3-white">
+      <div class="w3-container">
+         <h4 class="w3-center">Welcome <b>"<%= @user.name %>"</b></h4>
+       <div class="row">
+        <div class="w3-center col-sm-6"><%= link_to image_tag @user.image.url, :class => "profiles" %>
+         </div>
+         <div class="w3-center col-sm-6">
+           <%= link_to 'Edit Profile', edit_user_path(current_user.id), class: 'fa fa-pencil btn btn-outline-primary' %>
+           <br><br>
+         <div class="w3-center">
+           <% @user ||= current_user %>
+             <div class="row stats">
+              <strong id="followers" class="stat">
+                <%= @user.favorites.count %>
+              </strong>
+                 Likes
+             </div>
+          </div>
          </div>
        </div>
          <hr>
@@ -24,32 +96,61 @@
       </div>
       <div class="row">
         <div class="col-sm-6">
-        <table>
-            <% @user ||= current_user %>
+        <% @user ||= current_user %>
           <div class="stats">
-            <th><a href="<%= user_path(@user.id) %>">
+            <div id="myBtn">
               <strong id="followers" class="stat">
-                <%= @user.following.count %>
-              </strong>
-                 Following
-               </a>
-              </th>
+                <a class="btn btn-outline-primary"><%= @user.following.count %> Following</a>
+               </strong>
+            </div>
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+             <!-- Modal content -->
+             <div class="modal-content">
+              <span class="close">&times;</span>
+              <% @user.following.each do |user| %>
+                <div class="col-sm-12 perfo">
+                  <div class="col-sm-3 perfo">
+                    <%= link_to image_tag(user.image.url, :class => "popfollow"), user %>
+                  </div>
+                  <div class="col-sm-6 perfo">
+                    <h3><%= user.name %></h3>
+                  </div>
+                </div>
+              <% end %>
+              
              </div>
-            </table>
+           </div>
           </div>
+        </div>
           <div class="col-sm-6">
-          <table>
             <% @user ||= current_user %>
-          <div class="stats">
-            <th><a href="<%= user_path(@user.id) %>">
+            <div class="stats">
+            <div id="myOpen">
               <strong id="followers" class="stat">
-                <%= @user.followers.count %>
-              </strong>
-                 Followers
-               </a>
-            </th>
+                <a class="btn btn-outline-primary"> <%= @user.followers.count %> Followers</a>
+               </strong>
+            </div>
+            <!-- The Modal -->
+            <div id="Modality" class="modal">
+
+             <!-- Modal content -->
+             <div class="modal1-content">
+              <span class="closed">&times;</span>
+              <% @user.followers.each do |user| %>
+                <div class="col-sm-12 perfo">
+                  <div class="col-sm-3 perfo">
+                    <%= link_to image_tag(user.image.url, :class => "popfollow"), user %>
+                  </div>
+                  <div class="col-sm-6 perfo">
+                    <h3><%= user.name %></h3>
+                  </div>
+                </div>
+              <% end %>
+             </div>
+           </div>
           </div>
-          </table>
          </div>
       </div>
    </div>
@@ -64,13 +165,13 @@
          </div>
         </div>
         <div class="col-sm-12">
-         <h2 class="fa fa-thumbs-up card container-fluid accordion">FOLLOWED USER</h2>
+         <h2 class="fa fa-thumbs-up card container-fluid accordion">MY FAVORITE USERS</h2>
           <div class="panel">
            <div class="row ">
-              <% @user.following.each do |user| %>
+              <% @user.favorites.each do |user| %>
                 <div class="col-sm-12 perfo">
                   <div class="col-sm-6 perfo">
-                    <%= link_to image_tag(user.image.url, :class => "user card"), user %>
+                    <%= link_to image_tag(user.user.image.url, :class => "user card"), user %>
                   </div>
                   <div class="col-sm-4 perfo">
                     <%= user.name %>
@@ -113,6 +214,7 @@
           <div class="row card">
             <div class="ui segment text-left">
               <% @conversations.each do |conversation| %>
+             
                 <div class="col-sm-7 "> 
                  <% if conversation.target_user(current_user).present? %>
                   <%= link_to image_tag(conversation.target_user(current_user).image.url, :class => "size"), conversation_messages_path(conversation) %>
@@ -153,7 +255,6 @@
         <div class="w3-container">
           <h3>SUGGESTED FRIENDS</h3>
           <div class="row ">
-              
               <% @users.each do |user| %>
                 <div class="col-sm-12 perfo">
                   <div class="col-sm-4 perfo">
@@ -165,6 +266,7 @@
                   </div>
                   
                 </div>
+               
               <% end %>
              
            </div>
@@ -181,6 +283,7 @@
   
 <!-- End Page Container -->
 </div>
+<% end %>
 <br>
 
 
@@ -198,5 +301,63 @@ for (i = 0; i < acc.length; i++) {
       panel.style.maxHeight = panel.scrollHeight + "px";
     } 
   });
+}
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById('Modality');
+
+// Get the button that opens the modal
+var btn = document.getElementById("myOpen");
+
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("closed")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
 }
 </script>

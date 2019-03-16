@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   
+  get 'favoritings/create'
+
+  get 'favoritings/destroy'
+
   devise_for :users, controllers: {sessions: 'sessions'}
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
   resources :relationships, only: [:create, :destroy]
+  resources :favoritings, only: [:create, :destroy]
   
   resources :teachers, only: [:show, :index] do
     resources :comments
