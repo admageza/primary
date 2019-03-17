@@ -13,11 +13,11 @@ class User < ApplicationRecord
   
   has_many :active_favoritings, foreign_key: 'favoriter_id', class_name: 'Favoriting', dependent: :destroy
   has_many :passive_favoritings, foreign_key: 'favorited_id', class_name: 'Favoriting', dependent: :destroy
-  has_many :following, through: :active_favoritings, source: :favorited
-  has_many :followers, through: :passive_favoritings, source: :favoriter
+  has_many :favoriting, through: :active_favoritings, source: :favorited
+  has_many :favoriters, through: :passive_favoritings, source: :favoriter
   
   # Favorite specified user
-   def favorite!(other_user)
+   def favoriter!(other_user)
      active_favoritings.create!(favorited_id: other_user.id)
    end
 

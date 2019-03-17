@@ -9,7 +9,7 @@ class FavoritingsController < ApplicationController
     if logged_in?
       @user = current_user.id
       @user = User.find(params[:favoriting][:favorited_id])
-      current_user.favorite!(@user)
+      current_user.favoriter!(@user)
       respond_with @user
     else
       respond_with @user
