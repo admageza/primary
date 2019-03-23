@@ -14,7 +14,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-    @favorite = current_user.favorites.find_by(article_id: @article.id)
+    
     @articles = Article.all
     @comment = @article.comments.build
     @comments = @article.comments

@@ -14,7 +14,7 @@ class PublicationsController < ApplicationController
     @publication = Publication.find(params[:id])
     @comment6 = @publication.comment6s.build
     @comment6s = @publication.comment6s
-    @favorite = current_user.favorites.find_by(publication_id: @publication.id)
+    
   end
 
   # GET /publications/new
