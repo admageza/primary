@@ -66,10 +66,6 @@ Rails.application.routes.draw do
     resources :comment10s 
   end
   
-  resources :users do 
-    resources :comments 
-  end
-  
   resources :posts, only: [:create, :show, :index]do 
     resources :comment11s 
   end
