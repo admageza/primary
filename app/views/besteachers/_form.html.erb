@@ -1,0 +1,32 @@
+<%= form_with(model: besteacher, local: true) do |form| %>
+  <% if besteacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(besteacher.errors.count, "error") %> prohibited this besteacher from being saved:</h2>
+
+      <ul>
+      <% besteacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_area :image, id: :besteacher_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_area :name, id: :besteacher_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body, id: :besteacher_body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

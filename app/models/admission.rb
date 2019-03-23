@@ -1,5 +1,6 @@
 class Admission < ApplicationRecord
      mount_uploader :image, ImageUploader
+      has_many :comments, dependent: :destroy
      belongs_to :user, :optional => true
      validates :image, presence: true
      validates :FirstName, presence: true, length: { minimum: 3 }

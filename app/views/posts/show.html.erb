@@ -1,4 +1,4 @@
-<div class="tab-content text-center" style="margin-top:8%">
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <strong><%= @post.title %></strong>
 </p>
@@ -18,22 +18,21 @@
     <%= link_to 'Favorite', favorites_path(post_id: @post.id), method: :post, class: 'btn-success' %>
   <% end %>
 <% end %>
-
+<div class="container-fluid">
 <p>Comments</p>
-  <div id="comments_area">
+  <div id="comment11s_area">
   <!-- render for displaying posted comments list in a article detail page -->
   <p style="margin-left:35%">
-    <%= render partial: 'comments/index', locals: { comments: @comments, post: @post } %>
+    <%= render partial: 'comment11s/index', locals: { comment11s: @comment11s, post: @post } %>
   <p>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
   <p style="margin-left:50%">
-    <%= render partial: 'comments/form', locals: { comment: @comment, post: @post } %>
+    <%= render partial: 'comment11s/form', locals: { comment11: @comment11, post: @post } %>
   <p>
-  
+  </div>
   <%= link_to 'Back to Posts', posts_path, class: 'btn btn-prymary'  %>
-</div>
 </div>
 
 

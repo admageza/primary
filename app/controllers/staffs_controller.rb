@@ -5,16 +5,16 @@ class StaffsController < ApplicationController
   # GET /staffs.json
   def index
     @staffs = Staff.all
-    @staffs = Staff.page(params[:page]).per(4)
+    @staffs = Staff.page(params[:page]).per(3)
   end
 
   # GET /staffs/1
   # GET /staffs/1.json
   def show
-    
+    @staffs = Staff.all
     @staff = Staff.find(params[:id])
-    @comment = @staff.comments.build
-    @comments = @staff.comments
+    @comment3 = @staff.comment3s.build
+    @comment3s = @staff.commen3ts
   end
 
   # GET /staffs/new

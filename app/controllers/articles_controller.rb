@@ -14,6 +14,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
+    @favorite = current_user.favorites.find_by(article_id: @article.id)
     @articles = Article.all
     @comment = @article.comments.build
     @comments = @article.comments
@@ -37,6 +38,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
+        ArticleMailer.article_mail(current_user.email).deliver
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else

@@ -1,54 +1,77 @@
 Rails.application.routes.draw do
-  
-  get 'favoritings/create'
-
-  get 'favoritings/destroy'
 
   devise_for :users, controllers: {sessions: 'sessions'}
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  resources :relationships, only: [:create, :destroy]
-  resources :favoritings, only: [:create, :destroy]
+  get 'favoritings/create'
+
+  get 'favoritings/destroy'
   
-  resources :teachers, only: [:show, :index] do
-    resources :comments
-  end
-  resources :staffs, only: [:show, :index] do
-    resources :comments
-  end
-  resources :users, only: [:index, :edit]
-  resources :sessions, only: [:new, :create, :destroy]
-  resources :users
-  
-  resources :admissions
- 
-  resources :activities , only: [:create, :show, :index]
-  
-  resources :primaries, only: [:create, :show, :index] 
-  
-  resources :maternaires, only: [:create, :show, :index]
-  
-  
-  resources :publications, only: [:show, :index] do
-    resources :comments
-  end
-  resources :performers, only: [:show, :index] do
-    resources :comments
-  end
-  resources :articles, only: [:create, :show, :index] do
-    resources :comments
-  end
-  resources :posts, only: [:create, :show, :index] do
-    resources :comments
-  end
-  
+  resources :comments, only: [:create, :destroy]
+   
   resources :favorites, only: [:create, :destroy]
   
   resources :conversations do
     resources :messages
   end
+  
+  resources :relationships, only: [:create, :destroy]
+  resources :favoritings, only: [:create, :destroy]
+  
+  resources :tests
+  
+  resources :articles, only: [:create, :show, :index] do 
+    resources :comments 
+  end
+  
+  resources :performers, only: [:create, :show, :index] do 
+    resources :comment1s 
+  end
+  
+  resources :teachers, only: [:create, :show, :index] do 
+    resources :comment2s 
+  end
+  
+  resources :staffs, only: [:create, :show, :index] do 
+    resources :comment3s 
+  end 
+  
+  resources :primaries, only: [:create, :show, :index] do 
+    resources :comment4s 
+  end
+  
+  resources :maternaires, only: [:create, :show, :index] do 
+    resources :comment5s 
+  end
+  
+  resources :publications, only: [:create, :show, :index] do 
+    resources :comment6s 
+  end
+  
+  resources :besteachers , only: [:create, :show, :index] do 
+    resources :comment7s 
+  end
+  
+  resources :activities , only: [:create, :show, :index] do 
+    resources :comment8s 
+  end
+  
+  resources :admissions , only: [:create, :show, :index] do 
+    resources :comment9s 
+  end
+  
+  resources :users do 
+    resources :comment10s 
+  end
+  
+  resources :posts, only: [:create, :show, :index]do 
+    resources :comment11s 
+  end
+  
+  resources :users, only: [:create, :index, :edit]
+  resources :sessions, only: [:new, :create, :destroy]
   
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"

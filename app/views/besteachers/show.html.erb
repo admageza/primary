@@ -1,0 +1,25 @@
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
+
+<p>
+  <strong><%= @besteacher.title %></strong>
+</p>
+
+<p style="margin-left:35%">
+  <%= image_tag @besteacher.image_url, :class => "card art" %>
+</p>
+
+<p>
+  <%= @besteacher.body %>
+</p>
+<div class="container-fluid">
+<p>Comment List</p>
+<div id="comment7s_area">
+  <!-- render for displaying posted comments list in a blog detail page -->
+    <%= render partial: 'comment7s/index', locals: { comment7s: @comment7s, besteacher: @besteacher } %>
+  </div>
+
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comment7s/form', locals: { comment7: @comment7, besteacher: @besteacher } %>
+</div>
+<%= link_to 'Back', besteachers_path %>
+</div>

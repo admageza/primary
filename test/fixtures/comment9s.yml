@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admission: one
+  content: MyText
+
+two:
+  admission: two
+  content: MyText

@@ -18,7 +18,8 @@ class AdmissionsController < InheritedResources::Base
    @users = User.all.where("id != ?", current_user.id)
    @admission = Admission.find(params[:id])
    @admissions = Admission.all
-   
+  # @comment9 = @admission.comment9s.build
+  # @comment9s = @admission.comment9s
    
   end
 
@@ -39,6 +40,7 @@ class AdmissionsController < InheritedResources::Base
     
     respond_to do |format|
       if @admission.save
+        AdmissionMailer.admission_mail(current_user.email).deliver
         format.html { redirect_to @admission, notice: 'Admission information was successfully registered.' }
         format.json { render :show, status: :created, location: @admission }
       else

@@ -1,4 +1,4 @@
-<div class="tab-content text-center" style="margin:8% 0 5% 0">
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <strong><%= @publication.title %></strong>
 </p>
@@ -10,8 +10,16 @@
 <p>
   <%= @publication.body %>
 </p>
+<div class="container-fluid">
+<p>Comment List</p>
+<div id="comment6s_area">
+  <!-- render for displaying posted comments list in a blog detail page -->
+    <%= render partial: 'comment6s/index', locals: { comment6s: @comment6s, publication: @publication } %>
+  </div>
 
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comment6s/form', locals: { comment6: @comment6, publication: @publication } %>
 
+</div>
   <%= link_to 'Back to performer', publications_path, class: 'btn btn-prymary'  %>
 </div>
-

@@ -1,14 +1,15 @@
 class FavoritesController < ApplicationController
- 
+  before_action :authenticate_user! 
+
   def create
     @user = current_user.id
-    favorite = current_user.favorites.create(user_id: params[:user_id])
-    redirect_to user_path(@user), notice: "You liked #{favorite.user.name}'s Profile"
+    favorite = current_user.favorites.create(article_id: params[:article_id])
+    redirect_to articles_url, notice: "You liked #{favorite.article.admin_user_id}'s article"
   end
 
   def destroy
-    favorite = current_user.favorites.find_by(user_id: params[:user_id]).destroy
-    redirect_to user_path(@user), notice: "#{favorite.user.name}'s profile is unliked"
+    favorite = current_user.favorites.find_by(article_id: params[:article_id]).destroy
+    redirect_to articles_url, notice: "#{favorite.article.admin_user_id.name}'s article is unliked"
   end
   
   def authenticate_user!

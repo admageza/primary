@@ -1,20 +1,23 @@
-class TeachersController < ApplicationController
-  before_action :set_teacher, only: [:show, :edit, :update, :destroy]
+class TeachersController < InheritedResources::Base
+before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
   # GET /teachers
   # GET /teachers.json
   def index
-    @teachers = Teacher.all
-    @teachers = Teacher.page(params[:page]).per(3)
+    q_param = params[:q]
+    page = params[:page]
+    per_page = params[:per_page]
+
+    @q = Teacher.ransack q_param
+    @teachers = @q.result.page(page).per(3)
   end
 
   # GET /teachers/1
   # GET /teachers/1.json
   def show
-    @teacher = Teacher.find(params[:id])
+    @teacher = Teacher.find_by_sub_domain params[:id]
     @comment = @teacher.comments.build
     @comments = @teacher.comments
-   
   end
 
   # GET /teachers/new
@@ -76,4 +79,6 @@ class TeachersController < ApplicationController
     def teacher_params
       params.require(:teacher).permit(:name, :image, :body)
     end
+
+
 end

@@ -15,7 +15,8 @@ class PrimariesController < InheritedResources::Base
   
    @primary = Primary.find(params[:id])
    @primaries = Primary.all
-   
+   @comment = @primary.comments.build
+   @comments = @primary.comments
    
   end
 

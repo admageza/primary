@@ -1,4 +1,4 @@
-<div class="tab-content text-center" style="margin:8% 0 5% 0">
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <strong><%= @article.title %></strong>
 </p>
@@ -10,26 +10,26 @@
 <p>
   <%= @article.body %>
 </p>
-<% unless @article.user_id == current_user %>
-  <% if @favorite.present? %>
-    <%= link_to 'Unfavorites', favorite_path(article_id: @article.id), method: :delete, class: 'btn btn-danger' %>
-  <% else %>
-    <%= link_to 'Favorite', favorites_path(article_id: @article.id), method: :post, class: 'btn-success' %>
-  <% end %>
-<% end %>
-
+<!--<% if logged_in? %>-->
+<!--  <% if @favorite.present? %>-->
+<!--    <%= link_to 'Unfavorites', favorite_path(article_id: @article.id), method: :delete, class: 'btn btn-danger' %>-->
+<!--  <% else %>-->
+<!--    <%= link_to 'Favorite', favorites_path(article_id: @article.id), method: :post, class: 'btn-success' %>-->
+<!--  <% end %>-->
+<!--<% end %>-->
+<div class="container-fluid">
 <p>Comments</p>
   <div id="comments_area">
   <!-- render for displaying posted comments list in a article detail page -->
   <p style="margin-left:35%">
     <%= render partial: 'comments/index', locals: { comments: @comments, article: @article } %>
-  <p>
+  </p>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <p style="margin-left:50%">
-    <%= render partial: 'comments/form', locals: { comment: @comment, article: @article }, remote: true %>
-  <p>
+  <p style="margin-left:50%;">
+    <%= render partial: 'comments/form', locals: { comment: @comment, article: @article } %>
+  </p>
+  </div>
   <%= link_to 'Back to Articles', articles_path, class: 'btn btn-prymary'  %>
 </div>
-

@@ -1,4 +1,4 @@
-<div class=" activity tab-content text-center" style="margin-top:6%">
+<div class=" activity tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <%= @activity.title %>
 </p>
@@ -10,9 +10,17 @@
 <p>
   <%= @activity.body %>
 </p>
+ </br>
+ <div class="container-fluid">
+  <p>Comment List</p>
+  <div id="comment8s_area">
+  <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comment8s/index', locals: { comment8s: @comment8s, activity: @activity } %>
+  </div>
 
-<p>
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comment8s/form', locals: { comment8: @comment8, activity: @activity } %>
+  
+  </div>
    <%= link_to 'Back to Activities', activities_path, class: 'btn btn-prymary'  %>
-<p>
-  </br>
 </div>

@@ -23,6 +23,10 @@ class AdminUser < ApplicationRecord
   has_many :teachers, foreign_key: "provider_id"
   has_many :teachers, source: :admin_user
   
+  has_many :besteachers
+  has_many :besteachers, foreign_key: "provider_id"
+  has_many :besteachers, source: :admin_user
+  
   has_many :staffs
   has_many :staffs, foreign_key: "provider_id"
   has_many :staffs, source: :admin_user

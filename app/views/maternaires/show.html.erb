@@ -1,4 +1,4 @@
-<div class="tab-content text-center" style="margin-top:8%">
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 
 <p>
   <strong><%= @maternaire.title %></strong>
@@ -11,6 +11,15 @@
 <p>
   <%= @maternaire.body %>
 </p>
+<div class="container-fluid">
+<p>Comment List</p>
+<div id="comment5s_area">
+  <!-- render for displaying posted comments list in a blog detail page -->
+    <%= render partial: 'comment5s/index', locals: { comment5s: @comment5s, maternaire: @maternaire } %>
+  </div>
 
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comment5s/form', locals: { comment5: @comment5, maternaire: @maternaire } %>
+  </div>
  <%= link_to 'Back to Maternaire Articles', maternaires_path, class: 'btn btn-prymary'  %>
 </div>

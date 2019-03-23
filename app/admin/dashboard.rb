@@ -19,7 +19,9 @@ ActiveAdmin.register_page "Dashboard" do
           para "Navigate through those articles to Modify them or create new."
         end
       end
-      
+    end
+     
+    columns do  
       column do
        panel "Recent users Created" do
         table_for User.order('id desc').limit(5).each do |user|
@@ -32,7 +34,20 @@ ActiveAdmin.register_page "Dashboard" do
         end # table
        end # panel
       end # column
-    
+      
+      column do
+       panel "Recent Best Teachers Created" do
+        table_for Besteacher.order('id desc').limit(5).each do |besteacher|
+          column (:id) {|besteacher| link_to(besteacher.id, admin_besteacher_path(besteacher)) }
+          column :name
+          column "Best Teacher" do |besteacher|
+             link_to image_tag(besteacher.image.url, :class => "thumb")
+          end
+          column :updated_at
+        end # table
+       end # panel
+      end # column
+    end
 
 
     columns do
@@ -52,7 +67,7 @@ ActiveAdmin.register_page "Dashboard" do
       end # column
       
       column do
-       panel "Recent Best Performer Created" do
+       panel "Recent Post Created" do
         table_for Post.order('id desc').limit(5).each do |post|
           column (:id) {|post| link_to(post.id, admin_post_path(post)) }
           column :title
@@ -63,7 +78,6 @@ ActiveAdmin.register_page "Dashboard" do
         end # table
        end # panel
       end # column
-    end
       
       column do
        panel "Recent Best Performer Created" do
@@ -108,13 +122,13 @@ ActiveAdmin.register_page "Dashboard" do
        end # panel
       end # column
     
-    column do
+      column do
        panel "Recent Teachers Created" do
         table_for Teacher.order('id desc').limit(5).each do |teacher|
           column (:id) {|teacher| link_to(teacher.id, admin_teacher_path(teacher)) }
           column :name
           column "Teacher" do |teacher|
-             link_to image_tag(teacher.image.url, :class => "thumb")
+             
           end
           column :updated_at
         end # table

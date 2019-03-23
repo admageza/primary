@@ -1,4 +1,4 @@
-<div class="tab-content text-center" style="margin-top:8%">
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
   <p>
     <strong><%= @primary.title %></strong>
   </p>
@@ -8,5 +8,15 @@
   <p>
    <%= @primary.body %>
   </p>
+ <div class="container-fluid"> 
+  <p>Comment List</p>
+  <div id="comment4s_area">
+  <!-- render for displaying posted comments list in a blog detail page -->
+    <%= render partial: 'comment4s/index', locals: { comment4s: @comment4s, primary: @primary } %>
+  </div>
+
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comment4s/form', locals: { comment4: @comment4, primary: @primary } %>
+  </div>
 <%= link_to 'Back', primaries_path %>
 </div>

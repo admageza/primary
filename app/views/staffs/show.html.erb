@@ -1,4 +1,4 @@
-<div class="tab-content text-center" style="margin-top:8%">
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <strong> <%= @staff.name %></strong>
 </p>
@@ -10,26 +10,17 @@
 <p>
   <%= @staff.body %>
 </p>
+<div class="container-fluid">
+<p>Comment List</p>
+  <div id="comment3s_area">
+   render for displaying posted comments list in a staff detail page 
+    <%= render partial: 'comment3s/index', locals: { comment3s: @comment3s, staff: @staff } %>
+  </div>
 
+   render for displaying comment entering field in a staff detail page 
+  <%= render partial: 'comment3s/form', locals: { comment3: @comment3, staff: @staff } %>
 
-<!--  <% if @favorite.present? %>-->
-<!--    <%= link_to 'Unfavorites', favorite_path(staff_id: @staff.id), method: :delete, class: 'btn btn-danger' %>-->
-<!--  <% else %>-->
-<!--    <%= link_to 'Favorite', favorites_path(staff_id: @staff.id), method: :post, class: 'btn-success' %>-->
-<!--  <% end %>-->
-
-
-<!--<p>Comments</p>-->
-<!--  <div id="comments_area">-->
-  <!-- render for displaying posted comments list in a staff detail page -->
-<!--    <%= render partial: 'comments/index', locals: { comments: @comments, staff: @staff } %>-->
-<!--  </div>-->
-
-  <!-- render for displaying comment entering field in a staff detail page -->
-<!--  <%= render partial: 'comments/form', locals: { comment: @comment, staff: @staff } %>-->
-
-  
+  </div>
   <%= link_to 'Back', staffs_path, class: 'btn btn-prymary'  %>
-</div>
 </div>
 

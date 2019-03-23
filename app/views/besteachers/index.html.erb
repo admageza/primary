@@ -1,0 +1,18 @@
+<div class="tab-content text-center" style="margin-top:5%">
+  <div class="row" style="margin-left:10%">
+    <% @besteachers.each do |besteacher| %>
+     <div class="col-sm-3 card"> 
+      <%= besteacher.name %>
+      <%= link_to image_tag(besteacher.image.url, :class => "list perfo"), besteacher %>
+      <%= besteacher.body %>
+     </div>
+    <% end %>
+   </div>
+   <div class="col-sm-12 " style="margin-left:-40%">
+      <%= paginate @besteachers, :outer_window => 3 %>
+   </div>
+   <div class="col-sm-12 ">
+      <%= link_to 'Back to home page', root_path, class: 'btn btn-prymary'  %>
+   </div>
+</div>
+

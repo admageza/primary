@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190316203909) do
+ActiveRecord::Schema.define(version: 20190323112145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,24 +85,108 @@ ActiveRecord::Schema.define(version: 20190316203909) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
-  create_table "comments", force: :cascade do |t|
+  create_table "besteachers", force: :cascade do |t|
+    t.text "image"
+    t.text "name"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comment10s", force: :cascade do |t|
+    t.bigint "user_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_comment10s_on_user_id"
+  end
+
+  create_table "comment11s", force: :cascade do |t|
     t.bigint "post_id"
-    t.bigint "article_id"
-    t.bigint "teacher_id"
-    t.bigint "staff_id"
-    t.bigint "publication_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comment11s_on_post_id"
+  end
+
+  create_table "comment1s", force: :cascade do |t|
     t.bigint "performer_id"
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.index ["performer_id"], name: "index_comment1s_on_performer_id"
+  end
+
+  create_table "comment2s", force: :cascade do |t|
+    t.bigint "teacher_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_comment2s_on_teacher_id"
+  end
+
+  create_table "comment3s", force: :cascade do |t|
+    t.bigint "staff_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["staff_id"], name: "index_comment3s_on_staff_id"
+  end
+
+  create_table "comment4s", force: :cascade do |t|
+    t.bigint "primary_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["primary_id"], name: "index_comment4s_on_primary_id"
+  end
+
+  create_table "comment5s", force: :cascade do |t|
+    t.bigint "maternaire_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["maternaire_id"], name: "index_comment5s_on_maternaire_id"
+  end
+
+  create_table "comment6s", force: :cascade do |t|
+    t.bigint "publication_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["publication_id"], name: "index_comment6s_on_publication_id"
+  end
+
+  create_table "comment7s", force: :cascade do |t|
+    t.bigint "besteacher_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["besteacher_id"], name: "index_comment7s_on_besteacher_id"
+  end
+
+  create_table "comment8s", force: :cascade do |t|
+    t.bigint "activity_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_comment8s_on_activity_id"
+  end
+
+  create_table "comment9s", force: :cascade do |t|
+    t.bigint "admission_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["admission_id"], name: "index_comment9s_on_admission_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "article_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
-    t.index ["performer_id"], name: "index_comments_on_performer_id"
-    t.index ["post_id"], name: "index_comments_on_post_id"
-    t.index ["publication_id"], name: "index_comments_on_publication_id"
-    t.index ["staff_id"], name: "index_comments_on_staff_id"
-    t.index ["teacher_id"], name: "index_comments_on_teacher_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "conversations", force: :cascade do |t|
@@ -223,8 +307,16 @@ ActiveRecord::Schema.define(version: 20190316203909) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string "name"
     t.text "image"
+    t.text "name"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tests", force: :cascade do |t|
+    t.text "firstname"
+    t.text "lastname"
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -244,13 +336,18 @@ ActiveRecord::Schema.define(version: 20190316203909) do
   add_foreign_key "admissions", "users"
   add_foreign_key "articles", "admin_users"
   add_foreign_key "articles", "users"
+  add_foreign_key "comment10s", "users"
+  add_foreign_key "comment11s", "posts"
+  add_foreign_key "comment1s", "performers"
+  add_foreign_key "comment2s", "teachers"
+  add_foreign_key "comment3s", "staffs"
+  add_foreign_key "comment4s", "primaries"
+  add_foreign_key "comment5s", "maternaires"
+  add_foreign_key "comment6s", "publications"
+  add_foreign_key "comment7s", "besteachers"
+  add_foreign_key "comment8s", "activities"
+  add_foreign_key "comment9s", "admissions"
   add_foreign_key "comments", "articles"
-  add_foreign_key "comments", "performers"
-  add_foreign_key "comments", "posts"
-  add_foreign_key "comments", "publications"
-  add_foreign_key "comments", "staffs"
-  add_foreign_key "comments", "teachers"
-  add_foreign_key "comments", "users"
   add_foreign_key "messages", "admin_users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"

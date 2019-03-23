@@ -188,9 +188,9 @@
 <div class="col-sm-3 card container-fluid" style="margin-top:1%"> 
    <div class="container-fluid">
     <h2 class="card">employee of the year 2018</h2>
-      <% @teachers.each do |teacher| %>
-        <%= link_to image_tag(teacher.image.url, :class => "performer card"), teacher %>
-        <h2><%= teacher.name %></h2>
+      <% @besteachers.each do |besteacher| %>
+        <%= link_to image_tag(besteacher.image.url, :class => "list perfo"), besteacher %>
+        <h2><%= besteacher.name %></h2>
       <% end %>
    </div>
    

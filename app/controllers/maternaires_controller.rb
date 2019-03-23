@@ -12,7 +12,8 @@ class MaternairesController < InheritedResources::Base
   # GET /maternaires/1.json
   def show
     @maternaire = Maternaire.find(params[:id])
-    
+    @comment = @maternaire.comments.build
+    @comments = @maternaire.comments
   end
 
   # GET /maternaires/new

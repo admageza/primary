@@ -1,0 +1,9 @@
+<ul>
+  <% comment3s.each do |comment3| %>
+    <% unless comment3.id.nil? %>
+      <li>
+        <%= comment3.content %></p>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

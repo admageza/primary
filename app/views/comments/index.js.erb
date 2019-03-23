@@ -1,16 +1,2 @@
 $("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.article.comments, article: @comment.article }) %>")
 $("textarea").val('')
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.post.comments, post: @comment.post }) %>")
-$("textarea").val('')
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.staff.comments, staff: @comment.staff }) %>")
-$("textarea").val('')
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.teacher.comments, teacher: @comment.teacher }) %>")
-$("textarea").val('')
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.publication.comments, publication: @comment.publication }) %>")
-$("textarea").val('')
-$("#comments_area").html("<%= j(render 'comments/index', { comments: @comment.performer.comments, performer: @comment.performer }) %>")
-$("textarea").val('')
-
-def as_json(options = {})
-    super(options.merge(include: :user))
- end

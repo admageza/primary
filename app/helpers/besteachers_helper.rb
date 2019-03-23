@@ -1,0 +1,2 @@
+module BesteachersHelper
+end
