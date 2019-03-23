@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     resources :comment8s 
   end
   
-  resources :admissions , only: [:create, :show, :index] do 
+  resources :admissions do 
     resources :comment9s 
   end
   

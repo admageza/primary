@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     @users = User.all.where("id != ?", current_user.id)
     @favorite = current_user.favorites.find_by(user_id: @user.id)
     @favorites_users = current_user.favorite_users
-    
+    @admission = @user.admissions
     @publications = Publication.all
     @conversations = Conversation.all.where("id != ?", current_user.id)
     @messages = Message.all.where("id != ?", current_user.id)
