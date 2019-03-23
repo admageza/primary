@@ -12,8 +12,8 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
     @publication = Publication.find(params[:id])
-    @comment = @publication.comments.build
-    @comments = @publication.comments
+    @comment6 = @publication.comment6s.build
+    @comment6s = @publication.comment6s
     @favorite = current_user.favorites.find_by(publication_id: @publication.id)
   end
 

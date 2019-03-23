@@ -16,8 +16,8 @@ before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   # GET /teachers/1.json
   def show
     @teacher = Teacher.find_by_sub_domain params[:id]
-    @comment = @teacher.comments.build
-    @comments = @teacher.comments
+    @comment2 = @teacher.comment2s.build
+    @comment2s = @teacher.comment2s
   end
 
   # GET /teachers/new

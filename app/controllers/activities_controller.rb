@@ -11,8 +11,8 @@ before_action :set_activity, only: [:show, :edit, :update, :destroy]
   # GET /activities/1
   # GET /activities/1.json
   def show
-   @comment = @activity.comments.build
-   @comments = @activity.comments
+   @comment8 = @activity.comment8s.build
+   @comment8s = @activity.comment8s
    @activity = Activity.find(params[:id])
    @activities = Activity.all
    
