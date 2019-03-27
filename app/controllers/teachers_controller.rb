@@ -4,12 +4,10 @@ before_action :set_teacher, only: [:show, :edit, :update, :destroy]
   # GET /teachers
   # GET /teachers.json
   def index
+    @teachers = Teacher.page(params[:page]).per(3)
     q_param = params[:q]
-    page = params[:page]
-    per_page = params[:per_page]
-
     @q = Teacher.ransack q_param
-    @teachers = @q.result.page(page).per(3)
+    @teachers = @q.result.page
   end
 
   # GET /teachers/1

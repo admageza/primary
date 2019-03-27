@@ -4,14 +4,10 @@ before_action :set_test, only: [:show, :edit, :update, :destroy]
   # GET /tests
   # GET /tests.json
   def index
+    @tests = Test.page(params[:page]).per(3)
     q_param = params[:q]
-    page = params[:page]
-    per_page = params[:per_page]
-
     @q = Test.ransack q_param
-    @tests = @q.result.page(page).per(5)
-    
-    
+    @tests = @q.result.page
   end
 
   # GET /tests/1

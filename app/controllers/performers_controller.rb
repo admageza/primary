@@ -5,8 +5,10 @@ class PerformersController < ApplicationController
   # GET /performers
   # GET /performers.json
   def index
-    @performers = Performer.all
     @performers = Performer.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Performer.ransack q_param
+    @performers = @q.result.page
   end
 
   # GET /performers/1

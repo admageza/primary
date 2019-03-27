@@ -1,4 +1,10 @@
-<div class="tab-content text-center" style="margin:5% 1% 5% 1% ">
+<div class="container-fluid " style="margin: 2% 0 0 70%">
+   <%= search_form_for @q do |f| %>
+      <%= f.search_field :title_cont %>
+      <%= f.submit %>
+    <% end %>
+</div>
+<div class="tab-content text-center" style="margin:2% 1% 5% 1%">
 <h1>Admissions</h1>
  <% if logged_in? %> 
 <table>
@@ -45,4 +51,10 @@
   </tbody>
    <% end %>
 </table>
+ <div class="col-sm-12 " style="margin-left:-40%">
+     <%= paginate @activities, :outer_window => 3 %>
+  </div>
+   <div class="col-sm-12 " style="margin-left:1%">
+      <%= page_entries_info @activities %>
+   </div>
 </div>

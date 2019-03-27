@@ -4,8 +4,10 @@ class MaternairesController < InheritedResources::Base
   # GET /maternaires
   # GET /maternaires.json
   def index
-    @maternaires = Maternaire.all
-    @maternaires = Maternaire.page(params[:page]).per(3)
+   @maternaires = Maternaire.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Maternaire.ransack q_param
+    @maternaires = @q.result.page
   end
 
   # GET /maternaires/1

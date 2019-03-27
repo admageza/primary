@@ -5,8 +5,10 @@ class PrimariesController < InheritedResources::Base
   # GET /primaries
   # GET /primaries.json
   def index
-    @primaries = Primary.all
-    @primaries = Primary.page(params[:page]).per(3)
+   @primaries = Primary.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Primary.ransack q_param
+    @primaries = @q.result.page
   end
 
   # GET /primaries/1

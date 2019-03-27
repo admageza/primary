@@ -7,9 +7,11 @@ class AdmissionsController < InheritedResources::Base
   # GET /admissions
   # GET /admissions.json
   def index
-     @users = User.all.where("id != ?", current_user.id)
-    @admissions = Admission.all
-    @admissions = Admission.page(params[:page]).per(3)
+   @users = User.all.where("id != ?", current_user.id)
+   @admissions = Admission.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Admission.ransack q_param
+    @admissions = @q.result.page
   end
 
   # GET /admissions/1

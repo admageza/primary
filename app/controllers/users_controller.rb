@@ -6,8 +6,11 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all.where("id != ?", current_user.id)
-    @users = User.page(params[:page]).per(4)
     @conversations = Conversation.all
+    @users = User.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = User.ransack q_param
+    @users = @q.result.page
   end
 
   # GET /users/1

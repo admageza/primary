@@ -4,8 +4,10 @@ class StaffsController < ApplicationController
   # GET /staffs
   # GET /staffs.json
   def index
-    @staffs = Staff.all
     @staffs = Staff.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Staff.ransack q_param
+    @staffs = @q.result.page
   end
 
   # GET /staffs/1
@@ -14,7 +16,7 @@ class StaffsController < ApplicationController
     @staffs = Staff.all
     @staff = Staff.find(params[:id])
     @comment3 = @staff.comment3s.build
-    @comment3s = @staff.commen3ts
+    @comment3s = @staff.comment3s
   end
 
   # GET /staffs/new

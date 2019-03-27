@@ -4,8 +4,10 @@ before_action :set_activity, only: [:show, :edit, :update, :destroy]
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
-    @activities = Activity.page(params[:page]).per(3)
+   @activitiess = Activity.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Activity.ransack q_param
+    @activities = @q.result.page
   end
 
   # GET /activities/1

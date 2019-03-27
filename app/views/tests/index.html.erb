@@ -1,16 +1,12 @@
-<div class="tab-content text-center" style="margin:3% 1% 5% 1% ">
+<div class="tab-content text-center" style="margin:2% 1% 5% 1%">
+  <div class="col-sm-12 " style="margin-left:40%">
+   <%= search_form_for @q do |f| %>
+     <%= f.search_field :firstname_cont %>
+     <%= f.submit %>
+   <% end %>
+ </div>
 <h1>Tests</h1>
-<%= search_form_for @q do |f| %>
-  <%= f.label :firstname_cont %>
-  <%= f.search_field :firstname_cont %>
-  <%= f.submit %>
-<% end %>
 <table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :firstname) %></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @tests.each do |test| %>

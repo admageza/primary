@@ -4,8 +4,10 @@ class BesteachersController < InheritedResources::Base
   # GET /besteachers
   # GET /besteachers.json
   def index
-    @besteachers = Besteacher.all
     @besteachers = Besteacher.page(params[:page]).per(3)
+    q_param = params[:q]
+    @q = Besteacher.ransack q_param
+    @besteachers = @q.result.page
   end
 
   # GET /besteachers/1

@@ -5,9 +5,10 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
     @articles = Article.page(params[:page]).per(3)
-   
+    q_param = params[:q]
+    @q = Article.ransack q_param
+    @articles = @q.result.page
   end
 
   # GET /articles/1
