@@ -1,6 +1,6 @@
 <div class="container-fluid " style="margin: 2% 0 0 70%">
    <%= search_form_for @q do |f| %>
-      <%= f.search_field :title_cont %>
+      <%= f.search_field :FirstName_cont %>
       <%= f.submit %>
     <% end %>
 </div>
@@ -52,9 +52,9 @@
    <% end %>
 </table>
  <div class="col-sm-12 " style="margin-left:-40%">
-     <%= paginate @activities, :outer_window => 3 %>
+     <%= paginate @admissions, :outer_window => 3 %>
   </div>
    <div class="col-sm-12 " style="margin-left:1%">
-      <%= page_entries_info @activities %>
+      <%= page_entries_info @admissions %>
    </div>
 </div>

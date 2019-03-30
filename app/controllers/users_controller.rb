@@ -59,6 +59,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        UserMailer.user_mail(@user).deliver
         format.html { redirect_to new_session_path, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else

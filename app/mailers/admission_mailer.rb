@@ -1,6 +1,8 @@
 class AdmissionMailer < ApplicationMailer
-    def admission_mail(emailu)
-     
-      mail to: emailu, subject: "Your admission is already received!"
-    end
+  default from: "admin@saintdominic.com"
+
+  def sample_email(user)
+    @user = user
+    mail(to: @user.email, subject: 'Sample Email')
+  end
 end
