@@ -112,7 +112,7 @@
        <% @staffs.each do |staff| %>
        <div class="col-sm-4 perfo">
         <h2 class="card"><%= staff.name %></h2>
-        <%= link_to image_tag(staff.image.url, :class => "staff card"), staff %>
+        
         <%= staff.body %>
        </div>
       <% end %>
