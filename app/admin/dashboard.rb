@@ -115,7 +115,7 @@ ActiveAdmin.register_page "Dashboard" do
           column (:id) {|staff| link_to(staff.id, admin_staff_path(staff)) }
           column :name
           column "Staff" do |staff|
-             link_to image_tag(staff.image.url, :class => "thumb")
+             
           end
           column :updated_at
         end # table
