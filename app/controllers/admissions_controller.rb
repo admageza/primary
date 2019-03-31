@@ -42,7 +42,7 @@ class AdmissionsController < InheritedResources::Base
     
     respond_to do |format|
       if @admission.save
-        AdmissionMailer.admission_mail(@admission.user.email).deliver
+        
         format.html { redirect_to @admission, notice: 'Admission information was successfully registered.' }
         format.json { render :show, status: :created, location: @admission }
       else
