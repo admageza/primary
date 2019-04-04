@@ -9,8 +9,12 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
-   def authenticate
-     redirect_to log_in_path unless session != nil
+   def authenticate_user!
+    if user_signed_in?
+      super
+    else
+     redirect_to new_session_path, :notice => 'Please, Login to access the page you want to visit, if you do not have account, create it through Sign up'
+   end
    end
    
    def delete

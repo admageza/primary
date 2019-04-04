@@ -1,5 +1,5 @@
 class AdmissionsController < InheritedResources::Base
- # before_action :authenticate_admin_user!
+  before_action :authenticate_user!
   before_action :require_login, only: [:new, :show]
   before_action :set_admission, only: [:show, :edit, :update, :destroy]
   before_action :correct_user,   only: [:edit, :update, :destroy]
