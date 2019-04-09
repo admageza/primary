@@ -4,48 +4,34 @@
       <%= f.submit %>
     <% end %>
 </div>
-<div class="tab-content text-center" style="margin:2% 1% 5% 1%">
+<div class="table container-fluid tab-content text-center" style="margin:2% 5% 5% 1%">
 <h1>Admissions</h1>
 <% if logged_in? %>
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Firstname</th>
-      <th>Othername</th>
-      <th>Firstname</th>
-      <th>Dateofbirth</th>
-      
-      <th>Fathername</th>
-      <th>Fatherid</th>
-      <th>Fatherphone</th>
-      <th>Mothername</th>
-      <th>Motherid</th>
-      <th>Motherphone</th>
-      <th colspan="3"></th>
+<table class="row">
+  <thead class="table">
+    <tr class="row">
+      <th class="col-sm-1">Image</th>
+      <th class="col-sm-2">Firstname</th>
+      <th class="col-sm-2">Othername</th>
+      <th class="col-sm-2">Firstname</th>
+      <th class="col-sm-2">Fathername</th>
+      <th class="col-sm-2">Mothername</th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="table">
     <% @admissions.each do |admission| %>
-      <tr>
+      <tr class="row">
       <% if admission.user == current_user %>
-        <td><%= link_to image_tag(admission.image.url, :class => "admit"), admission %></td>
-        <td><%= admission.FirstName %></td>
-        <td><%= admission.OtherName %></td>
-        <td><%= admission.FirstName %></td>
-        <td><%= admission.DateOfBirth %></td>
-        
-        <td><%= admission.FatherName %></td>
-        <td><%= admission.FatherId %></td>
-        <td><%= admission.FatherPhone %></td>
-        <td><%= admission.MotherName %></td>
-        <td><%= admission.MotherId %></td>
-        <td><%= admission.MotherPhone %></td>
-        <td><%= link_to 'Show', admission %></td>
-      
-        <td><%= link_to 'Edit', edit_admission_path(admission) %></td>
-        <td><%= link_to 'Destroy', admission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="col-sm-1"><%= link_to image_tag(admission.image.url, :class => "admit"), admission %></td>
+        <td class="col-sm-2"><%= admission.FirstName %></td>
+        <td class="col-sm-2"><%= admission.OtherName %></td>
+        <td class="col-sm-2"><%= admission.FirstName %></td>
+        <td class="col-sm-2"><%= admission.FatherName %></td>
+        <td class="col-sm-1"><%= admission.MotherName %></td>
+        <td ><%= link_to 'Show', admission %></td>
+        <td ><%= link_to 'Edit', edit_admission_path(admission) %></td>
+        <td ><%= link_to 'Destroy', admission, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
       </tr>
    <% end %>
