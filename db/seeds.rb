@@ -7,14 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
   
-  (1..50).each do |i|
-    Teacher.create!(name: "This is teacher number #{i}", body: %{
-      Best teacher at saint Dominic primary school kagugu.
-    })
-  end
-  
-  (1..50).each do |i|
-    Staff.create!(name: "This is staff number #{i}", body: %{
-      The Best ever staff of the year.
-    })
-  end
+  50.times do |n|
+  name = Faker::Name.name
+  body = "teachers of saint dominic have passion and desire to do better"
+  Teacher.create!(name: name,
+               body: body,
+               )
+end
+
+ 50.times do |n|
+  name = Faker::Name.name
+  body = "school administrators are ready to serve you!"
+  Staff.create!(name: name,
+               body: body,
+               )
+end
+
+50.times do |n|
+  email = Faker::Internet.email
+  password = "password"
+  AdminUser.create!(email: email,
+               password: password,
+               password_confirmation: password,
+               )
+end

@@ -32,6 +32,7 @@ class AdmissionsController < InheritedResources::Base
 
   # GET /admissions/1/edit
   def edit
+    @admission = Admission.find(params[:id])
   end
 
   # POST /admissions
