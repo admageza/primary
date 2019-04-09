@@ -24,7 +24,7 @@ end
 end
 
 50.times do |n|
-  email = Faker::email.email
+  email = Faker::Internet.email
   password = "password"
   AdminUser.create!(email: email,
                password: password,
