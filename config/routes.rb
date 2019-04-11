@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'sessions'}
+  devise_for :users, controllers: {users: 'users'}
   
   devise_scope :user do
      get '/sign-in' => "devise/sessions#new", :as => :login
@@ -74,7 +75,7 @@ Rails.application.routes.draw do
     resources :comment11s 
   end
   
-  resources :users, only: [:create, :index, :edit]
+  resources :users, only: [:index, :edit]
   resources :sessions, only: [:new, :create, :destroy]
   
   if Rails.env.development?

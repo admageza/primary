@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :except => [:new]
+  before_action :authenticate_user!, except: [:new]
   before_action :logged_in, only: [:edit, :update]
   before_action :set_user, only: [:create, :show, :edit, :update, :destroy]
 
