@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190323112145) do
+ActiveRecord::Schema.define(version: 20190416083935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,11 +61,11 @@ ActiveRecord::Schema.define(version: 20190323112145) do
     t.text "PreviousSchool"
     t.string "level"
     t.text "FatherName"
-    t.integer "FatherId"
-    t.float "FatherPhone"
+    t.text "FatherId"
+    t.text "FatherPhone"
     t.text "MotherName"
-    t.integer "MotherId"
-    t.float "MotherPhone"
+    t.text "MotherId"
+    t.text "MotherPhone"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
