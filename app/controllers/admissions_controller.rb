@@ -1,8 +1,7 @@
 class AdmissionsController < InheritedResources::Base
   before_action :authenticate_user!
-  before_action :require_login, only: [:new, :show]
+  before_action :logged_in, only: [:edit, :update]
   before_action :set_admission, only: [:show, :edit, :update, :destroy]
-  before_action :correct_user,   only: [:edit, :update, :destroy]
 
   # GET /admissions
   # GET /admissions.json
@@ -43,7 +42,7 @@ class AdmissionsController < InheritedResources::Base
     
     respond_to do |format|
       if @admission.save
-        
+        AdmissionMailer.admission_mail(current_user.email).deliver
         format.html { redirect_to @admission, notice: 'Admission information was successfully registered.' }
         format.json { render :show, status: :created, location: @admission }
       else

@@ -1,6 +1,6 @@
 class ArticleMailer < ApplicationMailer
-    def article_mail(emailer)
-
-     mail to: "emailer", subject: "confirmation  of new article"
+    def article_mail(emailu)
+   
+       mail to: emailu, subject: 'Congratulation, Your Article is successfull created'
     end
 end
