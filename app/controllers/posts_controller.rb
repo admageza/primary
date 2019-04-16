@@ -35,6 +35,7 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       if @post.save
+        PostMailer.post_mail(current_admin_user.email).deliver
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
         format.json { render :show, status: :created, location: @post }
       else

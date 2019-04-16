@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        ArticleMailer.article_mail(current_user.email).deliver
+        ArticleMailer.article_mail(current_admin_user.email).deliver
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
