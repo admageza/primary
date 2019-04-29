@@ -13,13 +13,14 @@
 </p>
 <div class="container-fluid">
 <p>Comment List</p>
-<div id="comment5s_area">
-  <!-- render for displaying posted comments list in a blog detail page -->
-    <%= render partial: 'comment5s/index', locals: { comment5s: @comment5s, maternaire: @maternaire } %>
+<div id="comments_area">
+   <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <%= render partial: 'comment5s/form', locals: { comment5: @comment5, maternaire: @maternaire } %>
-  </div>
- <%= link_to 'Back to Maternaire Articles', maternaires_path, class: 'btn btn-prymary'  %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
+ <%= link_to 'Back', maternaires_path, class: 'btn btn-outline-prymary'  %>
+</div>
 </div>

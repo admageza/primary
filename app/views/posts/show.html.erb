@@ -20,19 +20,15 @@
 <% end %>
 <div class="container-fluid">
 <p>Comments</p>
-  <div id="comment11s_area">
-  <!-- render for displaying posted comments list in a article detail page -->
-  <p style="margin-left:35%">
-    <%= render partial: 'comment11s/index', locals: { comment11s: @comment11s, post: @post } %>
-  <p>
+  <div id="comments_area">
+   <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <p style="margin-left:50%">
-    <%= render partial: 'comment11s/form', locals: { comment11: @comment11, post: @post } %>
-  <p>
-  </div>
-  <%= link_to 'Back to Posts', posts_path, class: 'btn btn-prymary'  %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
+  <%= link_to 'Back', posts_path, class: 'btn btn-outline-prymary'  %>
 </div>
-
+</div>
 

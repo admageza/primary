@@ -1,4 +1,4 @@
 class Besteacher < ApplicationRecord
     mount_uploader :image, ImageUploader
-     has_many :comment7s, dependent: :destroy
+    has_many :comments, as: :commentable
 end

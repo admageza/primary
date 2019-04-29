@@ -12,15 +12,14 @@
 </p>
 <div class="container-fluid">
 <p>Comment List</p>
-  <div id="comment3s_area">
-   render for displaying posted comments list in a staff detail page 
-    <%= render partial: 'comment3s/index', locals: { comment3s: @comment3s, staff: @staff } %>
+  <div id="comments_area">
+    <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
-   render for displaying comment entering field in a staff detail page 
-  <%= render partial: 'comment3s/form', locals: { comment3: @comment3, staff: @staff } %>
-
-  </div>
-  <%= link_to 'Back', staffs_path, class: 'btn btn-prymary'  %>
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
+  <%= link_to 'Back', staffs_path, class: 'btn btn-outline-prymary'  %>
 </div>
-
+</div>

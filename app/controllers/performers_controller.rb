@@ -15,8 +15,9 @@ class PerformersController < ApplicationController
   # GET /performers/1.json
   def show
     @performer = Performer.find(params[:id])
-    @comment1 = @performer.comment1s.build
-    @comment1s = @performer.comment1s
+    @commentable = @performer
+    @comment = @commentable.comments.build
+    @comments = @commentable.comments
   end
 
   # GET /performers/new

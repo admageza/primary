@@ -1,5 +1,4 @@
-<p id="notice"><%= notice %></p>
-
+<div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <strong>Firstname:</strong>
   <%= @test.firstname %>
@@ -14,6 +13,18 @@
   <strong>Body:</strong>
   <%= @test.body %>
 </p>
+<div class="container-fluid">
+<p>Comment List</p>
+  <div id="comments_area">
+   <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
+  </div>
+
+  <!-- render for displaying comment entering field in a blog detail page -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
 
 <%= link_to 'Edit', edit_test_path(@test) %> |
 <%= link_to 'Back', tests_path %>
+</div>
+</div>
+

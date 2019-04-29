@@ -107,13 +107,14 @@
  </div>
  <div class="container-fluid">
  <p>Comment List</p>
- <div id="comment9s_area">
-  <!-- render for displaying posted comments list in a blog detail page -->
-    <%= render partial: 'comment9s/index', locals: { comment9s: @comment9s, admission: @admission } %>
+ <div id="comments_area">
+   <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <%= render partial: 'comment9s/form', locals: { comment9: @comment9, admission: @admission } %>
-  </div>
- <%= link_to 'Back', admissions_path, class: 'btn btn-prymary' %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
+ <%= link_to 'Back', admissions_path, class: 'btn btn-outline-prymary' %>
+</div>
 </div>

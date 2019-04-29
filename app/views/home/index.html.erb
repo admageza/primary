@@ -89,7 +89,7 @@
 <div class="row col-sm-9 container-fluid" style="margin-top:1%">
  
   <!-- Container (School Best Performer Section) -->
-   <div class="card container-fluid">
+   <div class="container-fluid">
     <h2 class="card container-fluid">BEST PERFORMERS OF 2018</h2>
     <div class="row container-fluid">
       <% @performers.each do |performer| %>
@@ -106,7 +106,7 @@
   </div>
    
   <!-- Container (School administration Section) -->
-   <div id="staffs" class="card container-fluid">
+   <div id="staffs" class="container-fluid">
     <h2 class="card container-fluid">school administration</h2>
       <div class="row container-fluid">
        <% @staffs.each do |staff| %>
@@ -122,7 +122,7 @@
      <%= paginate @staffs, :outer_window => 3 %>
    </div>
    
-  <div id="myCarousel" class="carousel slide text-center card container-fluid" data-ride="carousel" style="width:100%;margin-top:1%">
+  <div id="myCarousel" class="carousel slide text-center container-fluid" data-ride="carousel" style="width:100%;margin-top:1%">
     <h2 class="card container-fluid">What peoples say about our school</h2>
     <div class="container-fluid card">
     <!-- Indicators -->
@@ -157,7 +157,7 @@
     </a>
   </div>
  
-  <div class="card container-fluid" style="width:100%;margin-top:1%">
+  <div class="container-fluid" style="width:100%;margin-top:1%">
     <h2 class="card container-fluid">Video</h2>
     <div class="row container-fluid">
       <div class="col-sm-6" style="position:relative; padding-bottom:15%; padding-top:30px; height:0; margin:10px; overflow:hidden;">
@@ -185,11 +185,11 @@
  </div>
 </div>
 
-<div class="col-sm-3 card container-fluid" style="margin-top:1%"> 
+<div class="col-sm-3 container-fluid" style="margin-top:1%"> 
    <div class="container-fluid">
     <h2 class="card">employee of the year 2018</h2>
       <% @besteachers.each do |besteacher| %>
-        <%= link_to image_tag(besteacher.image.url, :class => "list perfo"), besteacher %>
+        <%= link_to image_tag(besteacher.image.url, :class => "card list perfo"), besteacher %>
         <h2><%= besteacher.name %></h2>
       <% end %>
    </div>
@@ -233,8 +233,8 @@
 
 <!-- Container (Contact Section) -->
     <!--<div class="container-fluid card slideanim" style="width:100%; height:300px; margin-left:0; margin-top:2%">-->
-<div class="container-fluid card slideanim" style='width: 100%;'> 
-  <h2 class="text-center">Google Map</h2>
+<div class="container-fluid slideanim" style='width: 100%;'> 
+  <h2 class="text-center card">Google Map</h2>
     <div id="map" style="width:100%; height:400px; margin-left:0; margin-top:1%"></div> 
     <script type="text/javascript">  
       handler = Gmaps.build('Google');  

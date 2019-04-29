@@ -12,14 +12,14 @@
 </p>
 <div class="container-fluid">
 <p>Comment List</p>
-<div id="comment6s_area">
-  <!-- render for displaying posted comments list in a blog detail page -->
-    <%= render partial: 'comment6s/index', locals: { comment6s: @comment6s, publication: @publication } %>
+<div id="comments_area">
+   <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <%= render partial: 'comment6s/form', locals: { comment6: @comment6, publication: @publication } %>
-
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
+  <%= link_to 'Back', publications_path, class: 'btn btn-outline-prymary'  %>
 </div>
-  <%= link_to 'Back to performer', publications_path, class: 'btn btn-prymary'  %>
 </div>

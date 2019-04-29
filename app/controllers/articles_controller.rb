@@ -15,10 +15,10 @@ class ArticlesController < ApplicationController
   # GET /articles/1.json
   def show
     @article = Article.find(params[:id])
-    
     @articles = Article.all
-    @comment = @article.comments.build
-    @comments = @article.comments
+    @commentable = @article
+    @comment = @commentable.comments.build
+    @comments = @commentable.comments
    
    
   end

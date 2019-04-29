@@ -32,47 +32,47 @@ Rails.application.routes.draw do
   end
   
   resources :performers, only: [:create, :show, :index] do 
-    resources :comment1s 
+    resources :comments 
   end
   
   resources :teachers, only: [:create, :show, :index] do 
-    resources :comment2s 
+    resources :comments 
   end
   
   resources :staffs, only: [:create, :show, :index] do 
-    resources :comment3s 
+    resources :comments 
   end 
   
   resources :primaries, only: [:create, :show, :index] do 
-    resources :comment4s 
+    resources :comments 
   end
   
   resources :maternaires, only: [:create, :show, :index] do 
-    resources :comment5s 
+    resources :comments 
   end
   
   resources :publications, only: [:create, :show, :index] do 
-    resources :comment6s 
+    resources :comments 
   end
   
   resources :besteachers , only: [:create, :show, :index] do 
-    resources :comment7s 
+    resources :comments 
   end
   
   resources :activities , only: [:create, :show, :index] do 
-    resources :comment8s 
+    resources :comments 
   end
   
   resources :admissions do 
-    resources :comment9s 
+    resources :comments 
   end
   
   resources :users do 
-    resources :comment10s 
+    resources :comments 
   end
   
   resources :posts, only: [:create, :show, :index]do 
-    resources :comment11s 
+    resources :comments 
   end
   
   resources :users, only: [:index, :edit]

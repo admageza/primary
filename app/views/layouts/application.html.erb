@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>-->
+    <!--<link rel="stylesheet" href="style.css">-->
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -65,8 +67,9 @@
           <li class="nav-item"><%= link_to "Logout", session_path(current_user.id), method: :delete %></li>
           <li class="nav-item"><%= link_to image_tag(current_user.image.url , :class => "profile") %></li>
         <% else %>
-          <li class="nav-item"><%= link_to "SignUp", new_user_path %></li>
-          <li class="nav-item"><%= link_to "Login", new_admin_user_session_url %></li>
+          <!--<li class="nav-item"><%= link_to "SignUp", new_user_path %></li>-->
+          <!--<li class="nav-item"><%= link_to "Login", new_admin_user_session_url %></li>-->
+           <li class="nav-item"><%= link_to "Login", new_session_url %></li>
         <% end %>
            
       </ul>

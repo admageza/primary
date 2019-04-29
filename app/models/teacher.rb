@@ -1,4 +1,4 @@
 class Teacher < ApplicationRecord
    mount_uploader :image, ImageUploader
-    has_many :comment2s, dependent: :destroy
+   has_many :comments, as: :commentable
 end

@@ -15,8 +15,9 @@ class StaffsController < ApplicationController
   def show
     @staffs = Staff.all
     @staff = Staff.find(params[:id])
-    @comment3 = @staff.comment3s.build
-    @comment3s = @staff.comment3s
+    @commentable = @staff
+    @comment = @commentable.comments.build
+    @comments = @commentable.comments
   end
 
   # GET /staffs/new

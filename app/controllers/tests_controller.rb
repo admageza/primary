@@ -14,6 +14,9 @@ before_action :set_test, only: [:show, :edit, :update, :destroy]
   # GET /tests/1.json
   def show
     @test = Test.find_by_sub_domain params[:id]
+    @commentable = @test
+    @comment = @commentable.comments.build
+    @comments = @commentable.comments
   end
 
   # GET /tests/new

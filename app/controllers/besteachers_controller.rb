@@ -14,8 +14,9 @@ class BesteachersController < InheritedResources::Base
   # GET /besteachers/1.json
   def show
     @besteacher = Besteacher.find(params[:id])
-    @comment7 = @besteacher.comment7s.build
-    @comment7s = @besteacher.comment7s
+    @commentable = @besteacher
+    @comment = @commentable.comments.build
+    @comments = @commentable.comments
    
   end
 

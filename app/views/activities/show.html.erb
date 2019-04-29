@@ -13,14 +13,15 @@
  </br>
  <div class="container-fluid">
   <p>Comment List</p>
-  <div id="comment8s_area">
+  <div id="comments_area">
   <!-- render for displaying posted comments list in a activity detail page -->
-    <%= render partial: 'comment8s/index', locals: { comment8s: @comment8s, activity: @activity } %>
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <%= render partial: 'comment8s/form', locals: { comment8: @comment8, activity: @activity } %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
   
   </div>
-   <%= link_to 'Back to Activities', activities_path, class: 'btn btn-prymary'  %>
+   <%= link_to 'Back', activities_path, class: 'btn btn-outline-prymary'  %>
 </div>

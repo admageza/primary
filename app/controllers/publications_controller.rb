@@ -14,8 +14,9 @@ class PublicationsController < ApplicationController
   # GET /publications/1.json
   def show
     @publication = Publication.find(params[:id])
-    @comment6 = @publication.comment6s.build
-    @comment6s = @publication.comment6s
+    @commentable = @publication
+    @comment = @commentable.comments.build
+    @comments = @commentable.comments
     
   end
 

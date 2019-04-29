@@ -1,4 +1,3 @@
-
 <div class="tab-content text-center" style="margin:3% 5% 5% 5%">
 <p>
   <strong><%= @teacher.name %></strong>
@@ -13,14 +12,14 @@
 </p>
 <div class="container-fluid">
 <p>Comment List</p>
-  <div id="comment2s_area">
-  <!-- render for displaying posted comments list in a blog detail page -->
-    <%= render partial: 'comment2s/index', locals: { comment2s: @comment2s, teacher: @teacher } %>
+  <div id="comments_area">
+   <!-- render for displaying posted comments list in a activity detail page -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, commentable: @commentable } %>
   </div>
 
   <!-- render for displaying comment entering field in a blog detail page -->
-  <%= render partial: 'comment2s/form', locals: { comment2: @comment2, teacher: @teacher } %>
-
-  </div>
-  <%= link_to 'Back to Teachers', teachers_path, class: 'btn btn-prymary'  %>
+  <%= render partial: 'comments/form', locals: { comment: @comment, commentable: @commentable } %>
+  
+  <%= link_to 'Back', teachers_path, class: 'btn btn-outline-prymary'  %>
+</div>
 </div>
