@@ -1,6 +1,6 @@
 <div class="container-fluid " style="margin: 2% 0 0 70%">
    <%= search_form_for @q do |f| %>
-      <%= f.search_field :FirstName_cont %>
+      <%= f.search_field :first_name_cont %>
       <%= f.submit %>
     <% end %>
 </div>
@@ -24,11 +24,11 @@
       <tr class="row">
       <% if admission.user == current_user %>
         <td class="col-sm-1"><%= link_to image_tag(admission.image.url, :class => "admit"), admission %></td>
-        <td class="col-sm-2"><%= admission.FirstName %></td>
-        <td class="col-sm-2"><%= admission.OtherName %></td>
-        <td class="col-sm-2"><%= admission.FirstName %></td>
-        <td class="col-sm-2"><%= admission.FatherName %></td>
-        <td class="col-sm-1"><%= admission.MotherName %></td>
+        <td class="col-sm-2"><%= admission.first_name %></td>
+        <td class="col-sm-2"><%= admission.other_name %></td>
+        <td class="col-sm-2"><%= admission.first_name %></td>
+        <td class="col-sm-2"><%= admission.father_name %></td>
+        <td class="col-sm-1"><%= admission.mother_name %></td>
         <td ><%= link_to 'Show', admission %></td>
         <td ><%= link_to 'Edit', edit_admission_path(admission) %></td>
         <td ><%= link_to 'Destroy', admission, method: :delete, data: { confirm: 'Are you sure?' } %></td>

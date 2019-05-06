@@ -44,6 +44,9 @@ gem 'kaminari', :git => "git://github.com/amatsuda/kaminari.git", :branch => 'ma
 gem 'gmaps4rails'
 gem 'ransack'
 gem 'faker'
+gem 'countries'
+gem 'chosen-rails'
+gem 'country_state_select'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

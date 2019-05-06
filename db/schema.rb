@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190425163757) do
+ActiveRecord::Schema.define(version: 20190505173935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,21 +51,22 @@ ActiveRecord::Schema.define(version: 20190425163757) do
 
   create_table "admissions", force: :cascade do |t|
     t.text "image"
-    t.text "FirstName"
-    t.text "OtherName"
-    t.text "PlaceOfBirth"
-    t.text "ResidentPlace"
-    t.date "DateOfBirth"
-    t.date "LegalRegDate"
-    t.string "Orphan"
-    t.text "PreviousSchool"
-    t.string "level"
-    t.text "FatherName"
-    t.text "FatherId"
-    t.text "FatherPhone"
-    t.text "MotherName"
-    t.text "MotherId"
-    t.text "MotherPhone"
+    t.text "first_name"
+    t.text "other_name"
+    t.text "last_name"
+    t.text "place_of_birth"
+    t.text "resident_place"
+    t.date "date_of_birth"
+    t.date "legal_reg_date"
+    t.text "orphan"
+    t.text "previous_school"
+    t.text "level"
+    t.text "father_name"
+    t.text "father_id"
+    t.float "father_phone"
+    t.text "mother_name"
+    t.text "mother_id"
+    t.float "mother_phone"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

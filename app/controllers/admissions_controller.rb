@@ -97,7 +97,7 @@ class AdmissionsController < InheritedResources::Base
     # Never trust parameters from the scary internet, only allow the white list through.
 
     def admission_params
-      params.require(:admission).permit(:image, :FirstName, :OtherName, :FirstName, :PlaceOfBirth, :ResidentPlace, :DateOfBirth, :LegalRegDate, :Orphan, :PreviousSchool, :level, :FatherName, :FatherId, :FatherPhone, :MotherName, :MotherId, :MotherPhone, :comment)
+      params.require(:admission).permit(:image, :first_name, :other_name, :last_name, :place_of_birth, :resident_place, :date_of_birth, :legal_reg_date, :orphan, :previous_school, :level, :father_name, :father_id, :father_phone, :mother_name, :mother_id, :mother_phone, :comment)
     end
 
 end

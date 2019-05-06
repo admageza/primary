@@ -15,5 +15,6 @@
 //= require gmaps/google
 //= require jquery/dist/jquery.js
 //= require bootstrap-datepicker
+//= require chosen-jquery
 //= require bootstrap/dist/js/bootstrap.js
 //= require_tree .
