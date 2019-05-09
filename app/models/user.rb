@@ -3,7 +3,6 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :comments, as: :commentable
   
-  has_many :admissions
   has_many :admissions, source: :user
   has_many :admissions, dependent: :destroy
   
