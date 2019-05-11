@@ -4,8 +4,6 @@ class AdminUser < ApplicationRecord
   devise :database_authenticatable, 
          :recoverable, :rememberable, :validatable
          
-  # has_many :active_relationships, foreign_key: 'follower_id', class_name: 'Relationship', dependent: :destroy
-  # has_many :passive_relationships, foreign_key: 'followed_id', class_name: 'Relationship', dependent: :destroy
   
   has_many :posts, foreign_key: "provider_id"
   

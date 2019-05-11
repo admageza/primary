@@ -20,7 +20,6 @@ class ArticlesController < ApplicationController
     @comment = @commentable.comments.build
     @comments = @commentable.comments
    
-   
   end
 
   # GET /articles/new

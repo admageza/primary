@@ -4,7 +4,7 @@ class FavoritesController < ApplicationController
   def create
     @user = current_user.id
     favorite = current_user.favorites.create(article_id: params[:article_id])
-    redirect_to articles_url, notice: "You liked #{favorite.article.admin_user_id}'s article"
+    redirect_to article_url, notice: "You liked #{favorite.article.admin_user_id}'s article"
   end
 
   def destroy
