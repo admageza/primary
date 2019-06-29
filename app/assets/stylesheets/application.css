@@ -60,7 +60,6 @@
     position: fixed;
     background-color:#4169E1;
     width: 100% ;
-   
 }
 
 footer {
@@ -326,3 +325,4 @@ html {
   from {opacity: 0;}
   to {opacity:1 ;}
 }
+

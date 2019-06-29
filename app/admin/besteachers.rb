@@ -12,6 +12,6 @@ ActiveAdmin.register Besteacher do
 #   permitted
 # end
 
- permit_params :name, :image, :body
+ permit_params :name, :image, :body, :comment
 
 end

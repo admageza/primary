@@ -35,7 +35,6 @@
            $( ".datepicker" ).datepicker();
         } );
       </script>
-      
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -45,7 +44,7 @@
   <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
     
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <nav class="navbar navbar-expand-lg navbar-default ">
+  <nav class="navbar navbar-expand-lg navbar-default">
     <div class="container col-ms-2">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -68,8 +67,17 @@
           <li class="nav-item"><%= link_to image_tag(current_user.image.url , :class => "profile") %></li>
         <% else %>
           <!--<li class="nav-item"><%= link_to "SignUp", new_user_path %></li>-->
-          <!--<li class="nav-item"><%= link_to "Login", new_admin_user_session_url %></li>-->
-           <li class="nav-item"><%= link_to "Login", new_session_url %></li>
+          <li class="nav-item"><%= link_to "Login", new_session_url %></li>
+          
+        <!--<li class="btn btn-link nav-item dropdown">-->
+        <!--  <a class="dropdown-toggle" data-toggle="dropdown">login </a>-->
+        <!--     <ul class="dropdown-menu">-->
+        <!--      <li><%= link_to "User", new_session_url %></li>-->
+        <!--      <li><%= link_to "Admin", new_admin_user_session_url %></li>-->
+        <!--      <li class="divider"></li>-->
+        <!--      <li><%= link_to "SignUp", new_user_path %></li>-->
+        <!--     </ul>-->
+        <!--</li>-->
         <% end %>
            
       </ul>

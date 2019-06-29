@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190506175657) do
+ActiveRecord::Schema.define(version: 20190627065242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_activities_on_admin_user_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "admin_users", force: :cascade do |t|
@@ -92,6 +96,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_besteachers_on_admin_user_id"
+    t.index ["user_id"], name: "index_besteachers_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -144,6 +152,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_maternaires_on_admin_user_id"
+    t.index ["user_id"], name: "index_maternaires_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -173,6 +185,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_performers_on_admin_user_id"
+    t.index ["user_id"], name: "index_performers_on_user_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -193,6 +209,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_primaries_on_admin_user_id"
+    t.index ["user_id"], name: "index_primaries_on_user_id"
   end
 
   create_table "publications", force: :cascade do |t|
@@ -201,6 +221,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_publications_on_admin_user_id"
+    t.index ["user_id"], name: "index_publications_on_user_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -219,6 +243,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_staffs_on_admin_user_id"
+    t.index ["user_id"], name: "index_staffs_on_user_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -227,6 +255,10 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "admin_user_id"
+    t.bigint "user_id"
+    t.index ["admin_user_id"], name: "index_teachers_on_admin_user_id"
+    t.index ["user_id"], name: "index_teachers_on_user_id"
   end
 
   create_table "tests", force: :cascade do |t|
@@ -248,12 +280,28 @@ ActiveRecord::Schema.define(version: 20190506175657) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "activities", "admin_users"
+  add_foreign_key "activities", "users"
   add_foreign_key "admissions", "users"
   add_foreign_key "articles", "admin_users"
   add_foreign_key "articles", "users"
+  add_foreign_key "besteachers", "admin_users"
+  add_foreign_key "besteachers", "users"
+  add_foreign_key "maternaires", "admin_users"
+  add_foreign_key "maternaires", "users"
   add_foreign_key "messages", "admin_users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "performers", "admin_users"
+  add_foreign_key "performers", "users"
   add_foreign_key "posts", "admin_users"
   add_foreign_key "posts", "users"
+  add_foreign_key "primaries", "admin_users"
+  add_foreign_key "primaries", "users"
+  add_foreign_key "publications", "admin_users"
+  add_foreign_key "publications", "users"
+  add_foreign_key "staffs", "admin_users"
+  add_foreign_key "staffs", "users"
+  add_foreign_key "teachers", "admin_users"
+  add_foreign_key "teachers", "users"
 end
